@@ -1,3 +1,8 @@
+# starship
+if which starship > /dev/null
+  starship init fish | source
+end
+
 bind \cg '__ghq_look'
 
 # direnv hook
