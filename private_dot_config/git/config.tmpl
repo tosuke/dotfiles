@@ -1,0 +1,20 @@
+[user]
+	name = tosuke
+	email = "13393900+tosuke@users.noreply.github.com"
+[merge]
+	conflictStyle = diff3
+[init]
+	defaultBranch = main
+[credential]
+	helper = git-credential-manager
+{{ if (eq .chezmoi.os "linux") }}
+	credentialStore = secretservice
+{{ end }}
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[includeIf "gitdir:~/ghq/bitbucket.org/yukiyoshi/"]
+	path = ~/.config/git/config-lab
+[includeIf "gitdir:~/ghq/bitbucket.org/keisuke-nitta/"]
+	path = ~/.config/git/config-lab
+[includeIf "gitdir:~/ghq/github.com/hatena/"]
+	path = ~/.config/git/config-htn
