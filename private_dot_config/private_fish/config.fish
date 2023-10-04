@@ -1,9 +1,9 @@
+bind \cg '__ghq_look'
+
 # starship
 if which starship > /dev/null
   starship init fish | source
 end
-
-bind \cg '__ghq_look'
 
 # direnv hook
 if which direnv > /dev/null
@@ -11,9 +11,9 @@ if which direnv > /dev/null
 end
 
 # opam configuration
-source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+# source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
 # fnm configuration
 if which fnm > /dev/null
-    fnm env | source; or true
+    fnm env --corepack-enabled | source; or true
 end
