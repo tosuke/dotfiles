@@ -8,9 +8,11 @@
 [init]
 	defaultBranch = main
 [credential]
-	helper = git-credential-manager
 {{ if (eq .chezmoi.os "linux") }}
+	helper = /usr/bin/git-credential-manager
 	credentialStore = secretservice
+{{ else if (eq .chezmoi.os "darwin") }}
+	helper = git-credential-manager
 {{ end }}
 [credential "https://dev.azure.com"]
 	useHttpPath = true
