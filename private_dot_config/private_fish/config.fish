@@ -15,5 +15,5 @@ end
 
 # fnm configuration
 if which fnm > /dev/null
-    fnm env --corepack-enabled | source; or true
+  fnm env --use-on-cd --version-file-strategy recursive --corepack-enabled | source; or true
 end
