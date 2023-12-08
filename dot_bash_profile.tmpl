@@ -1,6 +1,6 @@
 {{ if (eq .chezmoi.os "linux") }}
 if [[ -z "${SSH_AUTH_SOCK}" ]]; then
-    export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/yubikey-agent/yubikey-agent.socket"
+    export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/yubikey-agent/yubikey-agent.sock"
 fi
 {{ end }}
 
