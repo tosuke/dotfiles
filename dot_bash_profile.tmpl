@@ -1,0 +1,20 @@
+{{ if (eq .chezmoi.os "linux") }}
+if [[ -z "${SSH_AUTH_SOCK}" ]]; then
+    export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/yubikey-agent/yubikey-agent.socket"
+fi
+{{ end }}
+
+# Rust
+[[ -d $HOME/.cargo/bin ]] && export PATH="$HOME/.cargo/bin:$PATH"
+
+# Go
+[[ -d $HOME/go/bin ]] && export PATH="$HOME/go/bin:$PATH"
+
+# OCaml
+[[ -f $HOME/.opam/opam-init/init.sh ]] && source $HOME/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
+# Local bin
+[ -d $HOME/.local/bin ] && export PATH="$HOME/.local/bin:$PATH"
+
+[[ -f $HOME/.profile ]] && source $HOME/.profile
+[[ -f $HOME/.bashrc ]] && source $HOME/.bashrc
