@@ -32,6 +32,11 @@ else
     echo "direnv: not found"
 end
 
+# shell integration for VSCode (OSC 633)
+if string match -q "$TERM_PROGRAM" "vscode";
+    source (code --locate-shell-integration-path fish); or echo "VSCode shell integration failed"
+end
+
 # key bindings
 bind \cg '__ghq_look'
 
