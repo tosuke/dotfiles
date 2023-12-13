@@ -43,7 +43,7 @@ bind \cg '__ghq_look'
 # abbrs
 # Git
 abbr --add --global -- g git
-abbr --add --global -- gl 'git log --oneline'
+abbr --add --global -- gl 'git-logsearch'
 abbr --add --global -- gc 'git commit'
 abbr --add --global -- gp 'git push'
 abbr --add --global -- gpf 'git push --force-with-lease'
@@ -51,3 +51,6 @@ abbr --add --global -- gpf 'git push --force-with-lease'
 abbr --add --global -- k kubectl
 abbr --add --global -- a aws
 abbr --add --global -- te terraform
+
+# Node.js
+abbr --add --global -- pn pnpm
