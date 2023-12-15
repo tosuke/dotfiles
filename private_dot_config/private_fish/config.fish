@@ -7,29 +7,21 @@ end
 if command -q fnm;
     fnm env --use-on-cd --version-file-strategy recursive --corepack-enabled | source; \
         or echo "fnm initialization failed"
-else
-    echo "fnm: not found"
 end
 
 # opam
 if [ -f $HOME/.opam/opam-init/init.fish ];
     source $HOME/.opam/opam-init/init.fish; or echo "opam initialization failed"
-else
-    echo "opam: not found"
 end
 
 # starship
 if command -q starship;
     starship init fish | source; or echo "starship initialization failed"
-else
-    echo "starship: not found"
 end
 
 # direnv
 if command -q direnv;
     direnv hook fish | source; or echo "direnv: initialization failed"
-else
-    echo "direnv: not found"
 end
 
 # shell integration for VSCode (OSC 633)
