@@ -6,16 +6,28 @@ if wezterm.config_builder then
     config = wezterm.config_builder()
 end
 
-config.color_scheme = 'iceberg-dark'
-config.font =
-    wezterm.font('JetBrains Mono')
-config.font_size = 13
+local ssh_domains = {}
+for host, config in pairs(wezterm.enumerate_ssh_hosts()) do
+    table.insert(ssh_domains, {
+        name = host,
+        remote_address = config["hostname"],
+        username = config["user"],
+        assume_shell = 'Posix'
+    })
+end
+config.ssh_domains = ssh_domains
 
-config.keys = {
-    { key = '[', mods = 'CTRL', action = act.PaneSelect },
-    { key = ']', mods = 'CTRL', action = act.PaneSelect { mode = 'SwapWithActive' }, },
-    { key = '-', mods = 'CTRL|ALT', action = act.SplitPane { direction = 'Down' }, },
-    { key = '\\',mods = 'CTRL|ALT', action = act.SplitPane { direction = 'Right' }, },
-}
+config.color_scheme = 'iceberg-dark'
+config.font = wezterm.font('JetBrains Mono')
+config.font_size = 15
+
+config.use_ime = true
+config.ime_preedit_rendering = 'Builtin' -- FIXME: Builtin にしても System にしても fcitx5 はうまく動いてくれない
+
+local keybinds = require 'keybinds'
+config.disable_default_key_bindings = true
+config.leader = { key = 'Space', mods = 'CTRL|SHIFT' }
+config.keys = keybinds.keys
+config.key_tables = keybinds.key_tables
 
 return config
