@@ -1,3 +1,5 @@
+local group = vim.api.nvim_create_augroup('init.lua', {})
+
 -- 文字コード
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
@@ -27,6 +29,15 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.shiftround = true
+
+vim.api.nvim_create_autocmd('Filetype', {
+    group = group,
+    pattern = { 'ocaml' },
+    callback = function()
+        vim.opt.softtabstop = 2
+        vim.opt.shiftwidth = 2
+    end
+})
 
 -- 分割
 vim.opt.splitbelow = true

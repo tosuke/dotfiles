@@ -301,7 +301,7 @@ local plugins = {
 
             -- OCaml
             setup_lsp(lspcfg.ocamllsp.setup, {})
-            table.insert(nsources, null_ls.builtins.ocamlformat)
+            table.insert(nsources, null_ls.builtins.formatting.ocamlformat)
 
             -- Lua
             setup_lsp(lspcfg.lua_ls.setup, {})
