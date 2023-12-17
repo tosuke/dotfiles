@@ -84,46 +84,48 @@ local plugins = {
             }
             vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
         end,
-        dependencies = {
-            {
-                'nvim-treesitter/nvim-treesitter-context',
-                opts = {
-                    enable = true,
-                    max_lines = 0, -- unlimited
-                    min_window_height = 20,
-                    line_numbers = true,
-                    multiline_threshold = 10,
-                    trim_scope = 'outer',
-                    mode = 'cursor',
-                    separator = nil,
-                    zindex = 20,
-                    on_attach = nil,
-                },
-            },
-            {
-                'HiPhish/rainbow-delimiters.nvim',
-                config = function()
-                    local rd = require 'rainbow-delimiters'
-                    require('rainbow-delimiters.setup').setup {
-                        strategy = {
-                            [''] = rd.strategy['global'],
-                            vim = rd.strategy['local'],
-                        },
-                        query = {
-                            [''] = 'rainbow-delimiters',
-                            lua = 'rainbow-blocks',
-                        },
-                        highlight = {
-                            'RainbowDelimiter1',
-                            'RainbowDelimiter2',
-                            'RainbowDelimiter3',
-                            'RainbowDelimiter4',
-                            'RainbowDelimiter5',
-                        },
-                    }
-                end
-            }
+    },
+    {
+        'nvim-treesitter/nvim-treesitter-context',
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
+        event = { 'BufReadPost', 'BufNewFile' },
+        opts = {
+            enable = true,
+            max_lines = 0, -- unlimited
+            min_window_height = 20,
+            line_numbers = true,
+            multiline_threshold = 10,
+            trim_scope = 'outer',
+            mode = 'cursor',
+            separator = nil,
+            zindex = 20,
+            on_attach = nil,
         },
+    },
+    {
+        'HiPhish/rainbow-delimiters.nvim',
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
+        event = { 'BufReadPost', 'BufNewFile' },
+        config = function()
+            local rd = require 'rainbow-delimiters'
+            require('rainbow-delimiters.setup').setup {
+                strategy = {
+                    [''] = rd.strategy['global'],
+                    vim = rd.strategy['local'],
+                },
+                query = {
+                    [''] = 'rainbow-delimiters',
+                    lua = 'rainbow-blocks',
+                },
+                highlight = {
+                    'RainbowDelimiter1',
+                    'RainbowDelimiter2',
+                    'RainbowDelimiter3',
+                    'RainbowDelimiter4',
+                    'RainbowDelimiter5',
+                },
+            }
+        end
     },
     {
         'windwp/nvim-autopairs',
