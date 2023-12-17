@@ -19,12 +19,12 @@ return {
         local actions = require 'telescope.actions'
         telescope.setup {
             defaults = {
+                winblend = 20,
                 borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
                 layout_strategy = 'vertical',
                 mappings = {
                     i = {
                         ['<C-h>'] = actions.which_key,
-                        ['<C-u>'] = false,
                     },
                 },
             },
