@@ -36,6 +36,20 @@ local plugins = {
         cond = not_vscode,
         opts = {},
     },
+    {
+        'nvim-lualine/lualine.nvim',
+        event = 'VeryLazy',
+        dependencies = {
+            'nvim-tree/nvim-web-devicons'
+        },
+        opts = {
+            options = {
+                icons_enabled = true,
+                theme = 'auto',
+                always_devide_middle = true,
+            },
+        },
+    },
     -- syntax
     {
         'nvim-treesitter/nvim-treesitter',
