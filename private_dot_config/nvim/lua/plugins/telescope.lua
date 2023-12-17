@@ -1,7 +1,6 @@
 return {
     'nvim-telescope/telescope.nvim',
     cmd = { 'Telescope', },
-    event = { 'BufReadPre', 'BufNewFile', },
     keys = {
         { '<leader><leader>',   '<cmd>Telescope find_files<cr>',    desc = 'find files' },
         { '<leader>fg',         '<cmd>Telescope live_grep<cr>',     desc = '[F]ind with [G]rep' },
