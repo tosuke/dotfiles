@@ -17,10 +17,8 @@ return {
     config = function()
         local telescope = require 'telescope'
         local actions = require 'telescope.actions'
-        local builtin = require 'telescope.builtin'
-        telescope.setup({
+        telescope.setup {
             defaults = {
-                winblend = 20,
                 borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
                 layout_strategy = 'vertical',
                 mappings = {
@@ -41,10 +39,11 @@ return {
                     theme = 'ivy',
                 }
             },
-        })
+        }
         telescope.load_extension 'fzf'
         telescope.load_extension 'file_browser'
 
+        local builtin = require 'telescope.builtin'
         vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'find [B]uffers' })
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'find [H]elps' })
     end,
