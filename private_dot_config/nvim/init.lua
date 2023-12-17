@@ -62,7 +62,25 @@ vim.filetype.add {
 
 -- プラグイン
 -- シングルファイルにすると読み込み完了後に走るべき設定が見にくくなるので別にする
-require 'plugin'
+require('lazy').setup('plugins', {
+    defaults = {
+        lazy = true,
+        version = false,
+    },
+    checker = { enabled = true },
+    change_detection = {
+        enabled = true,
+        notify = true,
+    },
+    performance = {
+        cache = { enabled = true },
+        rtp = {
+            disabled_plugins = {
+                'gzip', 'tarPlugin', 'tohtml', 'totor', 'zipPlugin',
+            }
+        }
+    },
+})
 
 -- 見た目
 if not vim.g.vscode then

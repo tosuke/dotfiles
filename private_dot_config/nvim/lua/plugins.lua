@@ -174,14 +174,4 @@ local plugins = {
         end,
     }
 }
-
-require('lazy').setup(plugins, {
-    defaults = {
-        lazy = true,
-    },
-    performance = {
-        cache = { enabled = true },
-    },
-    checker = { enabled = true },
-    change_detection = { notify = false },
-})
+return plugins
