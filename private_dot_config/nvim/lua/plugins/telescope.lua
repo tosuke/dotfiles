@@ -25,7 +25,7 @@ return {
                 layout_strategy = 'vertical',
                 mappings = {
                     i = {
-                        ['<esc>'] = actions.close,
+                        ['<C-h>'] = actions.which_key,
                         ['<C-u>'] = false,
                     },
                 },
