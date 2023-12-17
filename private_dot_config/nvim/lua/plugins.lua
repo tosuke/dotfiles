@@ -89,7 +89,7 @@ local plugins = {
                 install_info = {
                     url = 'https://github.com/monaqa/tree-sitter-satysfi.git',
                     files = { 'src/parser.c', 'src/scanner.c' },
-                }, 
+                },
                 filetype = 'satysfi',
             }
 
@@ -108,7 +108,6 @@ local plugins = {
                     },
                 },
             }
-            vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
         end,
     },
     {
@@ -170,10 +169,10 @@ local plugins = {
         cmd = { 'Telescope', },
         keys = {
             { '<leader><leader>',   '<cmd>Telescope find_files<cr>',    desc = 'find files' },
-            { '<leader>fg',         '<cmd>Telescope live_grep<cr>',     desc = '[F]ind with [G]rep' },
-            { '<leader>fb',         '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>',
-                                                                        desc = '[F]ile [B]rowser' },
-            { '<leader>fc',         '<cmd>Telescope git_status<cr>',    desc = '[F]ind [C]hanges' },
+            { 'sg',         '<cmd>Telescope live_grep<cr>',     desc = '[S]earch with [G]rep' },
+            { 'sc',         '<cmd>Telescope git_status<cr>',    desc = '[S]earch git [C]hanges' },
+            { 'sf',         '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>',
+                                                                desc = '[S]earch [F]iles' },
         },
         dependencies = {
             'nvim-lua/plenary.nvim',
@@ -212,8 +211,51 @@ local plugins = {
 
             local builtin = require 'telescope.builtin'
             vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'find [B]uffers' })
-            vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'find [H]elps' })
+            vim.keymap.set('n', 'sh', builtin.help_tags, { desc = 'find [H]elps' })
         end,
+    },
+    -- LSP
+    {
+        'neovim/nvim-lspconfig',
+        cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
+        event = { 'BufReadPre', 'BufNewFile' },
+        config = function()
+            local lspcfg = require 'lspconfig'
+            local group = vim.api.nvim_create_augroup('UserLspConfig', {})
+
+            lspcfg.gopls.setup {}
+            lspcfg.rust_analyzer.setup {}
+            lspcfg.lua_ls.setup {}
+            lspcfg.ocamllsp.setup {}
+
+            local opts = { noremap = true, silent = true }
+            vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+            vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+            vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+            vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
+
+            vim.api.nvim_create_autocmd('LspAttach', {
+                group = group,
+                callback = function(ev)
+                    -- <C-x><C-o>
+                    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+                    local bufopts = { noremap = true, silent = true, buffer = ev.buf }
+
+                    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+                    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+                    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+                    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+                    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+                    vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
+                    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
+                    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
+                    vim.keymap.set('n', '<leader>f', function()
+                        vim.lsp.format { async = true }
+                    end, bufopts)
+                end
+            })
+        end
     }
 }
 return plugins
