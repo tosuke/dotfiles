@@ -62,7 +62,7 @@ local plugins = {
                     globalstatus = true,
                 },
                 sections = {
-                    lualine_a = {'mode'},
+                    lualine_a = { 'mode' },
                     lualine_b = {
                         { 'b:gitsigns_head', icon = '' },
                         { 'diff', source = diff_source },
@@ -168,11 +168,14 @@ local plugins = {
         'nvim-telescope/telescope.nvim',
         cmd = { 'Telescope', },
         keys = {
-            { '<leader><leader>',   '<cmd>Telescope find_files<cr>',    desc = 'find files' },
-            { 'sg',         '<cmd>Telescope live_grep<cr>',     desc = '[S]earch with [G]rep' },
-            { 'sc',         '<cmd>Telescope git_status<cr>',    desc = '[S]earch git [C]hanges' },
-            { 'sf',         '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>',
-                                                                desc = '[S]earch [F]iles' },
+            { '<leader><leader>', '<cmd>Telescope find_files<cr>', desc = 'find files' },
+            { 'sg',               '<cmd>Telescope live_grep<cr>',  desc = '[S]earch with [G]rep' },
+            { 'sc',               '<cmd>Telescope git_status<cr>', desc = '[S]earch git [C]hanges' },
+            {
+                'sf',
+                '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>',
+                desc = '[S]earch [F]iles'
+            },
         },
         dependencies = {
             'nvim-lua/plenary.nvim',
@@ -214,6 +217,59 @@ local plugins = {
             vim.keymap.set('n', 'sh', builtin.help_tags, { desc = 'find [H]elps' })
         end,
     },
+    -- completion
+    {
+        'hrsh7th/nvim-cmp',
+        dependencies = {
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-cmdline',
+            -- snippet
+            'hrsh7th/cmp-vsnip',
+            'hrsh7th/vim-vsnip',
+        },
+        event = { 'InsertEnter', 'CmdlineEnter' },
+        config = function()
+            local cmp = require 'cmp'
+
+            cmp.setup {
+                snippet = {
+                    expand = function(args)
+                        vim.fn['vsnip#anonymous'](args.body)
+                    end,
+                },
+                mapping = cmp.mapping.preset.insert {
+                    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+                    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                    ['<C-Space>'] = cmp.mapping.complete(),
+                    ['<C-e>'] = cmp.mapping.abort(),
+                    ['<CR>'] = cmp.mapping.confirm { select = true },
+                },
+                sources = cmp.config.sources({
+                    { name = 'nvim_lsp' },
+                }, {
+                    { name = 'buffer' },
+                })
+            }
+
+            cmp.setup.cmdline({ '/', '?' }, {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = {
+                    { name = 'buffer' }
+                }
+            })
+
+            cmp.setup.cmdline(':', {
+                mapping = cmp.mapping.preset.cmdline(),
+                sources = cmp.config.sources({
+                    { name = 'path' }
+                }, {
+                    { name = 'cmdline' }
+                })
+            })
+        end
+    },
     -- LSP
     {
         'neovim/nvim-lspconfig',
@@ -222,6 +278,7 @@ local plugins = {
                 'nvimtools/none-ls.nvim',
                 dependencies = { 'nvim-lua/plenary.nvim' }
             },
+            'hrsh7th/cmp-nvim-lsp',
         },
         cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
         event = { 'BufReadPre', 'BufNewFile' },
@@ -229,19 +286,25 @@ local plugins = {
             local lspcfg = require 'lspconfig'
             local null_ls = require 'null-ls'
             local nsources = {}
+            local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+            local function setup_lsp(setup, config)
+                config.capabilities = capabilities
+                setup(config)
+            end
 
             -- Go
-            lspcfg.gopls.setup {}
+            setup_lsp(lspcfg.gopls.setup, {})
 
             -- Rust
-            lspcfg.rust_analyzer.setup {}
+            setup_lsp(lspcfg.rust_analyzer.setup, {})
 
             -- OCaml
-            lspcfg.ocamllsp.setup {}
+            setup_lsp(lspcfg.ocamllsp.setup, {})
             table.insert(nsources, null_ls.builtins.ocamlformat)
 
             -- Lua
-            lspcfg.lua_ls.setup {}
+            setup_lsp(lspcfg.lua_ls.setup, {})
 
             null_ls.setup {
                 sources = nsources
@@ -276,6 +339,7 @@ local plugins = {
                 end
             })
         end
-    }
+    },
+
 }
 return plugins
