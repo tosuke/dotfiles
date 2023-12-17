@@ -4,9 +4,10 @@ return {
     event = { 'BufReadPre', 'BufNewFile', },
     keys = {
         { '<leader><leader>',   '<cmd>Telescope find_files<cr>',    desc = 'find files' },
-        { '<leader>g',          '<cmd>Telescope live_grep<cr>',     desc = '[G]rep files' },
+        { '<leader>fg',         '<cmd>Telescope live_grep<cr>',     desc = '[F]ind with [G]rep' },
         { '<leader>fb',         '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>',
                                                                     desc = '[F]ile [B]rowser' },
+        { '<leader>fc',         '<cmd>Telescope git_status<cr>',    desc = '[F]ind [C]hanges' },
     },
     dependencies = {
         'nvim-lua/plenary.nvim',
