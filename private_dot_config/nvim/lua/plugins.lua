@@ -217,16 +217,35 @@ local plugins = {
     -- LSP
     {
         'neovim/nvim-lspconfig',
+        dependencies = {
+            {
+                'nvimtools/none-ls.nvim',
+                dependencies = { 'nvim-lua/plenary.nvim' }
+            },
+        },
         cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
         event = { 'BufReadPre', 'BufNewFile' },
         config = function()
             local lspcfg = require 'lspconfig'
-            local group = vim.api.nvim_create_augroup('UserLspConfig', {})
+            local null_ls = require 'null-ls'
+            local nsources = {}
 
+            -- Go
             lspcfg.gopls.setup {}
+
+            -- Rust
             lspcfg.rust_analyzer.setup {}
-            lspcfg.lua_ls.setup {}
+
+            -- OCaml
             lspcfg.ocamllsp.setup {}
+            table.insert(nsources, null_ls.builtins.ocamlformat)
+
+            -- Lua
+            lspcfg.lua_ls.setup {}
+
+            null_ls.setup {
+                sources = nsources
+            }
 
             local opts = { noremap = true, silent = true }
             vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
@@ -234,25 +253,26 @@ local plugins = {
             vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
             vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
 
+            local group = vim.api.nvim_create_augroup('UserLspConfig', {})
             vim.api.nvim_create_autocmd('LspAttach', {
                 group = group,
                 callback = function(ev)
                     -- <C-x><C-o>
                     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
 
-                    local bufopts = { noremap = true, silent = true, buffer = ev.buf }
+                    local bopts = { noremap = true, silent = true, buffer = ev.buf }
 
-                    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-                    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-                    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-                    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-                    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-                    vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
-                    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
-                    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
+                    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bopts)
+                    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bopts)
+                    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bopts)
+                    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bopts)
+                    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bopts)
+                    vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bopts)
+                    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bopts)
+                    vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bopts)
                     vim.keymap.set('n', '<leader>f', function()
-                        vim.lsp.format { async = true }
-                    end, bufopts)
+                        vim.lsp.buf.format { async = true }
+                    end, bopts)
                 end
             })
         end

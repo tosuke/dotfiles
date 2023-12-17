@@ -2,6 +2,7 @@
   "gitsigns.nvim": { "branch": "main", "commit": "d195f0c35ced5174d3ecce1c4c8ebb3b5bc23fa9" },
   "iceberg.vim": { "branch": "master", "commit": "e01ac08c2202e7544531f4d806f6893539da6471" },
   "lualine.nvim": { "branch": "master", "commit": "2248ef254d0a1488a72041cfb45ca9caada6d994" },
+  "none-ls.nvim": { "branch": "main", "commit": "ef09f14eab78ca6ce3bee1ddc73db5511f5cd953" },
   "nvim-autopairs": { "branch": "master", "commit": "0f04d78619cce9a5af4f355968040f7d675854a1" },
   "nvim-lspconfig": { "branch": "master", "commit": "e50a8fcd6267cb9b2d2a880dcf3a8ac113b75abc" },
   "nvim-treesitter": { "branch": "master", "commit": "25ddfde8d7167d7d81403d6809242439037d2b68" },
