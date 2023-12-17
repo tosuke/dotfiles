@@ -78,6 +78,19 @@ table.insert(treesitter.dependencies, {
     end
 })
 
+local autopairs = {
+    'windwp/nvim-autopairs',
+    dependencies = { treesitter },
+    event = 'InsertEnter',
+    config = function()
+        local npairs = require 'nvim-autopairs'
+        npairs.setup {
+            check_ts = true,
+        }
+    end
+}
+
 return {
     treesitter,
+    autopairs,
 }
