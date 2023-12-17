@@ -3,8 +3,8 @@ vim.o.backup = false
 vim.o.undofile = true
 vim.o.encoding = 'utf-8'
 
--- visual
---vim.o.ambiwidth = 'double'
+vim.o.signcolumn = 'yes'
+
 -- tab
 vim.o.tabstop = 4
 vim.o.softtabstop = 4
