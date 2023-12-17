@@ -47,6 +47,7 @@ local plugins = {
                 icons_enabled = true,
                 theme = 'auto',
                 always_devide_middle = true,
+                globalstatus = true,
             },
         },
     },
