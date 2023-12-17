@@ -42,14 +42,39 @@ local plugins = {
         dependencies = {
             'nvim-tree/nvim-web-devicons'
         },
-        opts = {
-            options = {
-                icons_enabled = true,
-                theme = 'auto',
-                always_devide_middle = true,
-                globalstatus = true,
-            },
-        },
+        config = function()
+            local function diff_source()
+                local gitsigns = vim.b.gitsigns_status_dict
+                if gitsigns then
+                    return {
+                        added = gitsigns.added,
+                        modified = gitsigns.changed,
+                        removed = gitsigns.removed,
+                    }
+                end
+            end
+            require('lualine').setup {
+                options = {
+                    icons_enabled = true,
+                    theme = 'auto',
+                    disabled_filetypes = { 'TelescopePrompt' },
+                    always_devide_middle = true,
+                    globalstatus = true,
+                },
+                sections = {
+                    lualine_a = {'mode'},
+                    lualine_b = {
+                        { 'b:gitsigns_head', icon = '' },
+                        { 'diff', source = diff_source },
+                        'diagnostics',
+                    },
+                    lualine_c = { 'filename' },
+                    lualine_x = { 'encoding', 'fileformat', 'filetype' },
+                    lualine_y = { 'progress' },
+                    lualine_z = { 'location' }
+                }
+            }
+        end
     },
     -- syntax
     {
