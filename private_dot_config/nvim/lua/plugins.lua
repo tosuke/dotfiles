@@ -228,6 +228,8 @@ local plugins = {
             -- snippet
             'hrsh7th/cmp-vsnip',
             'hrsh7th/vim-vsnip',
+            -- autopairs
+            'windwp/nvim-autopairs',
         },
         event = { 'InsertEnter', 'CmdlineEnter' },
         config = function()
@@ -268,6 +270,13 @@ local plugins = {
                     { name = 'cmdline' }
                 })
             })
+
+            -- 補完後に括弧類を挿入する
+            local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
+            cmp.event:on(
+                'confirm_done',
+                cmp_autopairs.on_confirm_done()
+            )
         end
     },
     -- LSP
