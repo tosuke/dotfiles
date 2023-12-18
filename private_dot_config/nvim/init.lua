@@ -9,6 +9,9 @@ vim.opt.fileencoding = 'utf-8'
 vim.wo.list = true
 vim.wo.listchars = 'tab:»-,trail:-,extends:»,eol:↲,precedes:«,nbsp:%'
 
+-- 補完
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+
 -- 検索
 vim.opt.ignorecase = true
 vim.opt.incsearch = true
