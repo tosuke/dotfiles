@@ -68,10 +68,16 @@ vim.api.nvim_set_keymap('n', '<Esc><Esc>', ':nohl<CR>', { noremap = true, silent
 -- ファイルタイプ
 vim.filetype.add {
     extension = {
+        -- SATySFi
         saty = 'satysfi',
         satyh = 'satysfi',
         satyg = 'satysfi',
+        -- Earthfile
+        earth = 'Earthfile',
     },
+    filename = {
+        ['Earthfile'] = 'Earthfile',
+    }
 }
 
 -- プラグイン
