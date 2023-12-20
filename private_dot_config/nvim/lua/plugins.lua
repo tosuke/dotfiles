@@ -318,6 +318,9 @@ local plugins = {
             -- Lua
             setup_lsp(lspcfg.lua_ls.setup, {})
 
+            -- json
+            setup_lsp(lspcfg.jsonls.setup, {})
+
             null_ls.setup {
                 sources = nsources
             }
