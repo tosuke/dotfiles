@@ -90,7 +90,7 @@ require('lazy').setup('plugins', {
     checker = { enabled = true },
     change_detection = {
         enabled = true,
-        notify = true,
+        notify = false,
     },
     performance = {
         cache = { enabled = true },
