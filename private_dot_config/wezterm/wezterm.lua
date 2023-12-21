@@ -1,5 +1,4 @@
 local wezterm = require 'wezterm'
-local act = wezterm.action
 local config = {}
 
 if wezterm.config_builder then
@@ -7,11 +6,11 @@ if wezterm.config_builder then
 end
 
 local ssh_domains = {}
-for host, config in pairs(wezterm.enumerate_ssh_hosts()) do
+for host, conf in pairs(wezterm.enumerate_ssh_hosts()) do
     table.insert(ssh_domains, {
         name = host,
-        remote_address = config["hostname"],
-        username = config["user"],
+        remote_address = conf["hostname"],
+        username = conf["user"],
         assume_shell = 'Posix'
     })
 end
