@@ -174,25 +174,17 @@ local plugins = {
         keys = {
             {
                 '<leader><leader>',
-                function()
-                    local builtin = require 'telescope.builtin'
-                    local is_git = vim.fn.system({ 'git', 'rev-parse', '--is-inside-work-tree' }):find('true') == 1
-                    if is_git then
-                        builtin.git_files()
-                    else
-                        builtin.find_files()
-                    end
-                end,
+                '<cmd>Telescope find_files hidden=true<cr>',
                 desc = 'find files'
             },
             { '<leader>gg', '<cmd>Telescope live_grep<cr>',  desc = '[G]rep' },
             { '<leader>gs', '<cmd>Telescope git_status<cr>', desc = '[G]it [S]tatus' },
+            { '<leader>gb', '<cmd>Telescope buffers<cr>', desc = '[G]rep [B]uffers' },
             {
                 '<leader>gf',
                 '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>',
                 desc = '[F]iles'
             },
-            { '<leader>gb', '<cmd>Telescope buffers<cr>', desc = '[G]rep [B]uffers' },
         },
         dependencies = {
             'nvim-lua/plenary.nvim',
