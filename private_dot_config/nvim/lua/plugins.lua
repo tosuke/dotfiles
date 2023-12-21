@@ -172,20 +172,34 @@ local plugins = {
         'nvim-telescope/telescope.nvim',
         cmd = { 'Telescope', },
         keys = {
-            { '<leader><leader>', '<cmd>Telescope find_files<cr>', desc = 'find files' },
-            { 'sg',               '<cmd>Telescope live_grep<cr>',  desc = '[S]earch with [G]rep' },
-            { 'sc',               '<cmd>Telescope git_status<cr>', desc = '[S]earch git [C]hanges' },
             {
-                'sf',
-                '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>',
-                desc = '[S]earch [F]iles'
+                '<leader><leader>',
+                function()
+                    local builtin = require 'telescope.builtin'
+                    local is_git = vim.fn.system({ 'git', 'rev-parse', '--is-inside-work-tree' }):find('true') == 1
+                    if is_git then
+                        builtin.git_files()
+                    else
+                        builtin.find_files()
+                    end
+                end,
+                desc = 'find files'
             },
+            { '<leader>gg', '<cmd>Telescope live_grep<cr>',  desc = '[G]rep' },
+            { '<leader>gs', '<cmd>Telescope git_status<cr>', desc = '[G]it [S]tatus' },
+            {
+                '<leader>gf',
+                '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>',
+                desc = '[F]iles'
+            },
+            { '<leader>gb', '<cmd>Telescope buffers<cr>', desc = '[G]rep [B]uffers' },
         },
         dependencies = {
             'nvim-lua/plenary.nvim',
             'nvim-tree/nvim-web-devicons',
             { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
             'nvim-telescope/telescope-file-browser.nvim',
+            'lewis6991/gitsigns.nvim',
         },
         config = function()
             local telescope = require 'telescope'
@@ -215,10 +229,6 @@ local plugins = {
             }
             telescope.load_extension 'fzf'
             telescope.load_extension 'file_browser'
-
-            local builtin = require 'telescope.builtin'
-            vim.keymap.set('n', '<leader>b', builtin.buffers, { desc = 'find [B]uffers' })
-            vim.keymap.set('n', 'sh', builtin.help_tags, { desc = 'find [H]elps' })
         end,
     },
     -- completion
