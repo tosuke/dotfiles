@@ -81,7 +81,7 @@ local plugins = {
     {
         url = 'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
         event = { 'BufEnter' },
-        config = function ()
+        config = function()
             require('lsp_lines').setup()
         end
     },
@@ -188,7 +188,9 @@ local plugins = {
             },
             { '<leader>gg', '<cmd>Telescope live_grep<cr>',  desc = '[G]rep' },
             { '<leader>gs', '<cmd>Telescope git_status<cr>', desc = '[G]it [S]tatus' },
-            { '<leader>gb', '<cmd>Telescope buffers<cr>', desc = '[G]rep [B]uffers' },
+            { '<leader>gb', '<cmd>Telescope buffers<cr>',    desc = '[G]rep [B]uffers' },
+            { '<leader>q',  '<cmd>Telescope diagnostics<cr>' },
+            { '<leader>gr', '<cmd>Telescope lsp_references<cr>' },
             {
                 '<leader>gf',
                 '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>',
@@ -208,7 +210,9 @@ local plugins = {
             telescope.setup {
                 defaults = {
                     winblend = 20,
-                    borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+                    borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
+                    color_devicons = true,
+                    file_ignore_patterns = { 'node_modules', '.git', '.cache', '.npm', 'go' },
                     layout_strategy = 'vertical',
                     mappings = {
                         i = {
@@ -216,6 +220,15 @@ local plugins = {
                         },
                     },
                 },
+
+                vimgrep_arguments = {
+                    'rg',
+                    '--color=never',
+                    '--no-heading',
+                    '--smart-case',
+                    '-uu',
+                },
+
                 extensions = {
                     fzf = {
                         fuzzy = true,
@@ -344,7 +357,6 @@ local plugins = {
             vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
             vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
             vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-            vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
 
             local group = vim.api.nvim_create_augroup('UserLspConfig', {})
             vim.api.nvim_create_autocmd('LspAttach', {
@@ -359,7 +371,6 @@ local plugins = {
                     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bopts)
                     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bopts)
                     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bopts)
-                    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bopts)
                     vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bopts)
                     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bopts)
                     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bopts)
