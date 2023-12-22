@@ -112,7 +112,7 @@ local plugins = {
                 map('n', '<leader>td', gs.toggle_deleted)
 
                 -- Text object
-                map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+                map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
             end
         }
     },
@@ -301,7 +301,7 @@ local plugins = {
                     winblend = 20,
                     borderchars = { '─', '│', '─', '│', '┌', '┐', '┘', '└' },
                     color_devicons = true,
-                    file_ignore_patterns = { 'node_modules', '.git', '.cache', '.npm', 'go' },
+                    file_ignore_patterns = { 'node_modules', '.git', '.cache', '.npm' },
                     layout_strategy = 'vertical',
                     mappings = {
                         i = {
