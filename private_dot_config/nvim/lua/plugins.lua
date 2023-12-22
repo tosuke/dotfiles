@@ -264,9 +264,9 @@ local plugins = {
                 '<cmd>Telescope find_files hidden=true<cr>',
                 desc = 'find files'
             },
-            { '<leader>gg', '<cmd>Telescope live_grep<cr>',  desc = '[G]rep' },
-            { '<leader>gs', '<cmd>Telescope git_status<cr>', desc = '[G]it [S]tatus' },
-            { '<leader>b',  '<cmd>Telescope buffers<cr>',    desc = 'find [B]uffers' },
+            { '<leader>gg', '<cmd>Telescope live_grep<cr>',     desc = '[G]rep' },
+            { '<leader>gs', '<cmd>Telescope git_status<cr>',    desc = '[G]it [S]tatus' },
+            { '<leader>b',  '<cmd>Telescope buffers<cr>',       desc = 'find [B]uffers' },
             { '<leader>q',  '<cmd>Telescope diagnostics<cr>' },
             { '<leader>gr', '<cmd>Telescope lsp_references<cr>' },
             {
