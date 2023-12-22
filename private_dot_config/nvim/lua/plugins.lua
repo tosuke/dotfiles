@@ -163,6 +163,11 @@ local plugins = {
             require('lsp_lines').setup()
         end
     },
+    {
+        'j-hui/fidget.nvim',
+        event = { 'VeryLazy' },
+        opts = {},
+    },
     -- syntax
     {
         'nvim-treesitter/nvim-treesitter',
