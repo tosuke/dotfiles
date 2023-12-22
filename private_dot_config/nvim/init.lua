@@ -56,6 +56,9 @@ vim.o.cursorline = true
 -- vim.o.showmatch = true
 -- vim.o.matchtime = 1
 
+-- エラー表示
+vim.diagnostic.config({ virtual_text = false })
+
 -- キーバインド
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
