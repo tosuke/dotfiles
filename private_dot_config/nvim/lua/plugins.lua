@@ -217,6 +217,12 @@ local plugins = {
             zindex = 20,
             on_attach = nil,
         },
+        config = function(_, opts)
+            local treesitter_context = require 'treesitter-context'
+            treesitter_context.setup(opts)
+
+            vim.keymap.set('n', '[C', treesitter_context.go_to_context, { silent = true })
+        end
     },
     {
         'HiPhish/rainbow-delimiters.nvim',
