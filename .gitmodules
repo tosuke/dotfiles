@@ -1,3 +1,0 @@
-[submodule "private_dot_config/nvim/pack/lazy/start/external_lazy.nvim"]
-	path = private_dot_config/nvim/pack/lazy/start/external_lazy.nvim
-	url = https://github.com/folke/lazy.nvim.git

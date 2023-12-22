@@ -3,6 +3,8 @@ local not_vscode = function()
 end
 
 local plugins = {
+    -- self
+    'folke/lazy.nvim',
     -- colorscheme
     {
         'cocopon/iceberg.vim',
