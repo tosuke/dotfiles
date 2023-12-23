@@ -424,6 +424,7 @@ local plugins = {
 
             -- Go
             setup_lsp(lspcfg.gopls.setup, {})
+            table.insert(nsources, null_ls.builtins.formatting.goimports)
 
             -- Rust
             setup_lsp(lspcfg.rust_analyzer.setup, {})
