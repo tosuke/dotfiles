@@ -282,7 +282,7 @@ local plugins = {
             { '<leader>gr', '<cmd>Telescope lsp_references<cr>' },
             {
                 '<leader>gf',
-                '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>',
+                '<cmd>Telescope file_browser path=%:p:h select_buffer=true hidden=true<cr>',
                 desc = '[F]iles'
             },
         },
