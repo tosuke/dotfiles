@@ -186,7 +186,6 @@ local plugins = {
             }
 
             require('nvim-treesitter.configs').setup {
-                -- なくて困ったら入れればよい
                 auto_install = true,
                 highlight = { enable = true },
                 indent = { enable = true },
@@ -263,6 +262,27 @@ local plugins = {
             npairs.setup {
                 check_ts = true,
             }
+        end
+    },
+    {
+        'machakann/vim-sandwich',
+        dependencies = {},
+        event = 'ModeChanged',
+        keys = {
+            { '<Plug>(sandwich-add)', mode = { 'n', 'x' }},
+            { '<Plug>(sandwich-delete)', mode = { 'n', 'x' }},
+            { '<Plug>(sandwich-delete-auto)', mode = { 'n', 'x' }},
+            { '<Plug>(sandwich-replace)', mode = { 'n', 'x' }},
+            { '<Plug>(sandwich-replace-auto)', mode = { 'n', 'x' }},
+        },
+        init = function()
+            vim.g.sandwich_no_default_key_mappings = true
+
+            vim.keymap.set({ 'n', 'x' }, 'sa',  '<Plug>(sandwich-add)')
+            vim.keymap.set({ 'n', 'x' }, 'sd',  '<Plug>(sandwich-delete)')
+            vim.keymap.set({ 'n', 'x' }, 'sdb', '<Plug>(sandwich-delete-auto)')
+            vim.keymap.set({ 'n', 'x' }, 'sr',  '<Plug>(sandwich-replace)')
+            vim.keymap.set({ 'n', 'x' }, 'srb', '<Plug>(sandwich-replace-auto)')
         end
     },
     -- fuzzy finder
