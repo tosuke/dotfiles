@@ -20,6 +20,7 @@
   "nvim-web-devicons": { "branch": "master", "commit": "3e24abe1ae66532135cec911562f553fe247cb56" },
   "plenary.nvim": { "branch": "master", "commit": "55d9fe89e33efd26f532ef20223e5f9430c8b0c0" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "4a90ac83c7c8e0ba8a1b6af38bed6d5ee1b04e08" },
+  "schemastore.nvim": { "branch": "main", "commit": "90149d11708d38037e340bf7a668e1a79217680d" },
   "telescope-file-browser.nvim": { "branch": "master", "commit": "4bd5657b14b58e069287f5ac591a647bb860b2ed" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "6c921ca12321edaa773e324ef64ea301a1d0da62" },
   "telescope.nvim": { "branch": "master", "commit": "983460fb8cd864748311f4c7f0c8337091f24d59" },

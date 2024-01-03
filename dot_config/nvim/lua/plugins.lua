@@ -269,19 +269,19 @@ local plugins = {
         dependencies = {},
         event = 'ModeChanged',
         keys = {
-            { '<Plug>(sandwich-add)', mode = { 'n', 'x' }},
-            { '<Plug>(sandwich-delete)', mode = { 'n', 'x' }},
-            { '<Plug>(sandwich-delete-auto)', mode = { 'n', 'x' }},
-            { '<Plug>(sandwich-replace)', mode = { 'n', 'x' }},
-            { '<Plug>(sandwich-replace-auto)', mode = { 'n', 'x' }},
+            { '<Plug>(sandwich-add)',          mode = { 'n', 'x' } },
+            { '<Plug>(sandwich-delete)',       mode = { 'n', 'x' } },
+            { '<Plug>(sandwich-delete-auto)',  mode = { 'n', 'x' } },
+            { '<Plug>(sandwich-replace)',      mode = { 'n', 'x' } },
+            { '<Plug>(sandwich-replace-auto)', mode = { 'n', 'x' } },
         },
         init = function()
             vim.g.sandwich_no_default_key_mappings = true
 
-            vim.keymap.set({ 'n', 'x' }, 'sa',  '<Plug>(sandwich-add)')
-            vim.keymap.set({ 'n', 'x' }, 'sd',  '<Plug>(sandwich-delete)')
+            vim.keymap.set({ 'n', 'x' }, 'sa', '<Plug>(sandwich-add)')
+            vim.keymap.set({ 'n', 'x' }, 'sd', '<Plug>(sandwich-delete)')
             vim.keymap.set({ 'n', 'x' }, 'sdb', '<Plug>(sandwich-delete-auto)')
-            vim.keymap.set({ 'n', 'x' }, 'sr',  '<Plug>(sandwich-replace)')
+            vim.keymap.set({ 'n', 'x' }, 'sr', '<Plug>(sandwich-replace)')
             vim.keymap.set({ 'n', 'x' }, 'srb', '<Plug>(sandwich-replace-auto)')
         end
     },
@@ -428,18 +428,27 @@ local plugins = {
                 dependencies = { 'nvim-lua/plenary.nvim' }
             },
             'hrsh7th/cmp-nvim-lsp',
+            'b0o/schemastore.nvim',
+            'node_tools',
         },
         cmd = { 'LspInfo', 'LspInstall', 'LspStart' },
         event = { 'BufReadPre', 'BufNewFile' },
         config = function()
             local lspcfg = require 'lspconfig'
             local null_ls = require 'null-ls'
+            local cmplsp = require 'cmp_nvim_lsp'
             local nsources = {}
-            local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
             local function setup_lsp(setup, config)
-                config.capabilities = capabilities
-                setup(config)
+                local cap = vim.lsp.protocol.make_client_capabilities()
+                local conf = { capabilities = cap }
+                if type(config) == 'function' then
+                    conf = config(setup, conf)
+                else
+                    conf = config
+                end
+                conf.capabilities = cmplsp.default_capabilities(conf.capabilities)
+                setup(conf)
             end
 
             -- Go
@@ -457,7 +466,16 @@ local plugins = {
             setup_lsp(lspcfg.lua_ls.setup, {})
 
             -- json
-            setup_lsp(lspcfg.jsonls.setup, {})
+            setup_lsp(lspcfg.jsonls.setup, function(_, config)
+                config.capabilities.textDocument.completion.completionItem.snippetSupport = true
+                config.settings = {
+                    json = {
+                        schemas = require('schemastore').json.schemas(),
+                        validate = { enable = true },
+                    }
+                }
+                return config
+            end)
 
             -- shell
             table.insert(nsources, null_ls.builtins.code_actions.shellcheck)
