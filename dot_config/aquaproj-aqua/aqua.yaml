@@ -1,0 +1,31 @@
+registries:
+  - type: standard
+    ref: v4.112.0 # renovate: depName=aquaproj/aqua-registry
+packages:
+  - name: neovim/neovim@v0.9.5
+  - name: sharkdp/bat@v0.24.0
+  - name: junegunn/fzf@0.45.0
+  - name: direnv/direnv@v2.33.0
+  - name: x-motemen/ghq@v1.4.2
+  # GitHub
+  - name: cli/cli@v2.40.1
+  # AWS
+  - name: aws/aws-cli@2.15.6
+  - name: kayac/ecspresso@v2.3.1
+  - name: fujiwara/lambroll@v0.14.7
+  # Google Cloud
+  - name: twistedpair/google-cloud-sdk@458.0.1
+  # k8s
+  - name: kubernetes/kubectl@v1.26.12
+  - name: int128/kubelogin@v1.28.0
+  - name: stern/stern@v1.27.0
+  # Terraform
+  - name: tfutils/tfenv@v3.0.0
+  - name: hashicorp/terraform-ls@v0.32.4
+  # Go
+  - name: golang/go@go1.21.5
+  - name: golang.org/x/tools/gopls@v0.14.2
+  - name: golang/tools/goimports@v0.16.1
+  - name: go-delve/delve@v1.22.0
+  # Rust
+  - name: rust-lang/rust-analyzer@2024-01-01
