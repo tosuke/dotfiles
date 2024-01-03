@@ -1,0 +1,9 @@
+{
+    "extends": [
+        "config:base",
+        "github>aquaproj/aqua-renovate-config#1.13.0"
+    ],
+    "git-submodules": {
+        "enabled": true
+    }
+}
