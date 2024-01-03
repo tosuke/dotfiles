@@ -11,6 +11,7 @@ vim.wo.listchars = 'tab:»-,trail:-,extends:»,eol:↲,precedes:«,nbsp:%'
 
 -- 補完
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
+vim.opt.pumheight = 10
 
 -- 検索
 vim.opt.ignorecase = true
@@ -80,6 +81,7 @@ vim.filetype.add {
     },
     filename = {
         ['Earthfile'] = 'Earthfile',
+        ['.envrc'] = 'sh',
     }
 }
 
@@ -100,7 +102,6 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup('plugins', {
     defaults = {
         lazy = true,
-        version = false,
     },
     checker = { enabled = true },
     change_detection = {

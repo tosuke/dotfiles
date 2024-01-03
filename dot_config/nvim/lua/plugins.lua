@@ -459,6 +459,9 @@ local plugins = {
             -- json
             setup_lsp(lspcfg.jsonls.setup, {})
 
+            -- shell
+            table.insert(nsources, null_ls.builtins.code_actions.shellcheck)
+
             null_ls.setup {
                 sources = nsources
             }
