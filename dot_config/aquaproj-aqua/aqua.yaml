@@ -29,3 +29,6 @@ packages:
   - name: go-delve/delve@v1.22.0
   # Rust
   - name: rust-lang/rust-analyzer@2024-01-01
+  # Node.js
+  - name: Schniz/fnm@v1.35.1
+
