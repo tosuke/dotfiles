@@ -31,4 +31,5 @@ packages:
   - name: rust-lang/rust-analyzer@2024-01-01
   # Node.js
   - name: Schniz/fnm@v1.35.1
-
+  # Lua
+  - name: LuaLS/lua-language-server@3.7.3
