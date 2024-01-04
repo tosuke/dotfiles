@@ -281,10 +281,10 @@ local plugins = {
         dependencies = {},
         event = "ModeChanged",
         keys = {
-            { "<Plug>(sandwich-add)",          mode = { "n", "x" } },
-            { "<Plug>(sandwich-delete)",       mode = { "n", "x" } },
-            { "<Plug>(sandwich-delete-auto)",  mode = { "n", "x" } },
-            { "<Plug>(sandwich-replace)",      mode = { "n", "x" } },
+            { "<Plug>(sandwich-add)", mode = { "n", "x" } },
+            { "<Plug>(sandwich-delete)", mode = { "n", "x" } },
+            { "<Plug>(sandwich-delete-auto)", mode = { "n", "x" } },
+            { "<Plug>(sandwich-replace)", mode = { "n", "x" } },
             { "<Plug>(sandwich-replace-auto)", mode = { "n", "x" } },
         },
         init = function()
@@ -307,10 +307,10 @@ local plugins = {
                 "<cmd>Telescope find_files hidden=true<cr>",
                 desc = "find files",
             },
-            { "<leader>gg", "<cmd>Telescope live_grep<cr>",     desc = "[G]rep" },
-            { "<leader>gs", "<cmd>Telescope git_status<cr>",    desc = "[G]it [S]tatus" },
-            { "<leader>b",  "<cmd>Telescope buffers<cr>",       desc = "find [B]uffers" },
-            { "<leader>q",  "<cmd>Telescope diagnostics<cr>" },
+            { "<leader>gg", "<cmd>Telescope live_grep<cr>", desc = "[G]rep" },
+            { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "[G]it [S]tatus" },
+            { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "find [B]uffers" },
+            { "<leader>q", "<cmd>Telescope diagnostics<cr>" },
             { "<leader>gr", "<cmd>Telescope lsp_references<cr>" },
             {
                 "<leader>gf",
@@ -516,7 +516,31 @@ local plugins = {
             table.insert(nsources, null_ls.builtins.formatting.ocamlformat)
 
             -- Lua
-            setup_lsp(lspcfg.lua_ls.setup, disable_format({}))
+            setup_lsp(
+                lspcfg.lua_ls.setup,
+                disable_format({
+                    flags = {
+                        debounce_text_changes = 150,
+                    },
+                    settings = {
+                        Lua = {
+                            diagnostics = {
+                                globals = { "vim" },
+                            },
+                            completion = {
+                                showWord = "disable",
+                                callSnippet = "Replace",
+                            },
+                            format = {
+                                enable = false,
+                            },
+                            hint = {
+                                enable = true,
+                            },
+                        },
+                    },
+                })
+            )
 
             -- json
             setup_lsp(
