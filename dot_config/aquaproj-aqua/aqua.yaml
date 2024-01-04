@@ -7,6 +7,11 @@ packages:
   - name: junegunn/fzf@0.45.0
   - name: direnv/direnv@v2.33.0
   - name: x-motemen/ghq@v1.4.2
+  - name: jesseduffield/lazygit@v0.40.2
+  - name: sharkdp/fd@v9.0.0
+  - name: BurntSushi/ripgrep@14.0.3
+  - name: jqlang/jq@jq-1.7.1
+  - name: mikefarah/yq@v4.40.5
   # GitHub
   - name: cli/cli@v2.40.1
   # AWS
