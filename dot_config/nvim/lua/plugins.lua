@@ -451,9 +451,51 @@ local plugins = {
                 setup(conf)
             end
 
+            local function disable_format(config)
+                return function(spec, c)
+                    local conf = {}
+                    if type(config) == 'function' then
+                        conf = config(spec, c)
+                    else
+                        conf = config
+                    end
+                    if conf.capabilities == nil then
+                        conf.capabilities = vim.lsp.protocol.make_client_capabilities()
+                    end
+                    conf.capabilities.documentFormattingProvider = false
+                    conf.capabilities.documentRangeFormattingProvider = false
+                    return conf
+                end
+            end
+
+            -- efm
+            setup_lsp(lspcfg.efm.setup, {
+                init_options = {
+                    documentFormatting = true,
+                    rangeFormatting = true,
+                    hover = true,
+                    documentSymbol = true,
+                    codeAction = true,
+                    completion = true,
+                },
+                filetypes = {
+                    'go',
+                    -- config
+                    'json',
+                    'jsonc',
+                    'yaml',
+                    -- web
+                    'html',
+                    'markdown',
+                    'javascript',
+                    'javascriptreact',
+                    'typescript',
+                    'typescriptreact',
+                },
+            })
+
             -- Go
-            setup_lsp(lspcfg.gopls.setup, {})
-            table.insert(nsources, null_ls.builtins.formatting.goimports)
+            setup_lsp(lspcfg.gopls.setup, disable_format({}))
 
             -- Rust
             setup_lsp(lspcfg.rust_analyzer.setup, {})
@@ -466,7 +508,7 @@ local plugins = {
             setup_lsp(lspcfg.lua_ls.setup, {})
 
             -- json
-            setup_lsp(lspcfg.jsonls.setup, function(_, config)
+            setup_lsp(lspcfg.jsonls.setup, disable_format(function(_, config)
                 config.capabilities.textDocument.completion.completionItem.snippetSupport = true
                 config.settings = {
                     json = {
@@ -475,7 +517,7 @@ local plugins = {
                     }
                 }
                 return config
-            end)
+            end))
 
             -- shell
             table.insert(nsources, null_ls.builtins.code_actions.shellcheck)

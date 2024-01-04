@@ -1,0 +1,48 @@
+version: 2
+root-markers:
+  - .git/
+  - package.json
+lint-debounce: 1s
+
+tools:
+  prettierd: &prettierd
+    format-command: "prettierd \"${INPUT}\""
+    format-stdin: true
+  # Go
+  gofmt: &gofmt
+    format-command: "gofmt"
+    format-stdin: true
+    root-markers:
+      - go.mod
+      - go.sum
+  goimports: &goimports
+    format-command: "goimports"
+    format-stdin: true
+    root-markers:
+      - go.mod
+      - go.sum
+languages:
+  go:
+    - <<: *gofmt
+    - <<: *goimports
+  # web
+  html:
+    - <<: *prettierd
+  markdown:
+    - <<: *prettierd
+  javascript:
+    - <<: *prettierd
+  javascriptreact:
+    - <<: *prettierd
+  typescript:
+    - <<: *prettierd
+  typescriptreact:
+    - <<: *prettierd
+  # config
+  json:
+    - <<: *prettierd
+  jsonc:
+    - <<: *prettierd
+  yaml:
+    - <<: *prettierd
+  
