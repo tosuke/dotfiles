@@ -6,7 +6,7 @@ lint-debounce: 1s
 
 tools:
   prettierd: &prettierd
-    format-command: "prettierd \"${INPUT}\""
+    format-command: 'prettierd "${INPUT}"'
     format-stdin: true
   # Go
   gofmt: &gofmt
@@ -21,6 +21,9 @@ tools:
     root-markers:
       - go.mod
       - go.sum
+  terraform-fmt: &terraform-fmt
+    format-command: "terraform fmt -"
+    format-stdin: true
 languages:
   go:
     - <<: *gofmt
@@ -45,4 +48,5 @@ languages:
     - <<: *prettierd
   yaml:
     - <<: *prettierd
-  
+  terraform:
+    - <<: *terraform-fmt

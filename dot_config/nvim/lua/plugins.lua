@@ -484,6 +484,7 @@ local plugins = {
                     'json',
                     'jsonc',
                     'yaml',
+                    'terraform',
                     -- web
                     'html',
                     'markdown',
@@ -518,6 +519,9 @@ local plugins = {
                 }
                 return config
             end))
+
+            -- terraform
+            setup_lsp(lspcfg.terraformls.setup, disable_format({}))
 
             -- shell
             table.insert(nsources, null_ls.builtins.code_actions.shellcheck)
