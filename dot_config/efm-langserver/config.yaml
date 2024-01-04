@@ -28,15 +28,24 @@ tools:
     root-markers:
       - go.mod
       - go.sum
+  # Terraform
   terraform-fmt: &terraform-fmt
     format-command: "terraform fmt -"
     format-stdin: true
+  # OCaml
+  ocamlformat: &ocamlformat
+    format-command: 'ocamlformat --name "${INPUT}" -'
+    format-stdin: true
+    root-markers:
+      - .ocamlformat
 languages:
   lua:
     - <<: *stylua
   go:
     - <<: *gofmt
     - <<: *goimports
+  ocaml:
+    - <<: *ocamlformat
   # web
   html:
     - <<: *prettierd

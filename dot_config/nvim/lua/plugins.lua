@@ -490,6 +490,7 @@ local plugins = {
                 filetypes = {
                     "lua",
                     "go",
+                    "ocaml",
                     -- config
                     "json",
                     "jsonc",
@@ -513,7 +514,6 @@ local plugins = {
 
             -- OCaml
             setup_lsp(lspcfg.ocamllsp.setup, {})
-            table.insert(nsources, null_ls.builtins.formatting.ocamlformat)
 
             -- Lua
             setup_lsp(
