@@ -38,6 +38,14 @@ tools:
     format-stdin: true
     root-markers:
       - .ocamlformat
+  # Shell
+  shellcheck: &shellcheck
+    lint-command: "shellcheck -f gcc -x"
+    lint-source: shellcheck
+    lint-formats:
+      - "%f:%l:%c: %trror: %m"
+      - "%f:%l:%c: %tarning: %m"
+      - "%f:%l:%c: %tote: %m"
 languages:
   lua:
     - <<: *stylua
@@ -68,3 +76,8 @@ languages:
     - <<: *prettierd
   terraform:
     - <<: *terraform-fmt
+  # shell
+  sh:
+    - <<: *shellcheck
+  bash:
+    - <<: *shellcheck

@@ -36,3 +36,5 @@ packages:
   # Lua
   - name: LuaLS/lua-language-server@3.7.3
   - name: JohnnyMorganz/StyLua@v0.19.1
+  # sh
+  - name: koalaman/shellcheck@v0.9.0

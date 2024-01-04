@@ -432,10 +432,6 @@ local plugins = {
     {
         "neovim/nvim-lspconfig",
         dependencies = {
-            {
-                "nvimtools/none-ls.nvim",
-                dependencies = { "nvim-lua/plenary.nvim" },
-            },
             "hrsh7th/cmp-nvim-lsp",
             "b0o/schemastore.nvim",
             "node_tools",
@@ -444,9 +440,7 @@ local plugins = {
         event = { "BufReadPre", "BufNewFile" },
         config = function()
             local lspcfg = require("lspconfig")
-            local null_ls = require("null-ls")
             local cmplsp = require("cmp_nvim_lsp")
-            local nsources = {}
 
             local function setup_lsp(setup, config)
                 local cap = vim.lsp.protocol.make_client_capabilities()
@@ -503,6 +497,8 @@ local plugins = {
                     "javascriptreact",
                     "typescript",
                     "typescriptreact",
+                    -- shell
+                    "sh",
                 },
             })
 
@@ -559,13 +555,6 @@ local plugins = {
 
             -- terraform
             setup_lsp(lspcfg.terraformls.setup, disable_format({}))
-
-            -- shell
-            table.insert(nsources, null_ls.builtins.code_actions.shellcheck)
-
-            null_ls.setup({
-                sources = nsources,
-            })
 
             local opts = { noremap = true, silent = true }
             vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
