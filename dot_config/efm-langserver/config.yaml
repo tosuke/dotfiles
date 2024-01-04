@@ -8,6 +8,13 @@ tools:
   prettierd: &prettierd
     format-command: 'prettierd "${INPUT}"'
     format-stdin: true
+  # Lua
+  stylua: &stylua
+    format-command: "stylua -s --color Never -"
+    format-stdin: true
+    root-markers:
+      - stylua.toml
+      - .stylua.toml
   # Go
   gofmt: &gofmt
     format-command: "gofmt"
@@ -25,6 +32,8 @@ tools:
     format-command: "terraform fmt -"
     format-stdin: true
 languages:
+  lua:
+    - <<: *stylua
   go:
     - <<: *gofmt
     - <<: *goimports

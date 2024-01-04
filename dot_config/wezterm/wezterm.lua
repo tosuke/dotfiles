@@ -1,4 +1,4 @@
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 local config = {}
 
 if wezterm.config_builder then
@@ -11,21 +11,21 @@ for host, conf in pairs(wezterm.enumerate_ssh_hosts()) do
         name = host,
         remote_address = conf["hostname"],
         username = conf["user"],
-        assume_shell = 'Posix'
+        assume_shell = "Posix",
     })
 end
 config.ssh_domains = ssh_domains
 
-config.color_scheme = 'iceberg-dark'
-config.font = wezterm.font('JetBrains Mono')
+config.color_scheme = "iceberg-dark"
+config.font = wezterm.font("JetBrains Mono")
 config.font_size = 15
 
 config.use_ime = true
-config.ime_preedit_rendering = 'Builtin' -- FIXME: Builtin にしても System にしても fcitx5 はうまく動いてくれない
+config.ime_preedit_rendering = "Builtin" -- FIXME: Builtin にしても System にしても fcitx5 はうまく動いてくれない
 
-local keybinds = require 'keybinds'
+local keybinds = require("keybinds")
 config.disable_default_key_bindings = true
-config.leader = { key = 'Space', mods = 'CTRL|SHIFT' }
+config.leader = { key = "Space", mods = "CTRL|SHIFT" }
 config.keys = keybinds.keys
 config.key_tables = keybinds.key_tables
 
