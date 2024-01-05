@@ -547,11 +547,23 @@ local plugins = {
                         json = {
                             schemas = require("schemastore").json.schemas(),
                             validate = { enable = true },
+                            format = { enable = false },
                         },
                     }
                     return config
                 end)
             )
+
+            -- yaml
+            setup_lsp(lspcfg.yamlls.setup, disable_format({
+                settings = {
+                    yaml = {
+                        schemas = require("schemastore").yaml.schemas(),
+                        validate = { enable = false },
+                        format = { enable = false },
+                    }
+                }
+            }))
 
             -- terraform
             setup_lsp(lspcfg.terraformls.setup, disable_format({}))
