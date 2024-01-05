@@ -60,6 +60,8 @@ vim.o.cursorline = true
 -- エラー表示
 vim.diagnostic.config({ virtual_text = false })
 
+vim.o.modeline = true
+
 -- キーバインド
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
