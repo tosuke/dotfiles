@@ -12,7 +12,5 @@ return {
         end
 
         vim.env.PATH = vim.env.PATH .. ":" .. bin_dir:absolute()
-        -- ???
-        vim._system({ "pnpm", "install" }, { cwd = dir, text = true })
     end,
 }
