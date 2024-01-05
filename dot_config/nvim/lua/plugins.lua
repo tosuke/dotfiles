@@ -311,7 +311,7 @@ local plugins = {
             { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "[G]it [S]tatus" },
             { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "find [B]uffers" },
             { "<leader>q", "<cmd>Telescope diagnostics<cr>" },
-            { "<leader>gr", "<cmd>Telescope lsp_references<cr>" },
+            { "gr", "<cmd>Telescope lsp_references<cr>" },
             {
                 "<leader>gf",
                 "<cmd>Telescope file_browser path=%:p:h select_buffer=true hidden=true<cr>",
