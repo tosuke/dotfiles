@@ -255,6 +255,10 @@ local plugins = {
                     [""] = "rainbow-delimiters",
                     lua = "rainbow-blocks",
                 },
+                priority = {
+                    [""] = 110,
+                    lua = 210,
+                },
                 highlight = {
                     "RainbowDelimiter1",
                     "RainbowDelimiter2",
@@ -555,15 +559,18 @@ local plugins = {
             )
 
             -- yaml
-            setup_lsp(lspcfg.yamlls.setup, disable_format({
-                settings = {
-                    yaml = {
-                        schemas = require("schemastore").yaml.schemas(),
-                        validate = { enable = false },
-                        format = { enable = false },
-                    }
-                }
-            }))
+            setup_lsp(
+                lspcfg.yamlls.setup,
+                disable_format({
+                    settings = {
+                        yaml = {
+                            schemas = require("schemastore").yaml.schemas(),
+                            validate = { enable = false },
+                            format = { enable = false },
+                        },
+                    },
+                })
+            )
 
             -- terraform
             setup_lsp(lspcfg.terraformls.setup, disable_format({}))
