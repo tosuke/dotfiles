@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+# vim: ft=sh :
+
+kubectl-oidc_login __complete "$@"
