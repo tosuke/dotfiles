@@ -1,0 +1,21 @@
+#!/bin/bash
+# vim: ft=sh :
+# 1password から証明書を取得する client-go credential plugin
+
+if [ -z "$KUBERNETES_EXEC_INFO" ]; then
+    echo "cluster info is not provided" >&2
+    exit 1
+fi
+
+op item list --tags k8s-cert --format=json \
+| op item get - --fields server,client-certificate-data,client-key-data \
+| grep "$(echo "$KUBERNETES_EXEC_INFO" | jq -r ".spec.cluster.server")" \
+| head -n 1 \
+| jq -R 'split(",") | {
+    apiVersion: "client.authentication.k8s.io/v1beta1",
+    kind: "ExecCredential",
+    status: {
+        clientCertificateData: .[1] | @base64d,
+        clientKeyData: .[2] | @base64d
+    }
+}'
