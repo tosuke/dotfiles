@@ -6,8 +6,24 @@ lint-debounce: 1s
 
 tools:
   prettierd: &prettierd
-    format-command: 'prettierd "${INPUT}"'
+    format-command: >
+      prettierd "${INPUT}"
+        ${--range-start:charStart}
+        ${--range-end:charEnd}
     format-stdin: true
+    format-can-range: true
+    root-markers:
+      - .prettierrc
+      - .prettierrc.json
+      - .prettierrc.json5
+      - .prettierrc.yml
+      - .prettierrc.yaml
+      - .prettierrc.toml
+      - .prettierrc.js
+      - .prettierrc.mjs
+      - .prettierrc.cjs
+      - package.json
+      - .git
   # Lua
   stylua: &stylua
     format-command: "stylua -s --color Never -"
@@ -46,7 +62,7 @@ tools:
     lint-command: "fish --no-execute ${INPUT}"
     lint-ignore-exit-node: true
     lint-formats:
-      - '%f (line %l): %m'
+      - "%f (line %l): %m"
   shellcheck: &shellcheck
     lint-command: "shellcheck -f gcc -x"
     lint-source: shellcheck
