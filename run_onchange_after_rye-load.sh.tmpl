@@ -1,0 +1,6 @@
+#!/bin/bash
+# vim: set ft=sh :
+
+# requirements.lock hash: {{ include "dot_config/nvim/lua/tools/python/requirements.lock" | sha256sum }}
+# requirements-dev.lock hash: {{ include "dot_config/nvim/lua/tools/python/requirements-dev.lock" | sha256sum }}
+cd "$HOME/.config/nvim/lua/tools/python" && rye sync

@@ -447,6 +447,7 @@ local plugins = {
             "b0o/schemastore.nvim",
             "kyoh86/climbdir.nvim",
             "node_tools",
+            "python_tools",
             "hrsh7th/cmp-nvim-lsp",
         },
         cmd = { "LspInfo", "LspInstall", "LspStart" },
