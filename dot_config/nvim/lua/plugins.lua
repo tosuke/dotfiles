@@ -518,6 +518,7 @@ local plugins = {
             -- OCaml
             setup_lsp(lspcfg.ocamllsp.setup, {})
 
+
             -- TypeScript
             setup_lsp(lspcfg.denols.setup, {
                 root_dir = function(path)
@@ -557,7 +558,7 @@ local plugins = {
                     },
                 },
             })
-            setup_lsp(lspcfg.tsserver.setup, {
+            setup_lsp(lspcfg.tsserver.setup, disable_format({
                 root_dir = function(path)
                     local marker = require("climbdir.marker")
                     local found = require("climbdir").climb(
@@ -585,7 +586,9 @@ local plugins = {
                         },
                     },
                 },
-            })
+            }))
+
+            setup_lsp(lspcfg.eslint.setup, {})
 
             -- Lua
             setup_lsp(
