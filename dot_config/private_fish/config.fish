@@ -7,10 +7,10 @@ if not set -q XDG_CONFIG_HOME;
 end
 
 # aqua
-if command -q aqua;
-    if not set -q AQUA_ROOT_DIR;
-        set AQUA_ROOT_DIR "$XDG_DATA_HOME/aquaproj-aqua"
-    end
+if not set -q AQUA_ROOT_DIR;
+    set AQUA_ROOT_DIR "$XDG_DATA_HOME/aquaproj-aqua"
+end
+if [ -d "$AQUA_ROOT_DIR" ];
     fish_add_path -g "$AQUA_ROOT_DIR/bin"
     set -q AQUA_GLOBAL_CONFIG || set -gx AQUA_GLOBAL_CONFIG "$XDG_CONFIG_HOME/aquaproj-aqua/aqua.yaml"
 end
