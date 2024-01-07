@@ -502,6 +502,7 @@ local plugins = {
                     "typescript",
                     "typescriptreact",
                     -- shell
+                    "fish",
                     "sh",
                 },
             })

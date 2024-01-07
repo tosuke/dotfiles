@@ -39,6 +39,14 @@ tools:
     root-markers:
       - .ocamlformat
   # Shell
+  fish_indent: &fish_indent
+    format-command: "fish_indent"
+    format-stdin: true
+  fish_diagnostics: &fish_diagnostics
+    lint-command: "fish --no-execute ${INPUT}"
+    lint-ignore-exit-node: true
+    lint-formats:
+      - '%f (line %l): %m'
   shellcheck: &shellcheck
     lint-command: "shellcheck -f gcc -x"
     lint-source: shellcheck
@@ -77,6 +85,9 @@ languages:
   terraform:
     - <<: *terraform-fmt
   # shell
+  fish:
+    - <<: *fish_indent
+    - <<: *fish_diagnostics
   sh:
     - <<: *shellcheck
   bash:
