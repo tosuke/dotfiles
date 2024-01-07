@@ -5,7 +5,9 @@ description = "Add your description here"
 authors = [
     { name = "tosuke", email = "13393900+tosuke@users.noreply.github.com" }
 ]
-dependencies = []
+dependencies = [
+    "yamllint>=1.33.0",
+]
 readme = "README.md"
 requires-python = ">= 3.12"
 

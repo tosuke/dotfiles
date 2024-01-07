@@ -1,3 +1,4 @@
+---
 version: 2
 root-markers:
   - .git/
@@ -54,13 +55,27 @@ tools:
     format-stdin: true
     root-markers:
       - .ocamlformat
+  # YAML
+  yamllint: &yamllint
+    lint-command: "yamllint -f parsable -"
+    lint-stdin: true
+    lint-ignore-exit-code: true
+    lint-formats:
+      - "stdin:%l:%c: [%tarning] %m"
+      - "stdin:%l:%c: [%trror] %m"
+    root-markers:
+      - .yamllint
+      - .yamllint.yml
+      - .yamllint.yaml
+      - .git
+
   # Shell
   fish_indent: &fish_indent
     format-command: "fish_indent"
     format-stdin: true
   fish_diagnostics: &fish_diagnostics
-    lint-command: "fish --no-execute ${INPUT}"
-    lint-ignore-exit-node: true
+    lint-command: 'fish --no-execute "${INPUT}"'
+    lint-ignore-exit-code: true
     lint-formats:
       - "%f (line %l): %m"
   shellcheck: &shellcheck
@@ -98,6 +113,7 @@ languages:
     - <<: *prettierd
   yaml:
     - <<: *prettierd
+    - <<: *yamllint
   terraform:
     - <<: *terraform-fmt
   # shell

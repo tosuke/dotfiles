@@ -84,6 +84,7 @@ vim.filetype.add({
     filename = {
         ["Earthfile"] = "Earthfile",
         [".envrc"] = "sh",
+        [".yamllint"] = "yaml",
     },
 })
 
