@@ -1,0 +1,11 @@
+packages:
+  - type: github_release
+    repo_owner: ocaml
+    repo_name: opam
+    asset: "opam-{{ .Version }}-{{ .Arch }}-{{ .OS }}"
+    replacements:
+      darwin: macos
+      arm: armhf
+      "386": i686
+      amd64: x86_64
+    format: raw

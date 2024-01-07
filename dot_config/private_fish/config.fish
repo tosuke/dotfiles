@@ -13,6 +13,7 @@ end
 if [ -d "$AQUA_ROOT_DIR" ];
     fish_add_path -g "$AQUA_ROOT_DIR/bin"
     set -q AQUA_GLOBAL_CONFIG || set -gx AQUA_GLOBAL_CONFIG "$XDG_CONFIG_HOME/aquaproj-aqua/aqua.yaml"
+    set -q AQUA_POLICY_CONFIG || set -gx AQUA_POLICY_CONFIG "$XDG_CONFIG_HOME/aquaproj-aqua/aqua-policy.yaml"
 end
 
 # local
