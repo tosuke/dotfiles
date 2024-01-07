@@ -314,8 +314,6 @@ local plugins = {
             { "<leader>gg", "<cmd>Telescope live_grep<cr>", desc = "[G]rep" },
             { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "[G]it [S]tatus" },
             { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "find [B]uffers" },
-            { "<leader>q", "<cmd>Telescope diagnostics<cr>" },
-            { "gr", "<cmd>Telescope lsp_references<cr>" },
             {
                 "<leader>gf",
                 "<cmd>Telescope file_browser path=%:p:h select_buffer=true hidden=true<cr>",
@@ -653,30 +651,90 @@ local plugins = {
             -- terraform
             setup_lsp(lspcfg.terraformls.setup, disable_format({}))
 
-            local opts = { noremap = true, silent = true }
-            vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, opts)
-            vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
-            vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
+            local has_telescope = require("lazy.core.config").spec.plugins["telescope.nvim"] ~= nil
 
             local group = vim.api.nvim_create_augroup("UserLspConfig", {})
             vim.api.nvim_create_autocmd("LspAttach", {
                 group = group,
                 callback = function(ev)
-                    -- <C-x><C-o>
-                    vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-
                     local bopts = { noremap = true, silent = true, buffer = ev.buf }
+                    local function opts(desc)
+                        return { silent = true, buffer = ev.buf, desc = desc }
+                    end
 
-                    vim.keymap.set("n", "K", vim.lsp.buf.hover, bopts)
-                    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bopts)
-                    vim.keymap.set("n", "gd", vim.lsp.buf.definition, bopts)
-                    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bopts)
-                    vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, bopts)
-                    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bopts)
-                    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bopts)
+                    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts("hover"))
+
+                    -- vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bopts)
+
+                    -- definition
+                    vim.keymap.set("n", "gd", function()
+                        if has_telescope then
+                            vim.cmd("Telescope lsp_definitions")
+                            return
+                        end
+                        vim.lsp.buf.definition()
+                    end, opts("go to definition"))
+
+                    -- type definition
+                    vim.keymap.set("n", "gt", function()
+                        if has_telescope then
+                            vim.cmd("Telescope lsp_type_definitions")
+                            return
+                        end
+                        vim.lsp.buf.type_definition()
+                    end, opts("go to type definition"))
+
+                    -- implementation
+                    vim.keymap.set("n", "gi", function()
+                        if has_telescope then
+                            vim.cmd("Telescope lsp_implementation")
+                            return
+                        end
+                        vim.lsp.buf.implementation()
+                    end, opts("go to implementation"))
+
+                    -- references
+                    vim.keymap.set("n", "gr", function()
+                        if has_telescope then
+                            vim.cmd("Telescope lsp_references")
+                            return
+                        end
+                        vim.lsp.buf.references()
+                    end)
+
+                    -- diagnostics
+                    vim.keymap.set("n", "<leader>q", function()
+                        if has_telescope then
+                            vim.cmd("Telescope diagnostics")
+                            return
+                        end
+                        vim.diagnostic.setloclist()
+                    end, opts("open diagnostics"))
+                    vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts("open diagnostic float"))
+                    vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts("goto prev diagnostic"))
+                    vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts("goto next diagnostic"))
+
+                    -- rename
+                    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts("rename"))
+
+                    -- code actions
+                    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts("code actions"))
+
                     vim.keymap.set("n", "<leader>f", function()
                         vim.lsp.buf.format({ async = true })
                     end, bopts)
+
+                    -- workspace
+                    vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts("add workspace folder"))
+                    vim.keymap.set(
+                        "n",
+                        "<leader>wr",
+                        vim.lsp.buf.remove_workspace_folder,
+                        opts("remove workspace folder")
+                    )
+                    vim.keymap.set("n", "<leader>wl", function()
+                        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+                    end, opts("list workspace folders"))
                 end,
             })
         end,
