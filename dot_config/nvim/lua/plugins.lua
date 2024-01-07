@@ -432,6 +432,15 @@ local plugins = {
     },
     -- LSP
     {
+        "aznhe21/actions-preview.nvim",
+        dependencies = {
+            "neovim/nvim-lspconfig",
+            "nvim-telescope/telescope.nvim",
+        },
+        cond = not_vscode,
+        opts = {},
+    },
+    {
         "neovim/nvim-lspconfig",
         cond = not_vscode,
         dependencies = {
@@ -651,13 +660,13 @@ local plugins = {
             -- terraform
             setup_lsp(lspcfg.terraformls.setup, disable_format({}))
 
+            -- keymaps
             local has_telescope = require("lazy.core.config").spec.plugins["telescope.nvim"] ~= nil
-
+            local has_actions_preview = require("lazy.core.config").spec.plugins["actions-preview.nvim"] ~= nil
             local group = vim.api.nvim_create_augroup("UserLspConfig", {})
             vim.api.nvim_create_autocmd("LspAttach", {
                 group = group,
                 callback = function(ev)
-                    local bopts = { noremap = true, silent = true, buffer = ev.buf }
                     local function opts(desc)
                         return { silent = true, buffer = ev.buf, desc = desc }
                     end
@@ -687,7 +696,7 @@ local plugins = {
                     -- implementation
                     vim.keymap.set("n", "gi", function()
                         if has_telescope then
-                            vim.cmd("Telescope lsp_implementation")
+                            vim.cmd("Telescope lsp_implementations")
                             return
                         end
                         vim.lsp.buf.implementation()
@@ -701,6 +710,10 @@ local plugins = {
                         end
                         vim.lsp.buf.references()
                     end)
+
+                    -- signature help
+                    vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, opts("signature help"))
+                    vim.keymap.set("n", "gk", vim.lsp.buf.signature_help, opts("signature help"))
 
                     -- diagnostics
                     vim.keymap.set("n", "<leader>q", function()
@@ -718,11 +731,17 @@ local plugins = {
                     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts("rename"))
 
                     -- code actions
-                    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts("code actions"))
+                    vim.keymap.set("n", "<leader>ca", function()
+                        if has_actions_preview then
+                            require("actions-preview").code_actions()
+                            return
+                        end
+                        vim.lsp.buf.code_action()
+                    end, opts("code actions"))
 
                     vim.keymap.set("n", "<leader>f", function()
                         vim.lsp.buf.format({ async = true })
-                    end, bopts)
+                    end, opts("format"))
 
                     -- workspace
                     vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts("add workspace folder"))
