@@ -435,10 +435,12 @@ local plugins = {
     -- LSP
     {
         "neovim/nvim-lspconfig",
+        cond = not_vscode,
         dependencies = {
-            "hrsh7th/cmp-nvim-lsp",
             "b0o/schemastore.nvim",
+            "kyoh86/climbdir.nvim",
             "node_tools",
+            "hrsh7th/cmp-nvim-lsp",
         },
         cmd = { "LspInfo", "LspInstall", "LspStart" },
         event = { "BufReadPre", "BufNewFile" },
@@ -515,6 +517,46 @@ local plugins = {
 
             -- OCaml
             setup_lsp(lspcfg.ocamllsp.setup, {})
+
+            -- TypeScript
+            setup_lsp(lspcfg.denols.setup, {
+                root_dir = function(path)
+                    local marker = require("climbdir.marker")
+                    local found = require("climbdir").climb(
+                        path,
+                        marker.one_of(
+                            marker.has_readable_file("deno.json"),
+                            marker.has_readable_file("deno.jsonc"),
+                            marker.has_directory(".git")
+                        ),
+                        {
+                            halt = marker.one_of(marker.has_readable_file("package.json")),
+                        }
+                    )
+                    return found
+                end,
+                on_attach = function(_, buf)
+                    vim.api.nvim_create_autocmd("BufWritePost", {
+                        buffer = buf,
+                        callback = function()
+                            vim.cmd.Denolscache()
+                        end,
+                    })
+                end,
+                settings = {
+                    deno = {
+                        lint = true,
+                        suggest = {
+                            imports = {
+                                hosts = {
+                                    ["https://deno.land"] = true,
+                                    ["https://esm.sh"] = true,
+                                },
+                            },
+                        },
+                    },
+                },
+            })
 
             -- Lua
             setup_lsp(
