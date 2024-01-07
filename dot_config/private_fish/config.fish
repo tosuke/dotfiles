@@ -39,6 +39,11 @@ if command -q fnm
     end
 end
 
+# rye (Python)
+if [ -d $HOME/.rye ]
+    fish_add_path -g "$HOME/.rye/shims"
+end
+
 # opam
 if [ -f $HOME/.opam/opam-init/init.fish ]
     source $HOME/.opam/opam-init/init.fish; or echo "opam initialization failed"
