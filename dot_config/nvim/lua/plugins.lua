@@ -557,6 +557,35 @@ local plugins = {
                     },
                 },
             })
+            setup_lsp(lspcfg.tsserver.setup, {
+                root_dir = function(path)
+                    local marker = require("climbdir.marker")
+                    local found = require("climbdir").climb(
+                        path,
+                        marker.one_of(
+                            marker.has_readable_file("tsconfig.json"),
+                            marker.has_readable_file("jsconfig.json"),
+                            marker.has_readable_file("package.json"),
+                            marker.has_directory("node_modules")
+                        ),
+                        {
+                            halt = marker.one_of(
+                                marker.has_readable_file("deno.json"),
+                                marker.has_readable_file("deno.jsonc")
+                            ),
+                        }
+                    )
+                    return found
+                end,
+                settings = {
+                    typescript = {
+                        inlayHints = {
+                            includeInlayParameterNameHints = "literals",
+                            includeInlayFunctionParameterTypeHints = true,
+                        },
+                    },
+                },
+            })
 
             -- Lua
             setup_lsp(
