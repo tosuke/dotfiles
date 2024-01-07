@@ -528,14 +528,14 @@ local plugins = {
 
             -- TypeScript
             setup_lsp(lspcfg.denols.setup, {
+                single_file_support = false,
                 root_dir = function(path)
                     local marker = require("climbdir.marker")
                     local found = require("climbdir").climb(
                         path,
                         marker.one_of(
                             marker.has_readable_file("deno.json"),
-                            marker.has_readable_file("deno.jsonc"),
-                            marker.has_directory(".git")
+                            marker.has_readable_file("deno.jsonc")
                         ),
                         {
                             halt = marker.one_of(marker.has_readable_file("package.json")),
