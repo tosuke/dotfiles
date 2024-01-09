@@ -9,10 +9,7 @@ tools:
   prettierd: &prettierd
     format-command: >
       prettierd "${INPUT}"
-        ${--range-start:charStart}
-        ${--range-end:charEnd}
     format-stdin: true
-    format-can-range: true
     root-markers:
       - .prettierrc
       - .prettierrc.json
