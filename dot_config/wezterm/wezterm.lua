@@ -22,6 +22,7 @@ config.font_size = 15
 
 config.use_ime = true
 config.ime_preedit_rendering = "Builtin" -- FIXME: Builtin にしても System にしても fcitx5 はうまく動いてくれない
+config.enable_wayland = false
 
 local keybinds = require("keybinds")
 config.disable_default_key_bindings = true
