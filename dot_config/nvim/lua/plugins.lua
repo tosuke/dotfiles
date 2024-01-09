@@ -533,10 +533,7 @@ local plugins = {
                     local marker = require("climbdir.marker")
                     local found = require("climbdir").climb(
                         path,
-                        marker.one_of(
-                            marker.has_readable_file("deno.json"),
-                            marker.has_readable_file("deno.jsonc")
-                        ),
+                        marker.one_of(marker.has_readable_file("deno.json"), marker.has_readable_file("deno.jsonc")),
                         {
                             halt = marker.one_of(marker.has_readable_file("package.json")),
                         }
@@ -629,20 +626,20 @@ local plugins = {
             )
 
             -- json
-            setup_lsp(
-                lspcfg.jsonls.setup,
-                disable_format(function(_, config)
-                    config.capabilities.textDocument.completion.completionItem.snippetSupport = true
-                    config.settings = {
-                        json = {
-                            schemas = require("schemastore").json.schemas(),
-                            validate = { enable = true },
-                            format = { enable = false },
-                        },
-                    }
-                    return config
-                end)
-            )
+            setup_lsp(lspcfg.jsonls.setup, function(_, config)
+                config.init_options = {
+                    provideFormatter = false,
+                }
+                config.capabilities.textDocument.completion.completionItem.snippetSupport = true
+                config.settings = {
+                    json = {
+                        schemas = require("schemastore").json.schemas(),
+                        validate = { enable = true },
+                        format = { enable = false },
+                    },
+                }
+                return config
+            end)
 
             -- yaml
             setup_lsp(
