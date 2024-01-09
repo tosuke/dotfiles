@@ -64,7 +64,6 @@ tools:
       - .yamllint
       - .yamllint.yml
       - .yamllint.yaml
-      - .git
 
   # Shell
   fish_indent: &fish_indent
