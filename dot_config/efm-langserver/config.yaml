@@ -64,6 +64,15 @@ tools:
       - .yamllint
       - .yamllint.yml
       - .yamllint.yaml
+  actionlint: &actionlint
+    lint-command: >
+      bash -c '[[ "${INPUT}" =~ \.github/workflows/ ]] &&
+      actionlint -oneline -no-color -stdin-filename ${INPUT} -'
+    lint-stdin: true
+    lint-formats:
+      - "%f:%l:%c: %m"
+    root-markers:
+      - .github
 
   # Shell
   fish_indent: &fish_indent
@@ -110,6 +119,7 @@ languages:
   yaml:
     - <<: *prettierd
     - <<: *yamllint
+    - <<: *actionlint
   terraform:
     - <<: *terraform-fmt
   # shell
