@@ -27,7 +27,7 @@ packages:
   # k8s
   - name: kubernetes/kubectl@v1.29.0
   - name: int128/kubelogin@v1.28.0
-  - name: stern/stern@v1.27.0
+  - name: stern/stern@v1.28.0
   # LSP
   - name: mattn/efm-langserver@v0.0.49
   # Terraform
