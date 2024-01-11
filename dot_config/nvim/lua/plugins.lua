@@ -675,7 +675,7 @@ local plugins = {
                     -- definition
                     vim.keymap.set("n", "gd", function()
                         if has_telescope then
-                            vim.cmd("Telescope lsp_definitions")
+                            vim.cmd("Telescope lsp_definitions jump_type=never")
                             return
                         end
                         vim.lsp.buf.definition()
@@ -684,7 +684,7 @@ local plugins = {
                     -- type definition
                     vim.keymap.set("n", "gt", function()
                         if has_telescope then
-                            vim.cmd("Telescope lsp_type_definitions")
+                            vim.cmd("Telescope lsp_type_definitions jump_type=never")
                             return
                         end
                         vim.lsp.buf.type_definition()
@@ -693,7 +693,7 @@ local plugins = {
                     -- implementation
                     vim.keymap.set("n", "gi", function()
                         if has_telescope then
-                            vim.cmd("Telescope lsp_implementations")
+                            vim.cmd("Telescope lsp_implementations jump_type=never")
                             return
                         end
                         vim.lsp.buf.implementation()
@@ -702,7 +702,7 @@ local plugins = {
                     -- references
                     vim.keymap.set("n", "gr", function()
                         if has_telescope then
-                            vim.cmd("Telescope lsp_references")
+                            vim.cmd("Telescope lsp_references jump_type=never")
                             return
                         end
                         vim.lsp.buf.references()
