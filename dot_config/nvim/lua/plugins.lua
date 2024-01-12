@@ -23,6 +23,10 @@ local plugins = {
                         RainbowDelimiter3 = { fg = "#b4be82" }, -- foreground3
                         RainbowDelimiter4 = { fg = "#e2a478" }, -- foreground4
                         RainbowDelimiter5 = { fg = "#a093c7" }, -- foreground5
+                        -- transparent
+                        Normal = { ctermbg = "NONE", bg = "NONE" },
+                        NonText = { ctermbg = "NONE", bg = "NONE" },
+                        CursorLine = { ctermbg = "NONE", bg = "NONE" },
                     }
                     for group, conf in pairs(highlight) do
                         vim.api.nvim_set_hl(0, group, conf)
@@ -332,7 +336,7 @@ local plugins = {
             local actions = require("telescope.actions")
             telescope.setup({
                 defaults = {
-                    winblend = 20,
+                    winblend = 0,
                     borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
                     color_devicons = true,
                     file_ignore_patterns = { "node%_modules/.*", "%.git/.*", "%.cache/.*", "%.npm/.*" },
