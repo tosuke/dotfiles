@@ -3,15 +3,26 @@ local act = wezterm.action
 
 return {
     keys = {
+        -- Alt-; でコマンドパレットを開く
+        { key = ";", mods = "ALT", action = act.ActivateCommandPalette },
+        -- Alt-z でズーム
+        { key = "z", mods = "ALT", action = act.TogglePaneZoomState },
         -- Alt-Shift-k でタブを開く
-        { key = "k", mods = "ALT|SHIFT", action = act.SpawnTab("CurrentPaneDomain") },
+        { key = "K", mods = "ALT|SHIFT", action = act.SpawnTab("CurrentPaneDomain") },
         -- Alt-Shift-j でタブを閉じる
-        { key = "j", mods = "ALT|SHIFT", action = act.CloseCurrentTab({ confirm = true }) },
+        { key = "J", mods = "ALT|SHIFT", action = act.CloseCurrentTab({ confirm = true }) },
         -- Alt-Shift-hl でタブ間移動
-        { key = "h", mods = "ALT|SHIFT", action = act.ActivateTabRelative(-1) },
-        { key = "l", mods = "ALT|SHIFT", action = act.ActivateTabRelative(1) },
+        { key = "H", mods = "ALT|SHIFT", action = act.ActivateTabRelative(-1) },
+        { key = "L", mods = "ALT|SHIFT", action = act.ActivateTabRelative(1) },
+        -- Ctrl-Alt-Shift-hl でタブを移動
+        { key = "H", mods = "CTRL|ALT|SHIFT", action = act.MoveTabRelative(-1) },
+        { key = "L", mods = "CTRL|ALT|SHIFT", action = act.MoveTabRelative(1) },
+        -- Alg-Shift-f でタブを選択
+        { key = "F", mods = "ALT|SHIFT", action = act.ShowTabNavigator },
         -- Alt-\ でペインを横に分割
         { key = "\\", mods = "ALT", action = act.SplitPane({ direction = "Right" }) },
+        -- Leader-v でも横
+        { key = "v", mods = "LEADER", action = act.SplitPane({ direction = "Right" }) },
         -- Alt-- でペインを縦に分割
         { key = "-", mods = "ALT", action = act.SplitPane({ direction = "Down" }) },
         -- Alt-q でペインを閉じる
@@ -19,7 +30,7 @@ return {
         -- vimium スタイルに find してペインを移動
         { key = "f", mods = "ALT", action = act.PaneSelect },
         -- find と同じようにペインを入れ替え
-        { key = "f", mods = "ALT|SHIFT", action = act.PaneSelect({ mode = "SwapWithActive" }) },
+        { key = "s", mods = "ALT", action = act.PaneSelect({ mode = "SwapWithActive" }) },
         -- Alt-Shift-hjkl でペイン移動
         { key = "h", mods = "ALT", action = act.ActivatePaneDirection("Left") },
         { key = "j", mods = "ALT", action = act.ActivatePaneDirection("Down") },
@@ -28,40 +39,26 @@ return {
         -- ペインを hjkl でリサイズ
         {
             key = "r",
-            mods = "ALT",
-            action = act.ActivateKeyTable({ name = "resize_pane", one_shot = false }),
+            mods = "ALT|SHIFT",
+            action = act.ActivateKeyTable({ name = "resize_pane", one_shot = false, prevent_fallback = true }),
         },
 
         -- default + modded
-        { key = "Tab", mods = "CTRL", action = act.ActivateTabRelative(1) },
-        { key = "Tab", mods = "SHIFT|CTRL", action = act.ActivateTabRelative(-1) },
         { key = "Enter", mods = "ALT", action = act.ToggleFullScreen },
         { key = "!", mods = "CTRL", action = act.ActivateTab(0) },
         { key = "!", mods = "SHIFT|CTRL", action = act.ActivateTab(0) },
-        { key = '"', mods = "ALT|CTRL", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
-        { key = '"', mods = "SHIFT|ALT|CTRL", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
         { key = "#", mods = "CTRL", action = act.ActivateTab(2) },
         { key = "#", mods = "SHIFT|CTRL", action = act.ActivateTab(2) },
         { key = "$", mods = "CTRL", action = act.ActivateTab(3) },
         { key = "$", mods = "SHIFT|CTRL", action = act.ActivateTab(3) },
         { key = "%", mods = "CTRL", action = act.ActivateTab(4) },
         { key = "%", mods = "SHIFT|CTRL", action = act.ActivateTab(4) },
-        { key = "%", mods = "ALT|CTRL", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-        { key = "%", mods = "SHIFT|ALT|CTRL", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
         { key = "&", mods = "CTRL", action = act.ActivateTab(6) },
         { key = "&", mods = "SHIFT|CTRL", action = act.ActivateTab(6) },
-        { key = "'", mods = "SHIFT|ALT|CTRL", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
         { key = "(", mods = "CTRL", action = act.ActivateTab(-1) },
         { key = "(", mods = "SHIFT|CTRL", action = act.ActivateTab(-1) },
-        { key = ")", mods = "CTRL", action = act.ResetFontSize },
-        { key = ")", mods = "SHIFT|CTRL", action = act.ResetFontSize },
         { key = "*", mods = "CTRL", action = act.ActivateTab(7) },
         { key = "*", mods = "SHIFT|CTRL", action = act.ActivateTab(7) },
-        { key = "+", mods = "CTRL", action = act.IncreaseFontSize },
-        { key = "+", mods = "SHIFT|CTRL", action = act.IncreaseFontSize },
-        { key = "=", mods = "CTRL", action = act.IncreaseFontSize },
-        { key = "=", mods = "SHIFT|CTRL", action = act.IncreaseFontSize },
-        { key = "=", mods = "SUPER", action = act.IncreaseFontSize },
         { key = "@", mods = "CTRL", action = act.ActivateTab(1) },
         { key = "@", mods = "SHIFT|CTRL", action = act.ActivateTab(1) },
         { key = "C", mods = "CTRL", action = act.CopyTo("Clipboard") },
@@ -175,7 +172,10 @@ return {
             { key = "j", action = act.AdjustPaneSize({ "Down", 1 }) },
             { key = "k", action = act.AdjustPaneSize({ "Up", 1 }) },
             { key = "l", action = act.AdjustPaneSize({ "Right", 1 }) },
+            { key = "UpArrow", action = act.AdjustPaneSize({ "Up", 1 }) },
+            { key = "f", action = act.PaneSelect },
             { key = "Escape", action = act.PopKeyTable },
+            { key = "[", mods = "CTRL", action = act.PopKeyTable },
         },
         copy_mode = {
             { key = "Tab", mods = "NONE", action = act.CopyMode("MoveForwardWord") },
