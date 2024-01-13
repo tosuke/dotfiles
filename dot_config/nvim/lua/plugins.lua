@@ -183,6 +183,13 @@ local plugins = {
         event = { "VeryLazy" },
         opts = {},
     },
+    {
+        "norcalli/nvim-colorizer.lua",
+        event = { "BufReadPost", "BufNewFile" },
+        config = function()
+            require("colorizer").setup()
+        end,
+    },
     -- syntax
     {
         "nvim-treesitter/nvim-treesitter",
