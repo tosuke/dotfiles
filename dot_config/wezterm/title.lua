@@ -36,7 +36,8 @@ wezterm.on("format-tab-title", function(tab, _, _, _, hover, _)
     local active = tab.is_active and 1 or 2
     local process = tab.active_pane.foreground_process_name
     local process_name = process and basename(process) or ""
-    local cwd = basename(tab.active_pane.current_working_dir.file_path)
+    local cwd_url = tab.active_pane.current_working_dir
+    local cwd = cwd_url and basename(cwd_url.file_path)
 
     local bg = hover and HOVER_COLOR or BACK_COLOR[active]
 
@@ -44,9 +45,9 @@ wezterm.on("format-tab-title", function(tab, _, _, _, hover, _)
     local zoomed = tab.active_pane.is_zoomed and "🔎 " or " "
     local icon = HEADER_ICONS[process_name] or HEADER_ICON_DEFAULT
 
-    local title = cwd .. " | " .. process_name
-    if process_name == "ssh" then
-        title = tab.active_pane.title
+    local title = tab.active_pane.title
+    if cwd then
+        title = cwd .. " | " .. process_name
     end
 
     return {
