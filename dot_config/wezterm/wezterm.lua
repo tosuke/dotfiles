@@ -10,9 +10,13 @@ end
 
 -- colors
 config.color_scheme = "iceberg-dark"
-config.window_background_opacity = 0.97
+config.window_background_opacity = 0.95
 config.text_background_opacity = 0.7
 config.colors = {}
+config.inactive_pane_hsb = {
+    saturation = 0.6,
+    brightness = 0.8
+}
 
 -- decorations
 config.window_decorations = "RESIZE"
