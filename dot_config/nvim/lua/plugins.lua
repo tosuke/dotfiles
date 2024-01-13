@@ -163,7 +163,7 @@ local plugins = {
                         { "diff", source = diff_source },
                         "diagnostics",
                     },
-                    lualine_c = { "filename" },
+                    lualine_c = { {"filename", path = 1 }},
                     lualine_x = { "encoding", "fileformat", "filetype" },
                     lualine_y = { "progress" },
                     lualine_z = { "location" },
@@ -348,7 +348,7 @@ local plugins = {
                 callback = function()
                     local bg_float = "#1e2132"
                     local bg_selection = "#2a3158"
-                    vim.api.nvim_set_hl(0, "TelescopeSelection", {  bg = bg_selection })
+                    vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = bg_selection })
                     vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = bg_float })
                     vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = bg_float })
                     vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = bg_float })
