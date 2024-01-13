@@ -308,21 +308,6 @@ local plugins = {
     {
         "nvim-telescope/telescope.nvim",
         cmd = { "Telescope" },
-        keys = {
-            {
-                "<leader><leader>",
-                "<cmd>Telescope find_files hidden=true<cr>",
-                desc = "find files",
-            },
-            { "<leader>gg", "<cmd>Telescope live_grep<cr>", desc = "[G]rep" },
-            { "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "[G]it [S]tatus" },
-            { "<leader>b", "<cmd>Telescope buffers<cr>", desc = "find [B]uffers" },
-            {
-                "<leader>gf",
-                "<cmd>Telescope file_browser path=%:p:h select_buffer=true hidden=true<cr>",
-                desc = "[F]iles",
-            },
-        },
         dependencies = {
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons",
@@ -331,6 +316,32 @@ local plugins = {
             "lewis6991/gitsigns.nvim",
         },
         init = function()
+            -- keymaps
+            vim.keymap.set(
+                "n",
+                "<leader><leader>",
+                "<cmd>Telescope find_files hidden=true<cr>",
+                { silent = true, desc = "find files" }
+            )
+            vim.keymap.set(
+                "n",
+                "<leader>gg",
+                "<cmd>Telescope live_grep hidden=true<cr>",
+                { silent = true, desc = "[G]rep" }
+            )
+            vim.keymap.set(
+                "n",
+                "<leader>gs",
+                "<cmd>Telescope git_status<cr>",
+                { silent = true, desc = "[G]it [S]tatus" }
+            )
+            vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<cr>", { silent = true, desc = "find [B]uffers" })
+            vim.keymap.set(
+                "n",
+                "<leader>ex",
+                "<cmd>Telescope file_browser path=%:p:h select_buffer=true hidden=true<cr>",
+                { silent = true, desc = "File [Ex]plorer" }
+            )
             -- colors
             vim.api.nvim_create_autocmd("ColorScheme", {
                 pattern = "iceberg",
