@@ -642,31 +642,31 @@ local plugins = {
             setup_lsp(lspcfg.eslint.setup, {})
 
             -- Lua
-            setup_lsp(
-                lspcfg.lua_ls.setup,
-                disable_format({
-                    flags = {
-                        debounce_text_changes = 150,
-                    },
-                    settings = {
-                        Lua = {
-                            diagnostics = {
-                                globals = { "vim" },
-                            },
-                            completion = {
-                                showWord = "disable",
-                                callSnippet = "Replace",
-                            },
-                            format = {
-                                enable = false,
-                            },
-                            hint = {
-                                enable = true,
-                            },
+            setup_lsp(lspcfg.lua_ls.setup, {
+                flags = {
+                    debounce_text_changes = 150,
+                },
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { "vim" },
+                        },
+                        completion = {
+                            showWord = "disable",
+                            callSnippet = "Replace",
+                        },
+                        format = {
+                            enable = false,
+                        },
+                        hint = {
+                            enable = true,
+                        },
+                        semantic = {
+                            enable = false,
                         },
                     },
-                })
-            )
+                },
+            })
 
             -- json
             setup_lsp(lspcfg.jsonls.setup, function(_, config)
