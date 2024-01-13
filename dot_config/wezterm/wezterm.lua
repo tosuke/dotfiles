@@ -11,6 +11,7 @@ end
 -- colors
 config.color_scheme = "iceberg-dark"
 config.window_background_opacity = 0.97
+config.text_background_opacity = 0.7
 config.colors = {}
 
 -- decorations

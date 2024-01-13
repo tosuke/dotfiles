@@ -132,7 +132,7 @@ require("lazy").setup({
 -- 見た目
 if not vim.g.vscode then
     vim.o.termguicolors = true
-    vim.o.winblend = 20
-    vim.o.pumblend = 20
+    vim.o.winblend = 10
+    vim.o.pumblend = 10
     vim.cmd.colorscheme("iceberg")
 end

@@ -26,7 +26,6 @@ local plugins = {
                         -- transparent
                         Normal = { ctermbg = "NONE", bg = "NONE" },
                         NonText = { ctermbg = "NONE", bg = "NONE" },
-                        CursorLine = { ctermbg = "NONE", bg = "NONE" },
                     }
                     for group, conf in pairs(highlight) do
                         vim.api.nvim_set_hl(0, group, conf)
@@ -331,12 +330,29 @@ local plugins = {
             "nvim-telescope/telescope-file-browser.nvim",
             "lewis6991/gitsigns.nvim",
         },
+        init = function()
+            -- colors
+            vim.api.nvim_create_autocmd("ColorScheme", {
+                pattern = "iceberg",
+                callback = function()
+                    local bg_float = "#1e2132"
+                    local bg_selection = "#2a3158"
+                    vim.api.nvim_set_hl(0, "TelescopeSelection", {  bg = bg_selection })
+                    vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = bg_float })
+                    vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = bg_float })
+                    vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = bg_float })
+                    vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { bg = bg_float })
+                    vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = bg_float })
+                    vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { bg = bg_float })
+                end,
+            })
+        end,
         config = function()
             local telescope = require("telescope")
             local actions = require("telescope.actions")
             telescope.setup({
                 defaults = {
-                    winblend = 0,
+                    winblend = 10,
                     borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
                     color_devicons = true,
                     file_ignore_patterns = { "node%_modules/.*", "%.git/.*", "%.cache/.*", "%.npm/.*" },
