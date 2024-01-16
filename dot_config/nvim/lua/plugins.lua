@@ -545,23 +545,6 @@ local plugins = {
                 setup(conf)
             end
 
-            local function disable_format(config)
-                return function(spec, c)
-                    local conf = {}
-                    if type(config) == "function" then
-                        conf = config(spec, c)
-                    else
-                        conf = config
-                    end
-                    if conf.capabilities == nil then
-                        conf.capabilities = vim.lsp.protocol.make_client_capabilities()
-                    end
-                    conf.capabilities.documentFormattingProvider = false
-                    conf.capabilities.documentRangeFormattingProvider = false
-                    return conf
-                end
-            end
-
             -- efm
             setup_lsp(lspcfg.efm.setup, {
                 init_options = {
@@ -595,13 +578,35 @@ local plugins = {
             })
 
             -- Go
-            setup_lsp(lspcfg.gopls.setup, disable_format({}))
+            setup_lsp(lspcfg.gopls.setup, {
+                on_attach = function(client)
+                    -- diable formatting
+                    client.server_capabilities.documentFormattingProvider = false
+                    client.server_capabilities.documentRangeFormattingProvider = false
+                end,
+            })
 
             -- Rust
             setup_lsp(lspcfg.rust_analyzer.setup, {})
 
             -- OCaml
-            setup_lsp(lspcfg.ocamllsp.setup, {})
+            setup_lsp(lspcfg.ocamllsp.setup, {
+                settings = {
+                    extendedHover = {
+                        enable = true,
+                    },
+                    duneDiagnostics = {
+                        enable = true,
+                    },
+                },
+                on_attach = function(client, _)
+                    -- disable formatting
+                    client.server_capabilities.documentFormattingProvider = false
+                    client.server_capabilities.documentRangeFormattingProvider = false
+                    -- disable semantic tokens
+                    client.server_capabilities.semanticTokensProvider = nil
+                end,
+            })
 
             -- TypeScript
             setup_lsp(lspcfg.denols.setup, {
@@ -639,39 +644,36 @@ local plugins = {
                     },
                 },
             })
-            setup_lsp(
-                lspcfg.tsserver.setup,
-                disable_format({
-                    single_file_support = false,
-                    root_dir = function(path)
-                        local marker = require("climbdir.marker")
-                        local found = require("climbdir").climb(
-                            path,
-                            marker.one_of(
-                                marker.has_readable_file("tsconfig.json"),
-                                marker.has_readable_file("jsconfig.json"),
-                                marker.has_readable_file("package.json"),
-                                marker.has_directory("node_modules")
+            setup_lsp(lspcfg.tsserver.setup, {
+                single_file_support = false,
+                root_dir = function(path)
+                    local marker = require("climbdir.marker")
+                    local found = require("climbdir").climb(
+                        path,
+                        marker.one_of(
+                            marker.has_readable_file("tsconfig.json"),
+                            marker.has_readable_file("jsconfig.json"),
+                            marker.has_readable_file("package.json"),
+                            marker.has_directory("node_modules")
+                        ),
+                        {
+                            halt = marker.one_of(
+                                marker.has_readable_file("deno.json"),
+                                marker.has_readable_file("deno.jsonc")
                             ),
-                            {
-                                halt = marker.one_of(
-                                    marker.has_readable_file("deno.json"),
-                                    marker.has_readable_file("deno.jsonc")
-                                ),
-                            }
-                        )
-                        return found
-                    end,
-                    settings = {
-                        typescript = {
-                            inlayHints = {
-                                includeInlayParameterNameHints = "literals",
-                                includeInlayFunctionParameterTypeHints = true,
-                            },
+                        }
+                    )
+                    return found
+                end,
+                settings = {
+                    typescript = {
+                        inlayHints = {
+                            includeInlayParameterNameHints = "literals",
+                            includeInlayFunctionParameterTypeHints = true,
                         },
                     },
-                })
-            )
+                },
+            })
 
             setup_lsp(lspcfg.eslint.setup, {})
 
@@ -732,7 +734,15 @@ local plugins = {
             })
 
             -- terraform
-            setup_lsp(lspcfg.terraformls.setup, disable_format({}))
+            setup_lsp(lspcfg.terraformls.setup, {
+                settings = {
+                    on_attach = function(client)
+                        -- disable formatting
+                        client.server_capabilities.documentFormattingProvider = false
+                        client.server_capabilities.documentRangeFormattingProvider = false
+                    end,
+                },
+            })
 
             -- keymaps
             local has_telescope = require("lazy.core.config").spec.plugins["telescope.nvim"] ~= nil
