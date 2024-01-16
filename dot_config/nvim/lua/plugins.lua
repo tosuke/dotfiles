@@ -420,6 +420,13 @@ local plugins = {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
+            {
+                "zbirenbaum/copilot-cmp",
+                dependencies = { "zbirenbaum/copilot.lua" },
+                config = function()
+                    require("copilot_cmp").setup()
+                end,
+            },
             -- snippet
             "hrsh7th/cmp-vsnip",
             "hrsh7th/vim-vsnip",
@@ -448,6 +455,8 @@ local plugins = {
                 }),
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
+                    { name = "copilot" },
+                    { name = "vsnip" },
                 }, {
                     { name = "buffer" },
                 }),
@@ -472,6 +481,18 @@ local plugins = {
             -- 補完後に括弧類を挿入する
             local cmp_autopairs = require("nvim-autopairs.completion.cmp")
             cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+        end,
+    },
+    {
+        "zbirenbaum/copilot.lua",
+        cond = not_vscode,
+        commands = { "Copilot" },
+        event = { "InsertEnter" },
+        config = function()
+            require("copilot").setup({
+                suggestion = { enabled = false },
+                panel = { enabled = false },
+            })
         end,
     },
     -- LSP
