@@ -30,7 +30,7 @@ local HEADER_ICONS = {
 
 local SYMBOL_COLOR = { "#84a0c6", "#6b7089" }
 local FONT_COLOR = { pal.NORMAL_FG, "#6b7089" }
-local BACK_COLOR = { pal.SURFACE_BG, pal.NORMAL_BG }
+local BACK_COLOR = { pal.NORMAL_BG, "#000000" }
 local HOVER_COLOR = "#111111"
 
 wezterm.on("format-tab-title", function(tab, _, _, _, hover, _)

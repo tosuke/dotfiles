@@ -31,8 +31,8 @@ config.window_frame = {
     font = wezterm.font({ family = "Roboto", weight = "Bold" }),
     font_size = 13.5,
 
-    active_titlebar_bg = palette.NORMAL_BG,
-    inactive_titlebar_bg = palette.NORMAL_BG,
+    active_titlebar_bg = "#000000",
+    inactive_titlebar_bg = "#000000",
     active_titlebar_fg = palette.NORMAL_FG,
     inactive_titlebar_fg = palette.NORMAL_FG,
 
