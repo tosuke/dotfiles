@@ -40,7 +40,8 @@ packages:
   - name: golang/tools/goimports@v0.17.0
   - name: go-delve/delve@v1.22.0
   # Rust
-  - name: rust-lang/rust-analyzer@2024-01-01
+  - name: rust-lang/rust-analyzer@2024-01-08
+    registry: local
   # OCaml
   - name: ocaml/opam@2.1.5
     registry: local
