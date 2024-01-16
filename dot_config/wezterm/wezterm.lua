@@ -1,4 +1,5 @@
 require("title")
+require("status")
 local palette = require("palette")
 
 local wezterm = require("wezterm")
@@ -60,12 +61,5 @@ config.key_tables = keybinds.key_tables
 
 -- status
 config.status_update_interval = 1000
-wezterm.on("update-right-status", function(window, pane)
-    local name = window:active_key_table()
-    if name then
-        name = "TABLE: " .. name
-    end
-    window:set_right_status(name or "")
-end)
 
 return config

@@ -5,7 +5,7 @@ local function basename(s)
     return string.gsub(s, "(.*[/\\])(.*)", "%2")
 end
 
-local HEADER_ICON_DEFAULT = ""
+local HEADER_ICON_DEFAULT = wezterm.nerdfonts.fa_terminal
 local HEADER_ICON_REMOTE = wezterm.nerdfonts.cod_remote
 local HEADER_ICONS = {
     -- editor
