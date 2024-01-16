@@ -28,9 +28,9 @@ local HEADER_ICONS = {
     node = wezterm.nerdfonts.dev_nodejs_small,
 }
 
-local SYMBOL_COLOR = { "#b4be82", "#6b7089" }
-local FONT_COLOR = pal.NORMAL_FG
-local BACK_COLOR = { pal.NORMAL_BG, "#000000" }
+local SYMBOL_COLOR = { "#84a0c6", "#6b7089" }
+local FONT_COLOR = { pal.NORMAL_FG, "#6b7089" }
+local BACK_COLOR = { pal.SURFACE_BG, pal.NORMAL_BG }
 local HOVER_COLOR = "#111111"
 
 wezterm.on("format-tab-title", function(tab, _, _, _, hover, _)
@@ -67,13 +67,13 @@ wezterm.on("format-tab-title", function(tab, _, _, _, hover, _)
     return {
         { Background = { Color = bg } },
 
-        { Foreground = { Color = FONT_COLOR } },
+        { Foreground = { Color = FONT_COLOR[active] } },
         { Text = index .. ": " },
 
         { Foreground = { Color = SYMBOL_COLOR[active] } },
         { Text = icon .. zoomed },
 
-        { Foreground = { Color = FONT_COLOR } },
+        { Foreground = { Color = FONT_COLOR[active] } },
         { Text = title },
     }
 end)

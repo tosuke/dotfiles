@@ -15,7 +15,7 @@ config.text_background_opacity = 0.7
 config.colors = {}
 config.inactive_pane_hsb = {
     saturation = 0.6,
-    brightness = 0.8
+    brightness = 0.8,
 }
 
 -- decorations
@@ -23,7 +23,7 @@ config.window_decorations = "RESIZE"
 
 -- font
 config.font = wezterm.font_with_fallback({ "JetBrainsMono Nerd Font", "JetBrainsMono" })
-config.font_size = 15
+config.font_size = 14
 
 -- tab bar
 config.use_fancy_tab_bar = true
@@ -31,17 +31,16 @@ config.window_frame = {
     font = wezterm.font({ family = "Roboto", weight = "Bold" }),
     font_size = 13.5,
 
-    active_titlebar_bg = '#000000',
-    inactive_titlebar_bg = '#000000',
+    active_titlebar_bg = palette.NORMAL_BG,
+    inactive_titlebar_bg = palette.NORMAL_BG,
     active_titlebar_fg = palette.NORMAL_FG,
     inactive_titlebar_fg = palette.NORMAL_FG,
-    active_titlebar_border_bottom = '#2b2042',
-    inactive_titlebar_border_bottom = '#2b2042',
 
     button_fg = palette.NORMAL_FG,
     button_bg = palette.SURFACE_BG,
 }
 config.colors.tab_bar = {
+    inactive_tab_edge = palette.NORMAL_FG,
     new_tab = {
         bg_color = palette.SURFACE_BG,
         fg_color = palette.NORMAL_FG,
