@@ -148,10 +148,11 @@ local plugins = {
                     }
                 end
             end
+            local filename = { "filename", path = 1 }
             require("lualine").setup({
                 options = {
                     icons_enabled = true,
-                    theme = "auto",
+                    theme = "iceberg_dark",
                     disabled_filetypes = { "TelescopePrompt" },
                     always_devide_middle = true,
                     globalstatus = true,
@@ -163,7 +164,7 @@ local plugins = {
                         { "diff", source = diff_source },
                         "diagnostics",
                     },
-                    lualine_c = { { "filename", path = 1 } },
+                    lualine_c = { filename },
                     lualine_x = { "encoding", "fileformat", "filetype" },
                     lualine_y = { "progress" },
                     lualine_z = { "location" },
