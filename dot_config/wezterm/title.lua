@@ -40,9 +40,17 @@ wezterm.on("format-tab-title", function(tab, _, _, _, hover, _)
     local active_pane = wezterm.mux.get_pane(active_pane_info.pane_id)
     local domain_name = active_pane:get_domain_name()
     local is_remote = domain_name ~= "local"
+    local user_vars = active_pane:get_user_vars()
 
     local process = active_pane_info.foreground_process_name
-    local process_name = process and basename(process) or ""
+    local process_name = ""
+    if process ~= "" then
+        process_name = basename(process)
+    else
+        local wezterm_prog = user_vars.WEZTERM_PROG
+        process_name = wezterm_prog and basename(wezterm_prog) or ""
+    end
+
     local cwd_url = active_pane_info.current_working_dir
     local cwd = nil
     if cwd_url then

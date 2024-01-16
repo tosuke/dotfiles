@@ -73,6 +73,15 @@ end
 if string match -q "$TERM_PROGRAM" WezTerm
     if set -q HOME
         __wezterm_set_user_var HOME "$HOME"
+
+        __wezterm_set_user_var WEZTERM_PROG ""
+        function __wezterm_preexec --on-event fish_preexec
+            __wezterm_set_user_var HOME "$HOME"
+            __wezterm_set_user_var WEZTERM_PROG "$argv[1]"
+        end
+        function __wezterm_postexec --on-event fish_postexec
+            __wezterm_set_user_var WEZTERM_PROG ""
+        end
     end
 end
 
@@ -86,7 +95,7 @@ abbr --add --global -- gl git-logsearch
 abbr --add --global -- gc 'git commit'
 abbr --add --global -- gp 'git push'
 abbr --add --global -- gpf 'git push --force-with-lease'
-abbr --add --global -- lg 'lazygit'
+abbr --add --global -- lg lazygit
 
 abbr --add --global -- k kubectl
 abbr --add --global -- a aws
