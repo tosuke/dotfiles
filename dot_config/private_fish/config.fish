@@ -69,6 +69,13 @@ if string match -q "$TERM_PROGRAM" vscode
     source (code --locate-shell-integration-path fish); or echo "VSCode shell integration failed"
 end
 
+# shell integration for WezTerm (OSC 1337)
+if string match -q "$TERM_PROGRAM" WezTerm
+    if set -q HOME
+        __wezterm_set_user_var HOME "$HOME"
+    end
+end
+
 # key bindings
 bind \cg __ghq_look
 
@@ -79,6 +86,7 @@ abbr --add --global -- gl git-logsearch
 abbr --add --global -- gc 'git commit'
 abbr --add --global -- gp 'git push'
 abbr --add --global -- gpf 'git push --force-with-lease'
+abbr --add --global -- lg 'lazygit'
 
 abbr --add --global -- k kubectl
 abbr --add --global -- a aws

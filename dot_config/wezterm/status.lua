@@ -27,16 +27,22 @@ local function get_host_and_cwd(elems, pane)
     if not uri then
         return
     end
+    local user_vars = pane:get_user_vars()
 
     local host = ""
     local cwd = ""
 
     if type(uri) == "string" then
         host = uri:gsub("^file://([^/]+)/.*$", "%1")
-        cwd = uri:gsub("^file://[^/]+", ""):gsub("^/home/tosuke", "~")
+        cwd = uri:gsub("^file://[^/]+", "")
     else
         host = uri.host
-        cwd = uri.file_path:gsub("^/home/tosuke", "~")
+        cwd = uri.file_path
+    end
+
+    local home = user_vars.HOME
+    if home then
+        cwd = cwd:gsub("^" .. home, "~")
     end
 
     add_elem(elems, HEADER_HOST, host)
