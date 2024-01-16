@@ -44,7 +44,14 @@ wezterm.on("format-tab-title", function(tab, _, _, _, hover, _)
     local process = active_pane_info.foreground_process_name
     local process_name = process and basename(process) or ""
     local cwd_url = active_pane_info.current_working_dir
-    local cwd = cwd_url and basename(cwd_url)
+    local cwd = nil
+    if cwd_url then
+        if type(cwd_url) == "string" then
+            cwd = basename(cwd_url)
+        else
+            cwd = basename(cwd_url.file_path)
+        end
+    end
 
     local bg = hover and HOVER_COLOR or BACK_COLOR[active]
 

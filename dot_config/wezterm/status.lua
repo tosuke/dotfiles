@@ -28,8 +28,16 @@ local function get_host_and_cwd(elems, pane)
         return
     end
 
-    local host = uri:gsub("^file://([^/]+)/.*$", "%1")
-    local cwd = uri:gsub("^file://[^/]+", ""):gsub("^/home/tosuke", "~")
+    local host = ""
+    local cwd = ""
+
+    if type(uri) == "string" then
+        host = uri:gsub("^file://([^/]+)/.*$", "%1")
+        cwd = uri:gsub("^file://[^/]+", ""):gsub("^/home/tosuke", "~")
+    else
+        host = uri.host
+        cwd = uri.file_path:gsub("^/home/tosuke", "~")
+    end
 
     add_elem(elems, HEADER_HOST, host)
     add_elem(elems, HEADER_CWD, cwd)
