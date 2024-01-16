@@ -430,7 +430,9 @@ local plugins = {
             -- snippet
             "hrsh7th/cmp-vsnip",
             "hrsh7th/vim-vsnip",
-            -- autopairs
+            -- icons
+            "onsails/lspkind-nvim",
+
             "windwp/nvim-autopairs",
         },
         event = { "InsertEnter", "CmdlineEnter" },
@@ -453,6 +455,16 @@ local plugins = {
                         select = false,
                     }),
                 }),
+                formatting = {
+                    format = require("lspkind").cmp_format({
+                        mode = "symbol",
+                        max_width = 50,
+                        preset = "codicons",
+                        symbol_map = {
+                            Copilot = "",
+                        },
+                    }),
+                },
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
                     { name = "copilot" },
