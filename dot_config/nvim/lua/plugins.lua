@@ -756,13 +756,13 @@ local plugins = {
 
             -- terraform
             setup_lsp(lspcfg.terraformls.setup, {
-                settings = {
-                    on_attach = function(client)
-                        -- disable formatting
-                        client.server_capabilities.documentFormattingProvider = false
-                        client.server_capabilities.documentRangeFormattingProvider = false
-                    end,
-                },
+                on_attach = function(client)
+                    -- disable formatting
+                    client.server_capabilities.documentFormattingProvider = false
+                    client.server_capabilities.documentRangeFormattingProvider = false
+                    -- disable semantic tokens
+                    client.server_capabilities.semanticTokensProvider = false
+                end,
             })
 
             -- keymaps
