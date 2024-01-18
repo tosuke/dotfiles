@@ -2,4 +2,7 @@
 # vim: set ft=sh :
 
 # pnpm-lock.yaml hash: {{ include "dot_config/nvim/lua/tools/node/pnpm-lock.yaml" | sha256sum }}
-cd "$HOME/.config/nvim/lua/tools/node" && pnpm install
+echo "Sync Node dependencies..."
+fnm install --corepack-enabled v20
+cd "$HOME/.config/nvim/lua/tools/node" && \
+    fnm exec --using=20 pnpm install
