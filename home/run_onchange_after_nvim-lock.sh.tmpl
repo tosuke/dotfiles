@@ -1,0 +1,6 @@
+#!/bin/bash
+# vim: set ft=sh :
+
+# lazy-lock.json hash: {{ include "dot_config/nvim/lazy-lock.json" | sha256sum }}
+echo "Restore Lazy.nvim dependencies..."
+nvim --headless "+Lazy! restore" +qa
