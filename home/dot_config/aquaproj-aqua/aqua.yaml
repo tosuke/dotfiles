@@ -21,7 +21,7 @@ packages:
   - name: rhysd/actionlint@v1.6.26
   # AWS
   - name: aws/aws-cli@2.15.11
-  - name: kayac/ecspresso@v2.3.1
+  - name: kayac/ecspresso@v2.3.2
   - name: fujiwara/lambroll@v0.14.7
   # Google Cloud
   - name: twistedpair/google-cloud-sdk@458.0.1
