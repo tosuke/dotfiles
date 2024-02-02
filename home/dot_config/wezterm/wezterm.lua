@@ -20,7 +20,7 @@ config.inactive_pane_hsb = {
 }
 
 -- decorations
-config.window_decorations = "RESIZE"
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
 -- font
 config.font = wezterm.font_with_fallback({ "JetBrainsMono Nerd Font", "JetBrainsMono" })
