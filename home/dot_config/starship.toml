@@ -18,6 +18,8 @@ $os\
 $container\
 $shell\
 $character"""
+scan_timeout = 30
+command_timeout = 300
 
 [directory]
 fish_style_pwd_dir_length = 1
