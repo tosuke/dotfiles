@@ -48,6 +48,14 @@ config.colors.tab_bar = {
     },
 }
 
+-- visual bell
+config.audible_bell = "Disabled"
+config.visual_bell = {
+    fade_in_duration_ms = 75,
+    fade_out_duration_ms = 75,
+}
+config.colors.visual_bell = "#202020"
+
 -- ime
 config.use_ime = true
 config.enable_wayland = true
