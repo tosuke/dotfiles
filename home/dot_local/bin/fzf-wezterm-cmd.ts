@@ -1,4 +1,4 @@
-import $ from "https://deno.land/x/dax@0.36.0/mod.ts";
+import $ from "https://deno.land/x/dax@0.38.0/mod.ts";
 
 export async function main() {
   try {
@@ -14,7 +14,7 @@ export async function main() {
 async function handleMain() {
   await using cleanup = new AsyncDisposableStack();
 
-  const isatty = Deno.isatty(Deno.stdin.rid);
+  const isatty = Deno.stdin.isTerminal();
 
   const tmpdir = await Deno.makeTempDir();
   cleanup.defer(async () => {
@@ -64,11 +64,12 @@ async function handleMain() {
     fifoClose.close();
   })();
 
-  const overrideArgs = ["--no-height", "--bind=ctrl-z:ignore"].join(' ')
+  const overrideArgs = ["--no-height", "--bind=ctrl-z:ignore"].join(" ");
   const stdinArg = isatty ? "" : `< ${fifoInPath}`;
   const bashCommand =
     `fzf ${overrideArgs} ${stdinArg} > ${fifoOutPath}; echo close > ${fifoClosePath}`;
-  const paneID = await $`wezterm cli split-pane -- bash -c ${bashCommand}`.text();
+  const paneID = await $`wezterm cli split-pane -- bash -c ${bashCommand}`
+    .text();
   cleanup.defer(async () => {
     try {
       await $`wezterm cli kill-pane --pane-id=${paneID}`.stderr("null");
