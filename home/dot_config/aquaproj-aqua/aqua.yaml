@@ -30,7 +30,7 @@ packages:
   - name: int128/kubelogin@v1.28.0
   - name: stern/stern@v1.28.0
   # LSP
-  - name: mattn/efm-langserver@v0.0.49
+  - name: mattn/efm-langserver@v0.0.50
   # Terraform
   - name: tfutils/tfenv@v3.0.0
   - name: hashicorp/terraform-ls@v0.32.6
