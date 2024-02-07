@@ -35,7 +35,7 @@ packages:
   - name: tfutils/tfenv@v3.0.0
   - name: hashicorp/terraform-ls@v0.32.6
   # Go
-  - name: golang/go@go1.21.6
+  - name: golang/go@go1.22.0
   - name: golang.org/x/tools/gopls@v0.14.2
   - name: golang/tools/goimports@v0.17.0
   - name: go-delve/delve@v1.22.0
