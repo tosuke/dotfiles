@@ -24,7 +24,7 @@ packages:
   - name: kayac/ecspresso@v2.3.2
   - name: fujiwara/lambroll@v1.0.1
   # Google Cloud
-  - name: twistedpair/google-cloud-sdk@458.0.1
+  - name: twistedpair/google-cloud-sdk@465.0.0
   # k8s
   - name: kubernetes/kubectl@v1.29.2
   - name: int128/kubelogin@v1.28.0
