@@ -48,7 +48,7 @@ packages:
   # Node.js
   - name: Schniz/fnm@v1.35.1
   # Deno
-  - name: denoland/deno@v1.40.5
+  - name: denoland/deno@v1.41.0
   # Lua
   - name: LuaLS/lua-language-server@3.7.4
   - name: JohnnyMorganz/StyLua@v0.20.0
