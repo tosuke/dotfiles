@@ -39,7 +39,7 @@ packages:
   - name: hashicorp/terraform-ls@v0.32.7
   # Go
   - name: golang/go@go1.22.0
-  - name: golang.org/x/tools/gopls@v0.14.2
+  - name: golang.org/x/tools/gopls@v0.15.1
   - name: golang/tools/goimports@v0.18.0
   - name: go-delve/delve@v1.22.0
   # Rust
