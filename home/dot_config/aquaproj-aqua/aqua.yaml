@@ -9,7 +9,7 @@ packages:
   - name: neovim/neovim@v0.9.5
   - name: sharkdp/bat@v0.24.0
   - name: junegunn/fzf@0.46.1
-  - name: direnv/direnv@v2.33.0
+  - name: direnv/direnv@v2.34.0
   - name: x-motemen/ghq@v1.5.0
   - name: jesseduffield/lazygit@v0.40.2
   - name: sharkdp/fd@v9.0.0
