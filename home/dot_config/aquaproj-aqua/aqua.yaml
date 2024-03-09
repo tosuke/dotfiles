@@ -58,4 +58,4 @@ packages:
   # Python
   - name: mitsuhiko/rye@0.27.0
   # sh
-  - name: koalaman/shellcheck@v0.9.0
+  - name: koalaman/shellcheck@v0.10.0
