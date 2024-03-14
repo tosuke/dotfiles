@@ -605,6 +605,9 @@ local plugins = {
             -- Rust
             setup_lsp(lspcfg.rust_analyzer.setup, {})
 
+            -- Scala
+            setup_lsp(lspcfg.metals.setup, {})
+
             -- OCaml
             setup_lsp(lspcfg.ocamllsp.setup, {
                 settings = {
