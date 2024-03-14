@@ -1,3 +1,4 @@
+# vim: set ft=fish :
 # variables
 if not set -q XDG_DATA_HOME
     set -gx XDG_DATA_HOME "$HOME/.local/share"
@@ -47,6 +48,18 @@ end
 # opam
 if [ -f $HOME/.opam/opam-init/init.fish ]
     source $HOME/.opam/opam-init/init.fish; or echo "opam initialization failed"
+end
+
+# Scala
+if command -q coursier
+    if not set -q COURSIER_BIN_DIR
+        {{ if (eq .chezmoi.os "darwin") }}
+        set COURSIER_BIN_DIR "$HOME/Library/Application Support/Coursier/bin"
+        {{ else }}
+        set COURSIER_BIN_DIR "$XDG_DATA_HOME/coursier/bin"
+        {{ end }}
+    end
+    fish_add_path -g "$COURSIER_BIN_DIR"
 end
 
 # interactice shells
