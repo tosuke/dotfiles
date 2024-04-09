@@ -645,7 +645,7 @@ local plugins = {
                     vim.api.nvim_create_autocmd("BufWritePost", {
                         buffer = buf,
                         callback = function()
-                            vim.cmd("DenolsCache")
+                            vim.cmd.DenolsCache()
                         end,
                     })
                     -- disable semantic tokens
