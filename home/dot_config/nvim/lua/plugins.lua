@@ -603,7 +603,12 @@ local plugins = {
             })
 
             -- Rust
-            setup_lsp(lspcfg.rust_analyzer.setup, {})
+            setup_lsp(lspcfg.rust_analyzer.setup, {
+                on_attach = function(client)
+                    -- disable semantic tokens
+                    client.server_capabilities.semanticTokensProvider = nil
+                end,
+            })
 
             -- Scala
             setup_lsp(lspcfg.metals.setup, {})
