@@ -28,7 +28,7 @@ packages:
   # Google Cloud
   - name: twistedpair/google-cloud-sdk@471.0.0
   # k8s
-  - name: kubernetes/kubectl@v1.29.3
+  - name: kubernetes/kubectl@v1.29.4
   - name: int128/kubelogin@v1.28.0
   - name: stern/stern@v1.28.0
   - name: stefanprodan/timoni@v0.20.0
