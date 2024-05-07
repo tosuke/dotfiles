@@ -691,6 +691,10 @@ local plugins = {
                     )
                     return found
                 end,
+                on_attach = function(client)
+                    -- disable semantic tokens
+                    client.server_capabilities.semanticTokensProvider = nil
+                end,
                 settings = {
                     typescript = {
                         inlayHints = {
