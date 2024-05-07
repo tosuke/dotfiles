@@ -792,8 +792,6 @@ local plugins = {
 
                     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts("hover"))
 
-                    -- vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bopts)
-
                     -- definition
                     vim.keymap.set("n", "gd", function()
                         if has_telescope then
@@ -802,6 +800,11 @@ local plugins = {
                         end
                         vim.lsp.buf.definition()
                     end, opts("go to definition"))
+
+                    -- declaration
+                    vim.keymap.set("n", "gD", function()
+                        vim.lsp.buf.declaration()
+                    end, opts("go to declaration"))
 
                     -- type definition
                     vim.keymap.set("n", "gt", function()
