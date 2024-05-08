@@ -315,6 +315,46 @@ local plugins = {
             vim.keymap.set({ "n", "x" }, "srb", "<Plug>(sandwich-replace-auto)")
         end,
     },
+    {
+        "numToStr/Comment.nvim",
+        dependencies = {
+            {
+                "JoosepAlviste/nvim-ts-context-commentstring",
+                opts = {
+                    enable_autocmd = false,
+                },
+            },
+        },
+        keys = {
+            { "gc", mode = { "n", "x" } },
+        },
+        config = function()
+            require("Comment").setup({
+                pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+                post_hook = nil,
+                padding = true,
+                sticky = true,
+                ignore = nil,
+                toggler = {
+                    line = "gcc",
+                    block = "gbc",
+                },
+                opleader = {
+                    line = "gc",
+                    block = "gb",
+                },
+                extra = {
+                    above = "gc0",
+                    below = "gco",
+                    eol = "gcA",
+                },
+                mappings = {
+                    basic = true,
+                    extra = false,
+                },
+            })
+        end,
+    },
     -- fuzzy finder
     {
         "nvim-telescope/telescope.nvim",
