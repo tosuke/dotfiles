@@ -132,6 +132,11 @@ local plugins = {
         },
     },
     {
+        "linrongbin16/gitlinker.nvim",
+        cmd = "GitLink",
+        opts = {},
+    },
+    {
         "nvim-lualine/lualine.nvim",
         event = "VeryLazy",
         dependencies = {
