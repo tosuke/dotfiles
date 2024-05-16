@@ -6,7 +6,7 @@ registries:
     name: local
     path: registry.yaml
 packages:
-  - name: neovim/neovim@v0.9.5
+  - name: neovim/neovim@v0.10.0
   - name: sharkdp/bat@v0.24.0
   - name: junegunn/fzf@0.52.1
   - name: direnv/direnv@v2.34.0
