@@ -57,6 +57,6 @@ packages:
   - name: LuaLS/lua-language-server@3.9.1
   - name: JohnnyMorganz/StyLua@v0.20.0
   # Python
-  - name: mitsuhiko/rye@0.33.0
+  - name: mitsuhiko/rye@0.34.0
   # sh
   - name: koalaman/shellcheck@v0.10.0
