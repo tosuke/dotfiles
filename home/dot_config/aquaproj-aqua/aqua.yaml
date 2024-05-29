@@ -50,7 +50,7 @@ packages:
   - name: ocaml/opam@2.1.6
     registry: local
   # Node.js
-  - name: Schniz/fnm@v1.36.0
+  - name: Schniz/fnm@v1.35.1
   # Deno
   - name: denoland/deno@v1.43.6
   # Lua
