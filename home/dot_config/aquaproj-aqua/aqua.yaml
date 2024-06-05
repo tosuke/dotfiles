@@ -40,7 +40,7 @@ packages:
   # Go
   - name: golang/go@go1.22.4
   - name: golang.org/x/tools/gopls@v0.15.3
-  - name: golang/tools/goimports@v0.21.0
+  - name: golang/tools/goimports@v0.22.0
   - name: golangci/golangci-lint@v1.59.0
   - name: go-delve/delve@v1.22.1
   # Rust
