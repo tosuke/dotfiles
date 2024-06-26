@@ -23,7 +23,7 @@ packages:
   - name: nektos/act@v0.2.63
   # AWS
   - name: aws/aws-cli@2.17.2
-  - name: kayac/ecspresso@v2.3.3
+  - name: kayac/ecspresso@v2.3.5
   - name: fujiwara/lambroll@v1.0.4
   # Google Cloud
   - name: twistedpair/google-cloud-sdk@482.0.0
