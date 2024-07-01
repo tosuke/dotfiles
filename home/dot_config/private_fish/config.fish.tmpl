@@ -34,6 +34,7 @@ end
 
 # fnm (node.js)
 if command -q fnm
+    set -gx FNM_ARCH (uname -m)
     if status is-interactive
         fnm env --use-on-cd --version-file-strategy recursive --corepack-enabled | source
         or echo "fnm initialization failed"
