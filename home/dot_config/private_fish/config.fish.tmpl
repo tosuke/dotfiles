@@ -78,6 +78,11 @@ if status is-interactive && command -q direnv
     direnv hook fish | source; or echo "direnv: initialization failed"
 end
 
+# fzf
+if command -q fzf
+    fzf --fish | source
+end
+
 # shell integration for VSCode (OSC 633)
 if string match -q "$TERM_PROGRAM" vscode
     source (code --locate-shell-integration-path fish); or echo "VSCode shell integration failed"
