@@ -85,7 +85,7 @@ end
 
 # fzf
 if command -q fzf
-    fzf --fish | source
+    fzf --fish | source; or echo "fzf: initialization failed"
 end
 
 # shell integration for VSCode (OSC 633)
