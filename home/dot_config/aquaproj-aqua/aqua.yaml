@@ -47,7 +47,7 @@ packages:
   - name: rust-lang/rust-analyzer@2024-01-08
     registry: local
   # OCaml
-  - name: ocaml/opam@2.1.6
+  - name: ocaml/opam@2.2.0
     registry: local
   # Node.js
   - name: Schniz/fnm@v1.35.1
