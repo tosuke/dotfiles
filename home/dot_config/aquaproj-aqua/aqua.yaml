@@ -24,7 +24,7 @@ packages:
   # AWS
   - name: aws/aws-cli@2.17.11
   - name: kayac/ecspresso@v2.3.5
-  - name: fujiwara/lambroll@v1.0.4
+  - name: fujiwara/lambroll@v1.0.5
   # Google Cloud
   - name: twistedpair/google-cloud-sdk@483.0.0
   # k8s
