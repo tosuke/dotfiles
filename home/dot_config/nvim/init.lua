@@ -36,8 +36,17 @@ vim.opt.shiftround = true
 
 vim.api.nvim_create_autocmd("Filetype", {
     group = group,
+    pattern = { "go" },
+    callback = function ()
+        vim.opt.expandtab = false
+    end
+})
+
+vim.api.nvim_create_autocmd("Filetype", {
+    group = group,
     pattern = { "ocaml" },
     callback = function()
+        vim.opt.expandtab = true
         vim.opt.softtabstop = 2
         vim.opt.shiftwidth = 2
     end,
