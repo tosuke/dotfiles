@@ -68,6 +68,11 @@ if command -q coursier
     fish_add_path -g "$COURSIER_BIN_DIR"
 end
 
+# Lean
+if [ -d $HOME/.elan ]
+    fish_add_path -g "$HOME/.elan/bin"
+end
+
 # interactice shells
 if not status is-interactive
     return

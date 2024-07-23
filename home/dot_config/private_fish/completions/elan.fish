@@ -1,0 +1,1 @@
+elan completions fish | source
