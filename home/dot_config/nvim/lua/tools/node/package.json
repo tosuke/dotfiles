@@ -1,7 +1,7 @@
 {
     "name": "node_tools",
     "type": "module",
-    "packageManager": "pnpm@9.5.0",
+    "packageManager": "pnpm@9.6.0",
     "dependencies": {
         "@fsouza/prettierd": "^0.25.2",
         "typescript-language-server": "^4.2.0",
