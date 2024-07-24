@@ -1,0 +1,1 @@
+nerdctl completion fish | source
