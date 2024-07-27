@@ -947,5 +947,21 @@ local plugins = {
             })
         end,
     },
+    {
+        "Julian/lean.nvim",
+        event = { "BufReadPost *.lean", "BufNewFile *.lean" },
+        dependencies = {
+            "neovim/nvim-lspconfig",
+            "nvim-lua/plenary.nvim",
+        },
+        opts = {
+            lsp = {},
+            abbreviations = {
+                enable = true,
+                leader = "\\",
+            },
+            mappings = true,
+        },
+    },
 }
 return plugins
