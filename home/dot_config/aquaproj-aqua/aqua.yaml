@@ -36,7 +36,7 @@ packages:
   - name: mattn/efm-langserver@v0.0.53
   # Terraform
   - name: tfutils/tfenv@v3.0.0
-  - name: hashicorp/terraform-ls@v0.34.1
+  - name: hashicorp/terraform-ls@v0.34.2
   # Go
   - name: golang/go@go1.22.5
   - name: golang.org/x/tools/gopls@v0.16.1
