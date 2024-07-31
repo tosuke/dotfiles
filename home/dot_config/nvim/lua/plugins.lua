@@ -205,11 +205,43 @@ local plugins = {
     -- syntax
     {
         "nvim-treesitter/nvim-treesitter",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter-textobjects",
+        },
         event = { "BufReadPost", "BufNewFile" },
         build = ":TSUpdate",
         cmd = { "TSUpdateSync" },
         cond = not_vscode,
-        config = function()
+        opts = {
+            auto_install = true,
+            highlight = {
+                enable = true,
+            },
+            indent = {
+                enable = true,
+                disable = { "ocaml" },
+            },
+            textobjects = {
+                select = {
+                    enable = true,
+                    lookahead = true, -- Auto jump to textobj
+                    keymaps = {
+                        ["af"] = "@function.outer",
+                        ["if"] = "@function.inner",
+                        ["ac"] = "@class.outer",
+                        ["ic"] = "@class.inner",
+                    },
+                },
+                move = {
+                    enable = true,
+                    goto_next_start = {
+                        ["]m"] = "@function.outer",
+                        ["]]"] = "@class.outer",
+                    }
+                }
+            }
+        },
+        config = function(_, opts)
             local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
             parser_config.satysfi = {
                 install_info = {
@@ -219,20 +251,7 @@ local plugins = {
                 filetype = "satysfi",
             }
 
-            require("nvim-treesitter.configs").setup({
-                auto_install = false,
-                highlight = { enable = true },
-                indent = { enable = true },
-                incremental_selection = {
-                    enable = true,
-                    keymaps = {
-                        init_selection = "gnn",
-                        node_incremental = "grn",
-                        scope_incremental = "grc",
-                        node_decremental = "grm",
-                    },
-                },
-            })
+            require("nvim-treesitter.configs").setup(opts)
         end,
     },
     {
