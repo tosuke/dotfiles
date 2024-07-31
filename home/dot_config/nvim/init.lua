@@ -79,6 +79,10 @@ vim.keymap.set("n", ";", ":", { noremap = true })
 vim.keymap.set("n", ":", ";", { noremap = true })
 -- Esc 連打でハイライト消す
 vim.api.nvim_set_keymap("n", "<Esc><Esc>", ":nohl<CR>", { noremap = true, silent = true })
+-- textobj を囲む空白を選択しない
+for _, quote in ipairs({ '"', "'", "`" }) do
+    vim.keymap.set({ "x", "o" }, "a" .. quote, "2i" .. quote)
+end
 
 -- ファイルタイプ
 vim.filetype.add({
