@@ -43,9 +43,6 @@ packages:
   - name: golang/tools/goimports@v0.22.0
   - name: golangci/golangci-lint@v1.59.1
   - name: go-delve/delve@v1.23.0
-  # Rust
-  - name: rust-lang/rust-analyzer@2024-01-08
-    registry: local
   # OCaml
   - name: ocaml/opam@2.2.0
     registry: local
