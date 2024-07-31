@@ -11,16 +11,29 @@ packages:
       amd64: x86_64
     format: raw
   - type: github_release
-    repo_owner: rust-lang
-    repo_name: rust-analyzer
-    asset: rust-analyzer-{{.Arch}}-{{.OS}}.{{.Format}}
-    format: gz
-    description: A Rust compiler front-end for IDEs
-    replacements:
-      amd64: x86_64
-      arm64: aarch64
-      darwin: apple-darwin
-      linux: unknown-linux-gnu
+    repo_owner: cue-lang
+    repo_name: cue
+    description: The new home of the CUE language! Validate and define text-based and dynamic configuration
+    asset: cue_{{.Version}}_{{.OS}}_{{.Arch}}.{{.Format}}
+    format: tar.gz
+    overrides:
+      - goos: windows
+        format: zip
     files:
-      - name: rust-analyzer
-        src: rust-analyzer-{{.Arch}}-{{.OS}}
+      - name: cue
+      - name: cuepls
+    version_constraint: semver(">= 0.8.0")
+    version_overrides:
+      - version_constraint: semver("< 0.8.0")
+        files:
+          - name: cue
+      - version_constraint: semver("< 0.4.1")
+        rosetta2: true
+        supported_envs:
+          - darwin
+          - linux
+          - amd64
+    checksum:
+      type: github_release
+      asset: checksums.txt
+      algorithm: sha256
