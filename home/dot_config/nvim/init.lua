@@ -22,8 +22,11 @@ vim.opt.hlsearch = true
 -- タイトル
 vim.opt.title = true
 
--- OS との間でクリップボード同期
-vim.opt.clipboard = "unnamedplus"
+-- 無名レジスタをクリップボードレジスタにする
+-- システム側のコピーは無名レジスタ"*"に入るので無条件で p できる
+-- vim 側のヤンクをシステム側に送りたいなら"+"を指定する必要がある(e.g. "+yy)
+-- unnamedplus は無名レジスタを"+"にするが、こうするとシステム側のクリップボードが Vim の操作によって汚れてしまう
+vim.opt.clipboard = "unnamed"
 
 -- インデント
 vim.opt.autoindent = true
@@ -37,9 +40,9 @@ vim.opt.shiftround = true
 vim.api.nvim_create_autocmd("Filetype", {
     group = group,
     pattern = { "go" },
-    callback = function ()
+    callback = function()
         vim.opt.expandtab = false
-    end
+    end,
 })
 
 vim.api.nvim_create_autocmd("Filetype", {
