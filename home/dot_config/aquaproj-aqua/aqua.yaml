@@ -15,7 +15,7 @@ packages:
   - name: sharkdp/fd@v10.1.0
   - name: BurntSushi/ripgrep@14.1.0
   - name: jqlang/jq@jq-1.7.1
-  - name: mikefarah/yq@v4.44.2
+  - name: mikefarah/yq@v4.44.3
   - name: cue-lang/cue@v0.9.2
     registry: local
   # GitHub
