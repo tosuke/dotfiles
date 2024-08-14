@@ -30,7 +30,7 @@ packages:
   # Google Cloud
   - name: twistedpair/google-cloud-sdk@488.0.0
   # k8s
-  - name: kubernetes/kubectl@v1.30.3
+  - name: kubernetes/kubectl@v1.31.0
   - name: int128/kubelogin@v1.28.2
   - name: stern/stern@v1.30.0
   - name: stefanprodan/timoni@v0.22.0
