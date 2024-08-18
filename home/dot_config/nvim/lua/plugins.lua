@@ -761,6 +761,9 @@ local plugins = {
                 on_attach = function(client)
                     -- disable semantic tokens
                     client.server_capabilities.semanticTokensProvider = nil
+                    -- disable formatting
+                    client.server_capabilities.documentFormattingProvider = false
+                    client.server_capabilities.documentRangeFormattingProvider = false
                 end,
                 settings = {
                     typescript = {
