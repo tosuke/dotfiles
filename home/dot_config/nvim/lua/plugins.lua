@@ -237,9 +237,9 @@ local plugins = {
                     goto_next_start = {
                         ["]m"] = "@function.outer",
                         ["]]"] = "@class.outer",
-                    }
-                }
-            }
+                    },
+                },
+            },
         },
         config = function(_, opts)
             local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
@@ -320,6 +320,12 @@ local plugins = {
                 check_ts = true,
             })
         end,
+    },
+    {
+        "windwp/nvim-ts-autotag",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        event = "InsertEnter",
+        opts = {},
     },
     {
         "machakann/vim-sandwich",
