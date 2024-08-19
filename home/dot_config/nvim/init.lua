@@ -47,7 +47,7 @@ vim.api.nvim_create_autocmd("Filetype", {
 
 vim.api.nvim_create_autocmd("Filetype", {
     group = group,
-    pattern = { "ocaml" },
+    pattern = { "ocaml", "json", "javascript", "typescript", "typescriptreact" },
     callback = function()
         vim.opt.expandtab = true
         vim.opt.softtabstop = 2
