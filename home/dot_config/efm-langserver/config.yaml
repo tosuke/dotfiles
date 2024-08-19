@@ -101,6 +101,8 @@ languages:
   # web
   html:
     - <<: *prettierd
+  css:
+    - <<: *prettierd
   markdown:
     - <<: *prettierd
   javascript:

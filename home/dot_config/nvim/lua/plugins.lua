@@ -655,6 +655,7 @@ local plugins = {
                     "terraform",
                     -- web
                     "html",
+                    "css",
                     "markdown",
                     "javascript",
                     "javascriptreact",
