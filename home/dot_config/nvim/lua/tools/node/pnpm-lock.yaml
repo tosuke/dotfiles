@@ -11,6 +11,9 @@ importers:
       '@fsouza/prettierd':
         specifier: ^0.25.2
         version: 0.25.3(typescript@5.4.5)
+      '@tailwindcss/language-server':
+        specifier: ^0.0.22
+        version: 0.0.22
       typescript-language-server:
         specifier: ^4.2.0
         version: 4.3.3
@@ -55,6 +58,11 @@ packages:
   '@nodelib/fs.walk@1.2.8':
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
+
+  '@tailwindcss/language-server@0.0.22':
+    resolution: {integrity: sha512-DFMljwBlSKTpR0nMgJKE+YAOr4mlBqrNcLt1WWjb8byb6sLVW4u7oc28G/9ctPU4019SH0ptzxnxZerbvQZIzA==}
+    engines: {node: '>=18.0.0'}
+    hasBin: true
 
   '@typescript-eslint/types@7.6.0':
     resolution: {integrity: sha512-h02rYQn8J+MureCvHVVzhl69/GAfQGPQZmOMjG1KfCl7o3HtMSlPaPUAPu6lLctXI5ySRGIYk94clD/AUMCUgQ==}
@@ -436,6 +444,8 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
     optional: true
+
+  '@tailwindcss/language-server@0.0.22': {}
 
   '@typescript-eslint/types@7.6.0':
     optional: true

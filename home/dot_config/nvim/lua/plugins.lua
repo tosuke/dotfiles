@@ -782,7 +782,11 @@ local plugins = {
                 },
             })
 
+            -- ESLint
             setup_lsp(lspcfg.eslint.setup, {})
+
+            -- TailwindCSS
+            setup_lsp(lspcfg.tailwindcss.setup, {})
 
             -- Lua
             setup_lsp(lspcfg.lua_ls.setup, {
