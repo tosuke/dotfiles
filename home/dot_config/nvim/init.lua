@@ -42,12 +42,23 @@ vim.api.nvim_create_autocmd("Filetype", {
     pattern = { "go" },
     callback = function()
         vim.opt.expandtab = false
+        vim.opt.tabstop = 4
+        vim.opt.shiftwidth = 4
     end,
 })
 
+-- インデント2スペース族
 vim.api.nvim_create_autocmd("Filetype", {
     group = group,
-    pattern = { "ocaml", "json", "javascript", "typescript", "typescriptreact" },
+    pattern = {
+        "ocaml",
+        "terraform",
+        "hcl",
+        "json",
+        "javascript",
+        "typescript",
+        "typescriptreact",
+    },
     callback = function()
         vim.opt.expandtab = true
         vim.opt.softtabstop = 2
