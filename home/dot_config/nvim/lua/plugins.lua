@@ -216,6 +216,7 @@ local plugins = {
             auto_install = true,
             highlight = {
                 enable = true,
+                disable = { "vimdoc" },
             },
             indent = {
                 enable = true,
