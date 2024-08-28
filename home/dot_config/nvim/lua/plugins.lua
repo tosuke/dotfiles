@@ -333,20 +333,31 @@ local plugins = {
         dependencies = {},
         event = "ModeChanged",
         keys = {
-            { "<Plug>(sandwich-add)", mode = { "n", "x" } },
+            { "<Plug>(sandwich-add)", mode = { "n", "x", "o" } },
             { "<Plug>(sandwich-delete)", mode = { "n", "x" } },
-            { "<Plug>(sandwich-delete-auto)", mode = { "n", "x" } },
+            { "<Plug>(sandwich-delete-auto)", mode = { "n" } },
             { "<Plug>(sandwich-replace)", mode = { "n", "x" } },
-            { "<Plug>(sandwich-replace-auto)", mode = { "n", "x" } },
+            { "<Plug>(sandwich-replace-auto)", mode = { "n" } },
+            { "<Plug>(textobj-sandwich-auto-i)", mode = { "o", "x" } },
+            { "<Plug>(textobj-sandwich-auto-a)", mode = { "o", "x" } },
+            { "<Plug>(textobj-sandwich-query-i)", mode = { "o", "x" } },
+            { "<Plug>(textobj-sandwich-query-a)", mode = { "o", "x" } },
         },
         init = function()
             vim.g.sandwich_no_default_key_mappings = true
 
-            vim.keymap.set({ "n", "x" }, "sa", "<Plug>(sandwich-add)")
+            vim.keymap.set({ "n", "x", "o" }, "sa", "<Plug>(sandwich-add)")
             vim.keymap.set({ "n", "x" }, "sd", "<Plug>(sandwich-delete)")
-            vim.keymap.set({ "n", "x" }, "sdb", "<Plug>(sandwich-delete-auto)")
+            vim.keymap.set({ "n" }, "sdb", "<Plug>(sandwich-delete-auto)")
             vim.keymap.set({ "n", "x" }, "sr", "<Plug>(sandwich-replace)")
-            vim.keymap.set({ "n", "x" }, "srb", "<Plug>(sandwich-replace-auto)")
+            vim.keymap.set({ "n" }, "srb", "<Plug>(sandwich-replace-auto)")
+
+            vim.keymap.set({ "o", "x" }, "ib", "<Plug>(textobj-sandwich-auto-i)")
+            vim.keymap.set({ "o", "x" }, "ab", "<Plug>(textobj-sandwich-auto-a)")
+            vim.keymap.set({ "o", "x" }, "is", "<Plug>(textobj-sandwich-query-i)")
+            vim.keymap.set({ "o", "x" }, "as", "<Plug>(textobj-sandwich-query-a)")
+
+            vim.g["sandwich#recipes"] = vim.deepcopy(vim.g["sandwich#default_recipes"])
         end,
     },
     {
