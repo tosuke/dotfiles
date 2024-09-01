@@ -12,8 +12,8 @@ importers:
         specifier: ^0.25.2
         version: 0.25.3(typescript@5.4.5)
       '@tailwindcss/language-server':
-        specifier: ^0.0.23
-        version: 0.0.23
+        specifier: ^0.0.24
+        version: 0.0.24
       typescript-language-server:
         specifier: ^4.2.0
         version: 4.3.3
@@ -59,8 +59,8 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@tailwindcss/language-server@0.0.23':
-    resolution: {integrity: sha512-XaG0Vxp6jbjn7ifz2wo7GU43YVRG5MgVGxD+qLH1Ewru5Jux+uUsXKPtcuX/gOBKh5iRmQhHUdrcimYR0aVDgA==}
+  '@tailwindcss/language-server@0.0.24':
+    resolution: {integrity: sha512-yIgMTdssc2xgfYSJI9dSvj96rzbIQKEiPLADIkJW/N3s7BWT4Ufh25Jb4EwkzTfutw+zen3He1GMqBJ90qpL1w==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -445,7 +445,7 @@ snapshots:
       fastq: 1.17.1
     optional: true
 
-  '@tailwindcss/language-server@0.0.23': {}
+  '@tailwindcss/language-server@0.0.24': {}
 
   '@typescript-eslint/types@7.6.0':
     optional: true
