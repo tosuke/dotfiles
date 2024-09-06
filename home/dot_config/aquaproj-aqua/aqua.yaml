@@ -24,7 +24,7 @@ packages:
   - name: rhysd/actionlint@v1.7.1
   - name: nektos/act@v0.2.65
   # AWS
-  - name: aws/aws-cli@2.17.42
+  - name: aws/aws-cli@2.17.46
   - name: kayac/ecspresso@v2.4.0
   - name: fujiwara/lambroll@v1.0.6
   # Google Cloud
