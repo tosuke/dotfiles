@@ -11,7 +11,7 @@ packages:
   - name: junegunn/fzf@v0.54.3
   - name: direnv/direnv@v2.34.0
   - name: x-motemen/ghq@v1.6.2
-  - name: jesseduffield/lazygit@v0.43.1
+  - name: jesseduffield/lazygit@v0.44.0
   - name: sharkdp/fd@v10.2.0
   - name: BurntSushi/ripgrep@14.1.1
   - name: jqlang/jq@jq-1.7.1
