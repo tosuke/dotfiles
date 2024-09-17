@@ -756,7 +756,7 @@ local plugins = {
                     },
                 },
             })
-            setup_lsp(lspcfg.tsserver.setup, {
+            setup_lsp(lspcfg.ts_ls.setup, {
                 single_file_support = false,
                 root_dir = function(path)
                     local marker = require("climbdir.marker")
