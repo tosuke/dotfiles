@@ -32,7 +32,7 @@ packages:
   # k8s
   - name: kubernetes-sigs/kind@v0.24.0
   - name: kubernetes/kubectl@v1.31.1
-  - name: int128/kubelogin@v1.29.0
+  - name: int128/kubelogin@v1.30.0
   - name: derailed/k9s@v0.32.5
   - name: stern/stern@v1.30.0
   - name: stefanprodan/timoni@v0.22.0
