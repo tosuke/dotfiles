@@ -56,6 +56,11 @@ if [ -f $HOME/.opam/opam-init/init.fish ]
     source $HOME/.opam/opam-init/init.fish; or echo "opam initialization failed"
 end
 
+# ghcup
+if [ -d $HOME/.ghcup ]
+    fish_add_path -g "$HOME/.ghcup/bin"
+end
+
 # Scala
 if command -q coursier
     if not set -q COURSIER_BIN_DIR

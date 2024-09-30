@@ -718,6 +718,9 @@ local plugins = {
                 end,
             })
 
+            -- Haskell
+            setup_lsp(lspcfg.hls.setup, {})
+
             -- TypeScript
             setup_lsp(lspcfg.denols.setup, {
                 single_file_support = false,

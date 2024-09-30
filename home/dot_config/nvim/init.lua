@@ -52,6 +52,7 @@ vim.api.nvim_create_autocmd("Filetype", {
     group = group,
     pattern = {
         "ocaml",
+        "haskell",
         "terraform",
         "hcl",
         "json",
