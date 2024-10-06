@@ -52,7 +52,7 @@ packages:
   - name: ocaml/opam@2.2.1
     registry: local
   # Node.js
-  - name: Schniz/fnm@v1.35.1
+  - name: Schniz/fnm@v1.37.1
   # Deno
   - name: denoland/deno@v1.46.3
   # Lua
