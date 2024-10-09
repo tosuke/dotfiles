@@ -800,6 +800,9 @@ local plugins = {
             -- ESLint
             setup_lsp(lspcfg.eslint.setup, {})
 
+            -- Biome
+            setup_lsp(lspcfg.biome.setup, {})
+
             -- TailwindCSS
             setup_lsp(lspcfg.tailwindcss.setup, {})
 
