@@ -1,0 +1,1 @@
+rclone completion fish - | source
