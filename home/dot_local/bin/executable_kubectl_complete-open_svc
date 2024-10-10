@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+# vim: ft=sh :
+
+kubectl-open_svc __complete "$@"
