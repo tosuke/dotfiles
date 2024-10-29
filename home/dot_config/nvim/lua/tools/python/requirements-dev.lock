@@ -5,8 +5,14 @@
 #   pre: false
 #   features: []
 #   all-features: false
+#   with-sources: false
+#   generate-hashes: false
+#   universal: false
 
 -e file:.
 pathspec==0.12.1
+    # via yamllint
 pyyaml==6.0.1
+    # via yamllint
 yamllint==1.33.0
+    # via python
