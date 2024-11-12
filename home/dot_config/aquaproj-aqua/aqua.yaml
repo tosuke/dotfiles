@@ -40,7 +40,7 @@ packages:
   - name: int128/kubelogin@v1.31.0
   - name: superbrothers/kubectl-open-svc-plugin@v2.6.2
     registry: local
-  - name: derailed/k9s@v0.32.5
+  - name: derailed/k9s@v0.32.6
   - name: stern/stern@v1.31.0
   - name: stefanprodan/timoni@v0.22.1
   # LSP
