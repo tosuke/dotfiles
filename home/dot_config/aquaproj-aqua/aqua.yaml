@@ -64,7 +64,7 @@ packages:
   # Deno
   - name: denoland/deno@v2.1.1
   # Lua
-  - name: LuaLS/lua-language-server@3.13.0
+  - name: LuaLS/lua-language-server@3.13.2
   - name: JohnnyMorganz/StyLua@v2.0.1
   # Python
   - name: mitsuhiko/rye@0.42.0
