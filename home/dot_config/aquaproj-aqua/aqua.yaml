@@ -17,7 +17,7 @@ packages:
   - name: BurntSushi/ripgrep@14.1.1
   - name: jqlang/jq@jq-1.7.1
   - name: mikefarah/yq@v4.44.5
-  - name: cue-lang/cue@v0.10.1
+  - name: cue-lang/cue@v0.11.0
   - name: go-task/task@v3.40.0
   - name: rclone/rclone@v1.68.2
   # GitHub
