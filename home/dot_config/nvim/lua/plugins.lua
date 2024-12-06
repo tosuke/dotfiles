@@ -666,6 +666,7 @@ local plugins = {
 					"jsonc",
 					"yaml",
 					"terraform",
+					"proto",
 					-- web
 					"html",
 					"css",

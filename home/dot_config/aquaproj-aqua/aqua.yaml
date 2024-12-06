@@ -71,3 +71,5 @@ packages:
   - name: mitsuhiko/rye@0.42.0
   # sh
   - name: koalaman/shellcheck@v0.10.0
+  # ProtoBuf
+  - name: bufbuild/buf@v1.47.2

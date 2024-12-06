@@ -59,6 +59,7 @@ vim.api.nvim_create_autocmd("Filetype", {
         "javascript",
         "typescript",
         "typescriptreact",
+        "proto",
     },
     callback = function()
         vim.opt.expandtab = true
