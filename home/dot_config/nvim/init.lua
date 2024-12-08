@@ -100,6 +100,16 @@ for _, quote in ipairs({ '"', "'", "`" }) do
     vim.keymap.set({ "x", "o" }, "a" .. quote, "2i" .. quote)
 end
 
+-- gf で URL を開く
+vim.keymap.set("n", "gf", function()
+    local cfile = vim.fn.expand("<cfile>")
+    if cfile:match("^https?://") then
+        vim.ui.open(cfile)
+    else
+        vim.cmd("normal! gF")
+    end
+end)
+
 -- ファイルタイプ
 vim.filetype.add({
     extension = {
