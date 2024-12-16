@@ -38,7 +38,7 @@ packages:
   - name: ahmetb/kubectx@v0.9.5
   - name: ahmetb/kubectx/kubens@v0.9.5
   - name: int128/kubelogin@v1.31.0
-  - name: superbrothers/kubectl-open-svc-plugin@v2.6.2
+  - name: superbrothers/kubectl-open-svc-plugin@v2.6.3
     registry: local
   - name: derailed/k9s@v0.32.7
   - name: stern/stern@v1.31.0
