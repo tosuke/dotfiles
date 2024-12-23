@@ -1,5 +1,6 @@
 require("title")
 require("status")
+require("remote-command")
 local palette = require("palette")
 
 local wezterm = require("wezterm")
