@@ -1,0 +1,1 @@
+helmfile completion fish | source
