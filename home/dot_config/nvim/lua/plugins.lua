@@ -666,7 +666,6 @@ local plugins = {
                     "jsonc",
                     "yaml",
                     "terraform",
-                    "proto",
                     -- web
                     "html",
                     "css",
@@ -902,6 +901,9 @@ local plugins = {
                     client.server_capabilities.semanticTokensProvider = false
                 end,
             })
+
+            -- Protocol Buffers
+            setup_lsp(lspcfg.buf_ls.setup, {})
 
             -- keymaps
             local has_telescope = require("lazy.core.config").spec.plugins["telescope.nvim"] ~= nil

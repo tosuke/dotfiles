@@ -90,13 +90,6 @@ tools:
       - "%f:%l:%c: %trror: %m"
       - "%f:%l:%c: %tarning: %m"
       - "%f:%l:%c: %tote: %m"
-
-  # Protocol Buffers
-  buf: &buf
-    format-command: "buf format ${INPUT}"
-    lint-command: "buf lint ${INPUT}"
-    lint-formats:
-      - "%f:%l:%c:%m"
 languages:
   lua:
     - <<: *stylua
@@ -131,8 +124,6 @@ languages:
     - <<: *actionlint
   terraform:
     - <<: *terraform-fmt
-  proto:
-    - <<: *buf
   # shell
   fish:
     - <<: *fish_indent
