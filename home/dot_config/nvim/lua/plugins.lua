@@ -688,29 +688,7 @@ local plugins = {
                     client.server_capabilities.documentRangeFormattingProvider = false
                 end,
             })
-            if not cfgs.golangcilsp then
-                cfgs.golangcilsp = {
-                    default_config = {
-                        cmd = { "golangci-lint-langserver" },
-                        root_dir = lspcfg.util.root_pattern(".git", "go.mod"),
-                        init_options = {
-                            command = {
-                                "golangci-lint",
-                                "run",
-                                "--enable-all",
-                                "--disable",
-                                "lll",
-                                "--out-format",
-                                "json",
-                                "--issues-exit-code=1",
-                            },
-                        },
-                    },
-                }
-            end
-            setup_lsp(lspcfg.golangci_lint_ls.setup, {
-                filetypes = { "go", "gomod" },
-            })
+            setup_lsp(lspcfg.golangci_lint_ls.setup, {})
 
             -- Rust
             setup_lsp(lspcfg.rust_analyzer.setup, {
