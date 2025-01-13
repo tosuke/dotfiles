@@ -1,7 +1,7 @@
 {
     "name": "node_tools",
     "type": "module",
-    "packageManager": "pnpm@9.15.2",
+    "packageManager": "pnpm@9.15.3",
     "dependencies": {
         "@fsouza/prettierd": "^0.26.0",
         "@tailwindcss/language-server": "^0.12.0",
