@@ -74,4 +74,4 @@ packages:
   # sh
   - name: koalaman/shellcheck@v0.10.0
   # ProtoBuf
-  - name: bufbuild/buf@v1.48.0
+  - name: bufbuild/buf@v1.49.0
