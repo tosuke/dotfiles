@@ -73,7 +73,6 @@ tools:
       - "%f:%l:%c: %m"
     root-markers:
       - .github
-
   # Shell
   fish_indent: &fish_indent
     format-command: "fish_indent"
@@ -90,6 +89,10 @@ tools:
       - "%f:%l:%c: %trror: %m"
       - "%f:%l:%c: %tarning: %m"
       - "%f:%l:%c: %tote: %m"
+  # Typst
+  typstyle: &typstyle
+    format-command: typstyle
+    format-stdin: true
 languages:
   lua:
     - <<: *stylua
@@ -132,3 +135,6 @@ languages:
     - <<: *shellcheck
   bash:
     - <<: *shellcheck
+  # Typst
+  typst:
+    - <<: *typstyle

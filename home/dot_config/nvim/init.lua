@@ -60,6 +60,7 @@ vim.api.nvim_create_autocmd("Filetype", {
         "typescript",
         "typescriptreact",
         "proto",
+        "typst",
     },
     callback = function()
         vim.opt.expandtab = true
@@ -119,6 +120,8 @@ vim.filetype.add({
         satyg = "satysfi",
         -- Earthfile
         earth = "Earthfile",
+        -- Typst
+        typ = "typst",
     },
     filename = {
         ["Earthfile"] = "Earthfile",

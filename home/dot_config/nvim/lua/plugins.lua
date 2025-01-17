@@ -632,7 +632,6 @@ local plugins = {
         event = { "BufReadPre", "BufNewFile" },
         config = function()
             local lspcfg = require("lspconfig")
-            local cfgs = require("lspconfig/configs")
             local cmplsp = require("cmp_nvim_lsp")
 
             local function setup_lsp(setup, config)
@@ -677,6 +676,8 @@ local plugins = {
                     -- shell
                     "fish",
                     "sh",
+                    -- other
+                    "typst",
                 },
             })
 
@@ -882,6 +883,9 @@ local plugins = {
 
             -- Protocol Buffers
             setup_lsp(lspcfg.buf_ls.setup, {})
+
+            -- Typst
+            setup_lsp(lspcfg.tinymist.setup, {})
 
             -- keymaps
             local has_telescope = require("lazy.core.config").spec.plugins["telescope.nvim"] ~= nil
