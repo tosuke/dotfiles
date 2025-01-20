@@ -570,9 +570,25 @@ local plugins = {
                     { name = "nvim_lsp" },
                     { name = "copilot" },
                     { name = "vsnip" },
+                    { name = "nvim_lsp_signature_help" },
                 }, {
                     { name = "buffer" },
                 }),
+                sorting = {
+                    priority_weight = 2,
+                    comparators = {
+                        require("copilot_cmp.comparators").prioritize,
+                        cmp.config.compare.offset,
+                        cmp.config.compare.exact,
+                        cmp.config.compare.score,
+                        cmp.config.compare.recently_used,
+                        cmp.config.compare.locality,
+                        cmp.config.compare.kind,
+                        cmp.config.compare.sort_text,
+                        cmp.config.compare.length,
+                        cmp.config.compare.order,
+                    },
+                },
             })
 
             cmp.setup.cmdline({ "/", "?" }, {
@@ -607,6 +623,35 @@ local plugins = {
                 panel = { enabled = false },
             })
         end,
+    },
+    {
+        "CopilotC-Nvim/CopilotChat.nvim",
+        dependencies = {
+            "zbirenbaum/copilot.lua",
+            "nvim-lua/plenary.nvim",
+        },
+        cmd = { "CopilotChat" },
+        build = "make tiktoken",
+        opts = {
+            show_help = "yes",
+            prompts = {
+                Explain = {
+                    prompt = "/COPILOT_EXPLAIN コードを日本語で説明してください",
+                    mapping = "<leader>ce",
+                    description = "Explain code",
+                },
+                Review = {
+                    prompt = "/COPILOT_REVIEW コードを日本語でレビューしてください",
+                    mapping = "<leader>cr",
+                    description = "Review code",
+                },
+                Fix = {
+                    prompt = "/COPILOT_FIX コードを日本語で修正してください",
+                    mapping = "<leader>cf",
+                    description = "Fix code",
+                }
+            },
+        },
     },
     -- LSP
     {
