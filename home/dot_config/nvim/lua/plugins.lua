@@ -508,9 +508,7 @@ local plugins = {
             {
                 "zbirenbaum/copilot-cmp",
                 dependencies = { "zbirenbaum/copilot.lua" },
-                config = function()
-                    require("copilot_cmp").setup()
-                end,
+                opt = {},
             },
             -- snippet
             "hrsh7th/cmp-vsnip",
@@ -649,7 +647,7 @@ local plugins = {
                     prompt = "/COPILOT_FIX コードを日本語で修正してください",
                     mapping = "<leader>cf",
                     description = "Fix code",
-                }
+                },
             },
         },
     },
@@ -1047,6 +1045,26 @@ local plugins = {
                 leader = "\\",
             },
             mappings = true,
+        },
+    },
+    {
+        "chomosuke/typst-preview.nvim",
+        cmd = {
+            "TypstPreview",
+            "TypstPreviewUpdate",
+            "TypstPreviewStop",
+            "TypstPreviewToggle",
+            "TypstPreviewFollowCursor",
+            "TypstPreviewNoFollowCursor",
+            "TypstPreviewFollowCursorToggle",
+            "TypstPreviewSyncCursor",
+        },
+        opts = {
+            dependencies_bin = {
+                -- Managed by aqua
+                ["tinymist"] = "tinymist",
+                ["websocat"] = "websocat",
+            },
         },
     },
 }
