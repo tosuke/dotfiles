@@ -1,18 +1,16 @@
-local not_vscode = function()
+local is_not_vscode = function()
     return not vim.g.vscode
 end
 
 local plugins = {
-    -- self
     "folke/lazy.nvim",
-    -- colorscheme
     {
         "cocopon/iceberg.vim",
-        cond = not_vscode,
+        cond = is_not_vscode,
         config = function()
-            local augrp = vim.api.nvim_create_augroup("iceberg", { clear = true })
+            local augroup = vim.api.nvim_create_augroup("iceberg", { clear = true })
             vim.api.nvim_create_autocmd("ColorScheme", {
-                group = augrp,
+                group = augroup,
                 pattern = "iceberg",
                 callback = function()
                     local highlight = {
@@ -27,18 +25,17 @@ local plugins = {
                         Normal = { ctermbg = "NONE", bg = "NONE" },
                         NonText = { ctermbg = "NONE", bg = "NONE" },
                     }
-                    for group, conf in pairs(highlight) do
-                        vim.api.nvim_set_hl(0, group, conf)
+                    for group, hlconf in pairs(highlight) do
+                        vim.api.nvim_set_hl(0, group, hlconf)
                     end
                 end,
             })
         end,
     },
-    -- appearance
     {
         "lewis6991/gitsigns.nvim",
         event = { "BufReadPre", "BufNewFile" },
-        cond = not_vscode,
+        cond = is_not_vscode,
         opts = {
             signs = {
                 add = { text = "│" },
@@ -78,56 +75,56 @@ local plugins = {
             },
             yadm = { enable = false },
             on_attach = function(bufnr)
-                local gs = require("gitsigns")
+                local gitsigns = require("gitsigns")
 
-                local function map(mode, l, r, opts)
+                local function keymap(mode, l, r, opts)
                     opts = opts or {}
                     opts.buffer = bufnr
                     vim.keymap.set(mode, l, r, opts)
                 end
 
                 -- Navigation
-                map("n", "]c", function()
+                keymap("n", "]c", function()
                     if vim.wo.diff then
                         return "]c"
                     end
-                    vim.schedule(gs.next_hunk)
+                    vim.schedule(gitsigns.next_hunk)
                     return "<Ignore>"
                 end, { expr = true })
 
-                map("n", "[c", function()
+                keymap("n", "[c", function()
                     if vim.wo.diff then
                         return "[c"
                     end
-                    vim.schedule(gs.prev_hunk)
+                    vim.schedule(gitsigns.prev_hunk)
                     return "<Ignore>"
                 end, { expr = true })
 
                 -- Actions
-                map("n", "<leader>hs", gs.stage_hunk)
-                map("n", "<leader>hr", gs.reset_hunk)
-                map("v", "<leader>hs", function()
-                    gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+                keymap("n", "<leader>hs", gitsigns.stage_hunk)
+                keymap("n", "<leader>hr", gitsigns.reset_hunk)
+                keymap("v", "<leader>hs", function()
+                    gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
                 end)
-                map("v", "<leader>hr", function()
-                    gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+                keymap("v", "<leader>hr", function()
+                    gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
                 end)
-                map("n", "<leader>hS", gs.stage_buffer)
-                map("n", "<leader>hu", gs.undo_stage_hunk)
-                map("n", "<leader>hR", gs.reset_buffer)
-                map("n", "<leader>hp", gs.preview_hunk)
-                map("n", "<leader>hb", function()
-                    gs.blame_line({ full = true })
+                keymap("n", "<leader>hS", gitsigns.stage_buffer)
+                keymap("n", "<leader>hu", gitsigns.undo_stage_hunk)
+                keymap("n", "<leader>hR", gitsigns.reset_buffer)
+                keymap("n", "<leader>hp", gitsigns.preview_hunk)
+                keymap("n", "<leader>hb", function()
+                    gitsigns.blame_line({ full = true })
                 end)
-                map("n", "<leader>tb", gs.toggle_current_line_blame)
-                map("n", "<leader>hd", gs.diffthis)
-                map("n", "<leader>hD", function()
-                    gs.diffthis("~")
+                keymap("n", "<leader>tb", gitsigns.toggle_current_line_blame)
+                keymap("n", "<leader>hd", gitsigns.diffthis)
+                keymap("n", "<leader>hD", function()
+                    gitsigns.diffthis("~")
                 end)
-                map("n", "<leader>td", gs.toggle_deleted)
+                keymap("n", "<leader>td", gitsigns.toggle_deleted)
 
                 -- Text object
-                map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
+                keymap({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
             end,
         },
     },
@@ -202,7 +199,6 @@ local plugins = {
             require("colorizer").setup()
         end,
     },
-    -- syntax
     {
         "nvim-treesitter/nvim-treesitter",
         dependencies = {
@@ -211,7 +207,7 @@ local plugins = {
         event = { "BufReadPost", "BufNewFile" },
         build = ":TSUpdate",
         cmd = { "TSUpdateSync" },
-        cond = not_vscode,
+        cond = is_not_vscode,
         opts = {
             auto_install = true,
             highlight = {
@@ -400,7 +396,6 @@ local plugins = {
             })
         end,
     },
-    -- fuzzy finder
     {
         "nvim-telescope/telescope.nvim",
         cmd = { "Telescope" },
@@ -497,7 +492,6 @@ local plugins = {
             telescope.load_extension("possession")
         end,
     },
-    -- completion
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
@@ -612,7 +606,7 @@ local plugins = {
     },
     {
         "zbirenbaum/copilot.lua",
-        cond = not_vscode,
+        cond = is_not_vscode,
         commands = { "Copilot" },
         event = { "InsertEnter" },
         config = function()
@@ -632,6 +626,7 @@ local plugins = {
         build = "make tiktoken",
         opts = {
             show_help = "yes",
+            model = "claude-3.5-sonnet",
             prompts = {
                 Explain = {
                     prompt = "/COPILOT_EXPLAIN コードを日本語で説明してください",
@@ -651,19 +646,18 @@ local plugins = {
             },
         },
     },
-    -- LSP
     {
         "aznhe21/actions-preview.nvim",
         dependencies = {
             "neovim/nvim-lspconfig",
             "nvim-telescope/telescope.nvim",
         },
-        cond = not_vscode,
+        cond = is_not_vscode,
         opts = {},
     },
     {
         "neovim/nvim-lspconfig",
-        cond = not_vscode,
+        cond = is_not_vscode,
         dependencies = {
             "b0o/schemastore.nvim",
             "kyoh86/climbdir.nvim",
