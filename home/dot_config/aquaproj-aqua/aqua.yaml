@@ -42,7 +42,7 @@ packages:
   - name: superbrothers/kubectl-open-svc-plugin@v2.6.3
     registry: local
   - name: derailed/k9s@v0.32.7
-  - name: stern/stern@v1.31.0
+  - name: stern/stern@v1.32.0
   - name: stefanprodan/timoni@v0.23.0
   - name: helm/helm@v3.17.0
   - name: helmfile/helmfile@v0.170.1
