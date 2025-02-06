@@ -502,7 +502,9 @@ local plugins = {
             {
                 "zbirenbaum/copilot-cmp",
                 dependencies = { "zbirenbaum/copilot.lua" },
-                opt = {},
+                config = function()
+                    require("copilot_cmp").setup()
+                end,
             },
             -- snippet
             "hrsh7th/cmp-vsnip",
@@ -624,27 +626,31 @@ local plugins = {
         },
         cmd = { "CopilotChat" },
         build = "make tiktoken",
-        opts = {
-            show_help = "yes",
-            model = "claude-3.5-sonnet",
-            prompts = {
-                Explain = {
-                    prompt = "/COPILOT_EXPLAIN コードを日本語で説明してください",
-                    mapping = "<leader>ce",
-                    description = "Explain code",
+        config = function()
+            local select = require("CopilotChat.select")
+            require("CopilotChat").setup({
+                show_help = "yes",
+                model = "claude-3.5-sonnet",
+                prompts = {
+                    Explain = {
+                        prompt = "/COPILOT_EXPLAIN コードを日本語で説明してください",
+                        description = "Explain code",
+                    },
+                    Review = {
+                        prompt = "/COPILOT_REVIEW コードを日本語でレビューしてください",
+                        description = "Review code",
+                    },
+                    Fix = {
+                        prompt = "/COPILOT_GENERATE このコードには問題があります。バグを修正してください。",
+                        description = "Fix code",
+                    },
+                    FixDiagnostic = {
+                        prompt = "/COPILOT_GENERATE 次のような診断上の問題を解決して修正してください。",
+                        selection = select.diagnostics,
+                    },
                 },
-                Review = {
-                    prompt = "/COPILOT_REVIEW コードを日本語でレビューしてください",
-                    mapping = "<leader>cr",
-                    description = "Review code",
-                },
-                Fix = {
-                    prompt = "/COPILOT_FIX コードを日本語で修正してください",
-                    mapping = "<leader>cf",
-                    description = "Fix code",
-                },
-            },
-        },
+            })
+        end,
     },
     {
         "aznhe21/actions-preview.nvim",
