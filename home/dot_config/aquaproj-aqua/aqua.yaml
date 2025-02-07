@@ -27,7 +27,7 @@ packages:
   - name: rhysd/actionlint@v1.7.7
   - name: nektos/act@v0.2.72
   # AWS
-  - name: aws/aws-cli@2.23.11
+  - name: aws/aws-cli@2.23.15
   - name: aws/session-manager-plugin@1.2.677.0
   - name: kayac/ecspresso@v2.4.5
   - name: fujiwara/lambroll@v1.1.3
