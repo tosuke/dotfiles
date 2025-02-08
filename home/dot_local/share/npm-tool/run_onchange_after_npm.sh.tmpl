@@ -1,0 +1,9 @@
+#!/bin/bash
+# vim: set ft=sh :
+
+# package-lock.json hash: {{ include "dot_local/share/npm-tool/package-lock.json" | sha256sum }}
+echo "Sync npm tools..."
+cd "$HOME/.local/share/npm-tool" && \
+fnm use --install-if-missing --silent-if-unchanged && \
+npm ci
+

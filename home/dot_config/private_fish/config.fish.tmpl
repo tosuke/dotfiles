@@ -34,16 +34,13 @@ end
 
 # fnm (node.js)
 if command -q fnm
-    set -l arch (uname -m)
-    switch "$arch"
-        case x86_64
-            set arch x64
-    end
-    set -gx FNM_ARCH "$arch"
     if status is-interactive
-        fnm env --use-on-cd --version-file-strategy recursive --corepack-enabled | source
+        fnm env --use-on-cd --version-file-strategy recursive | source
         or echo "fnm initialization failed"
     end
+end
+if [ -d $HOME/.local/share/npm-tool/node_modules ]
+    fish_add_path -g "$HOME/.local/share/npm-tool/node_modules/.bin"
 end
 
 # rye (Python)
