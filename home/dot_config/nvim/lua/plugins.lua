@@ -1031,6 +1031,50 @@ local plugins = {
         end,
     },
     {
+        "nvim-neotest/neotest",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-neotest/nvim-nio",
+            "fredrikaverpil/neotest-golang"
+        },
+        ft = { "go" },
+        config = function()
+            local neotest_ns = vim.api.nvim_create_namespace("neotest")
+            vim.diagnostic.config({
+                virtual_text = {
+                    format = function(diagnostic)
+                        local message =
+                            diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
+                        return message
+                    end,
+                },
+            }, neotest_ns)
+
+            local neotest = require("neotest")
+            neotest.setup({
+                status = {
+                    virtual_text = true,
+                    signs = false,
+                },
+                adapters = {
+                    require("neotest-golang")({}),
+                },
+            })
+
+            -- キーマッピング
+            vim.keymap.set("n", "<leader>tt", function()
+                neotest.run.run()
+            end, { desc = "Run nearest test" })
+            vim.keymap.set("n", "<leader>tf", function()
+                neotest.run.run(vim.fn.expand("%"))
+            end, { desc = "Run file tests" })
+            vim.keymap.set("n", "<leader>ts", function()
+                neotest.summary.toggle()
+            end, { desc = "Toggle test summary" })
+        end,
+    },
+    {
         "Julian/lean.nvim",
         event = { "BufReadPost *.lean", "BufNewFile *.lean" },
         dependencies = {
