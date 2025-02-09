@@ -1,0 +1,7 @@
+#!/bin/bash
+# vim: set ft=sh :
+
+# .python-version hash: {{ include "dot_local/share/python-tool/dot_python-version" | sha256sum }}
+# uv.lock hash: {{ include "dot_local/share/python-tool/uv.lock" | sha256sum }}
+echo "Sync Python tools..."
+cd "$HOME/.local/share/python-tool" && aqua exec -- uv sync

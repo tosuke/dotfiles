@@ -43,9 +43,9 @@ if [ -d $HOME/.local/share/npm-tool/node_modules ]
     fish_add_path -g "$HOME/.local/share/npm-tool/node_modules/.bin"
 end
 
-# rye (Python)
-if [ -d $HOME/.rye ]
-    fish_add_path -g "$HOME/.rye/shims"
+# Python
+if [ -d $HOME/.local/share/python-tool/.venv ]
+    fish_add_path -g "$HOME/.local/share/python-tool/.venv/bin"
 end
 
 # opam
