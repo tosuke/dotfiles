@@ -624,29 +624,44 @@ local plugins = {
             "zbirenbaum/copilot.lua",
             "nvim-lua/plenary.nvim",
         },
-        cmd = { "CopilotChat" },
         build = "make tiktoken",
+        keys = {
+            {
+                "<leader>cc", "<cmd>CopilotChat<cr>", mode = { "n", "v" }, desc = "CopilotChat",
+            },
+            {
+                "<leader>gc",
+                function()
+                    local actions = require("CopilotChat.actions")
+                    require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
+                end,
+                mode = { "n", "v" },
+                desc = "CopilotChat action",
+            },
+        },
         config = function()
-            local select = require("CopilotChat.select")
             require("CopilotChat").setup({
+                debug = true,
+
                 show_help = "yes",
                 model = "claude-3.5-sonnet",
+
+                window = {
+                    layout = "float",
+                    relative = "editor",
+                },
                 prompts = {
                     Explain = {
-                        prompt = "/COPILOT_EXPLAIN コードを日本語で説明してください",
+                        prompt = "> /COPILOT_EXPLAIN\n\n選択されたコードの説明を段落をつけて書いてください。",
                         description = "Explain code",
                     },
                     Review = {
-                        prompt = "/COPILOT_REVIEW コードを日本語でレビューしてください",
+                        prompt = "/COPILOT_REVIEW 選択されたコードをレビューしてください。",
                         description = "Review code",
                     },
                     Fix = {
-                        prompt = "/COPILOT_GENERATE このコードには問題があります。バグを修正してください。",
+                        prompt = "> /COPILOT_GENERATE\n\nこのコードには問題があります。バグを修正してください。",
                         description = "Fix code",
-                    },
-                    FixDiagnostic = {
-                        prompt = "/COPILOT_GENERATE 次のような診断上の問題を解決して修正してください。",
-                        selection = select.diagnostics,
                     },
                 },
             })
@@ -1035,7 +1050,7 @@ local plugins = {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
             "nvim-neotest/nvim-nio",
-            "fredrikaverpil/neotest-golang"
+            "fredrikaverpil/neotest-golang",
         },
         ft = { "go" },
         config = function()
