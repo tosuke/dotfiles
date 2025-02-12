@@ -613,8 +613,24 @@ local plugins = {
         event = { "InsertEnter" },
         config = function()
             require("copilot").setup({
-                suggestion = { enabled = false },
-                panel = { enabled = false },
+                suggestion = {
+                    enabled = true,
+                    auto_trigger = true,
+                    keymap = {
+                        accept = false,
+                    },
+                },
+                panel = { enabled = true },
+                server_opts_overrides = {
+                    trace = "verbose",
+                    cmd = { "copilot-language-server", "--stdio" },
+                    settings = {
+                        advanced = {
+                            listCount = 10,
+                            inlineSuggestCount = 3,
+                        },
+                    },
+                },
             })
         end,
     },
@@ -627,7 +643,10 @@ local plugins = {
         build = "make tiktoken",
         keys = {
             {
-                "<leader>cc", "<cmd>CopilotChat<cr>", mode = { "n", "v" }, desc = "CopilotChat",
+                "<leader>cc",
+                "<cmd>CopilotChat<cr>",
+                mode = { "n", "v" },
+                desc = "CopilotChat",
             },
             {
                 "<leader>gc",
