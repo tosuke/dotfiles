@@ -499,13 +499,6 @@ local plugins = {
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-cmdline",
-            {
-                "zbirenbaum/copilot-cmp",
-                dependencies = { "zbirenbaum/copilot.lua" },
-                config = function()
-                    require("copilot_cmp").setup()
-                end,
-            },
             -- snippet
             "hrsh7th/cmp-vsnip",
             "hrsh7th/vim-vsnip",
@@ -538,7 +531,10 @@ local plugins = {
                     ["<C-f>"] = cmp.mapping.scroll_docs(4),
                     ["<C-Space>"] = cmp.mapping.complete(),
                     ["<Tab>"] = vim.schedule_wrap(function(fallback)
-                        if cmp.visible() and has_word_before() then
+                        local copilot_suggestion = require("copilot.suggestion")
+                        if copilot_suggestion.is_visible() then
+                            copilot_suggestion.accept()
+                        elseif cmp.visible() and has_word_before() then
                             cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
                         else
                             fallback()
@@ -562,7 +558,6 @@ local plugins = {
                 },
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
-                    { name = "copilot" },
                     { name = "vsnip" },
                     { name = "nvim_lsp_signature_help" },
                 }, {
@@ -570,18 +565,6 @@ local plugins = {
                 }),
                 sorting = {
                     priority_weight = 2,
-                    comparators = {
-                        require("copilot_cmp.comparators").prioritize,
-                        cmp.config.compare.offset,
-                        cmp.config.compare.exact,
-                        cmp.config.compare.score,
-                        cmp.config.compare.recently_used,
-                        cmp.config.compare.locality,
-                        cmp.config.compare.kind,
-                        cmp.config.compare.sort_text,
-                        cmp.config.compare.length,
-                        cmp.config.compare.order,
-                    },
                 },
             })
 
