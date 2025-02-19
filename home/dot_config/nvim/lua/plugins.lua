@@ -364,10 +364,16 @@ local plugins = {
                 opts = {
                     enable_autocmd = false,
                 },
+                config = function(_, opts)
+                    require("ts_context_commentstring").setup(opts)
+                end,
             },
         },
         keys = {
             { "gc", mode = { "n", "x" } },
+            { "gcc", mode = { "n", "x" } },
+            { "gb", mode = { "n", "x" } },
+            { "gbc", mode = { "n", "x" } },
         },
         config = function()
             require("Comment").setup({
