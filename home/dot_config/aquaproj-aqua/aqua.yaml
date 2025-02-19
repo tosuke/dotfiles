@@ -41,7 +41,7 @@ packages:
   - name: int128/kubelogin@v1.32.2
   - name: superbrothers/kubectl-open-svc-plugin@v2.6.3
     registry: local
-  - name: derailed/k9s@v0.32.7
+  - name: derailed/k9s@v0.40.5
   - name: stern/stern@v1.32.0
   - name: stefanprodan/timoni@v0.24.0
   - name: helm/helm@v3.17.1
