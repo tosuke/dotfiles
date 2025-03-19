@@ -30,7 +30,7 @@ packages:
   - name: aws/aws-cli@2.24.25
   - name: aws/session-manager-plugin@1.2.677.0
   - name: kayac/ecspresso@v2.4.6
-  - name: fujiwara/lambroll@v1.2.0
+  - name: fujiwara/lambroll@v1.2.2
   # Google Cloud
   - name: twistedpair/google-cloud-sdk@511.0.0
   # k8s
