@@ -279,7 +279,8 @@ local plugins = {
         end,
     },
     {
-        "HiPhish/rainbow-delimiters.nvim",
+        name = "rainbow-delimiters.nvim",
+        url = "https://gitlab.com/HiPhish/rainbow-delimiters.nvim.git",
         dependencies = { "nvim-treesitter/nvim-treesitter" },
         event = { "BufReadPost", "BufNewFile" },
         config = function()
