@@ -621,6 +621,18 @@ local plugins = {
                         },
                     },
                 },
+                filetypes = {
+                    yaml = true,
+                    markdown = true,
+                    help = false,
+                    gitcommit = true,
+                    gotrebase = true,
+                    hgcommit = false,
+                    svn = false,
+                    cvs = false,
+                    ["."] = false,
+                    ["*"] = true,
+                },
             })
         end,
     },
