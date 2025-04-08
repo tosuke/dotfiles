@@ -83,9 +83,6 @@ vim.o.cursorline = true
 -- vim.o.showmatch = true
 -- vim.o.matchtime = 1
 
--- エラー表示
-vim.diagnostic.config({ virtual_text = false })
-
 vim.o.modeline = true
 
 -- キーバインド
@@ -110,6 +107,12 @@ vim.keymap.set("n", "gf", function()
         vim.cmd("normal! gF")
     end
 end)
+
+-- エラー表示
+vim.diagnostic.config({ virtual_lines = true })
+vim.keymap.set("n", "<leader>l", function()
+    vim.diagnostic.config({ virtual_lines = not vim.diagnostic.config().virtual_lines })
+end, { noremap = true, silent = true })
 
 -- ファイルタイプ
 vim.filetype.add({
