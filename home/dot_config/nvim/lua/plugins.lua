@@ -612,6 +612,7 @@ local plugins = {
                         },
                     },
                 },
+                copilot_model = "gpt-4o-copilot",
                 filetypes = {
                     yaml = true,
                     markdown = true,
@@ -656,7 +657,7 @@ local plugins = {
                 debug = true,
 
                 show_help = "yes",
-                model = "claude-3.7-sonnet",
+                model = "copilot:gpt-4o",
 
                 window = {
                     layout = "float",
