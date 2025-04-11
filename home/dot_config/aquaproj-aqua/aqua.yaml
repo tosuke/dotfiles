@@ -35,6 +35,8 @@ packages:
   - name: twistedpair/google-cloud-sdk@517.0.0
   # k8s
   - name: kubernetes-sigs/kind@v0.27.0
+  - name: kubernetes-sigs/kubebuilder@v4.5.2
+  - name: kubernetes-sigs/controller-tools/controller-gen@envtest-v1.32.0
   - name: kubernetes/kubectl@v1.32.3
   - name: ahmetb/kubectx@v0.9.5
   - name: ahmetb/kubectx/kubens@v0.9.5
@@ -44,6 +46,7 @@ packages:
   - name: derailed/k9s@v0.40.10
   - name: stern/stern@v1.32.0
   - name: stefanprodan/timoni@v0.24.0
+  - name: kubernetes-sigs/kustomize@kustomize/v5.6.0
   - name: helm/helm@v3.17.2
   - name: helmfile/helmfile@v0.171.0
   # LSP
