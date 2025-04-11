@@ -30,16 +30,12 @@ tools:
       - stylua.toml
       - .stylua.toml
   # Go
-  gofmt: &gofmt
-    format-command: "gofmt"
+  golangci-lint-fmt: &golangci-lint-fmt
+    format-command: "golangci-lint fmt --stdin"
     format-stdin: true
     root-markers:
-      - go.mod
-      - go.sum
-  goimports: &goimports
-    format-command: "goimports"
-    format-stdin: true
-    root-markers:
+      - .golangci.yml
+      - .golangci.yaml
       - go.mod
       - go.sum
   # Terraform
@@ -97,8 +93,7 @@ languages:
   lua:
     - <<: *stylua
   go:
-    - <<: *gofmt
-    - <<: *goimports
+    - <<: *golangci-lint-fmt
   ocaml:
     - <<: *ocamlformat
   # web
