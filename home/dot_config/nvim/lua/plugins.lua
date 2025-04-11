@@ -141,6 +141,8 @@ local plugins = {
         event = "VeryLazy",
         dependencies = {
             "nvim-tree/nvim-web-devicons",
+            "zbirenbaum/copilot.lua",
+            "AndreM222/copilot-lualine",
         },
         config = function()
             local function diff_source()
@@ -153,7 +155,6 @@ local plugins = {
                     }
                 end
             end
-            local filename = { "filename", path = 1 }
             require("lualine").setup({
                 options = {
                     icons_enabled = true,
@@ -169,8 +170,8 @@ local plugins = {
                         { "diff", source = diff_source },
                         "diagnostics",
                     },
-                    lualine_c = { filename },
-                    lualine_x = { "encoding", "fileformat", "filetype" },
+                    lualine_c = { { "filename", path = 1 } },
+                    lualine_x = { "copilot", "encoding", "fileformat", "filetype" },
                     lualine_y = { "progress" },
                     lualine_z = { "location" },
                 },
