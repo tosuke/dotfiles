@@ -4,11 +4,11 @@ local palette = require("palette")
 local function add_elem(elems, header, str)
     table.insert(elems, { Foreground = header.Foreground })
     table.insert(elems, { Background = { Color = palette.NORMAL_BG } })
-    table.insert(elems, { Text = header.Text .. "  " })
+    table.insert(elems, { Text = "  " .. header.Text .. "  " })
 
     table.insert(elems, { Foreground = { Color = palette.NORMAL_FG } })
     table.insert(elems, { Background = { Color = palette.NORMAL_BG } })
-    table.insert(elems, { Text = str .. "   " })
+    table.insert(elems, { Text = str .. "  " })
 end
 
 local HEADER_KEYTABLE = { Foreground = { Color = "#c0ca8e" }, Text = wezterm.nerdfonts.md_keyboard }

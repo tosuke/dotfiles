@@ -13,7 +13,7 @@ end
 -- colors
 config.color_scheme = "iceberg-dark"
 config.window_background_opacity = 0.85
-config.text_background_opacity = 0.7
+config.text_background_opacity = 0.8
 config.colors = {}
 config.inactive_pane_hsb = {
     saturation = 0.6,
