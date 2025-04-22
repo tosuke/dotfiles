@@ -12,7 +12,7 @@ end
 
 -- colors
 config.color_scheme = "iceberg-dark"
-config.window_background_opacity = 0.95
+config.window_background_opacity = 0.85
 config.text_background_opacity = 0.7
 config.colors = {}
 config.inactive_pane_hsb = {
@@ -24,7 +24,10 @@ config.inactive_pane_hsb = {
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
 -- font
-config.font = wezterm.font_with_fallback({ "JetBrainsMono Nerd Font", "JetBrainsMono" })
+config.font = wezterm.font_with_fallback({
+    { family = "JetBrainsMono Nerd Font" },
+    { family = "BIZ UDGothic" },
+})
 config.font_size = 14
 
 -- tab bar
