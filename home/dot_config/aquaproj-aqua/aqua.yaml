@@ -33,7 +33,7 @@ packages:
   - name: kayac/ecspresso@v2.4.6
   - name: fujiwara/lambroll@v1.2.2
   # Google Cloud
-  - name: twistedpair/google-cloud-sdk@518.0.0
+  - name: twistedpair/google-cloud-sdk@519.0.0
   # k8s
   - name: kubernetes-sigs/kind@v0.27.0
   - name: kubernetes-sigs/kubebuilder@v4.5.2
