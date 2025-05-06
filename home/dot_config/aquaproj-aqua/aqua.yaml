@@ -27,7 +27,6 @@ packages:
   - name: github/copilot-language-server-release@1.311.0
   # GHA
   - name: rhysd/actionlint@v1.7.7
-  - name: nektos/act@v0.2.76
   # AWS
   - name: aws/aws-cli@2.27.7
   - name: aws/session-manager-plugin@1.2.677.0
