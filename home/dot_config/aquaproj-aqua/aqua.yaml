@@ -49,7 +49,7 @@ packages:
   - name: stefanprodan/timoni@v0.24.0
   - name: kubernetes-sigs/kustomize@kustomize/v5.6.0
   - name: helm/helm@v3.17.3
-  - name: helmfile/helmfile@v0.171.0
+  - name: helmfile/helmfile@v1.0.0
   # LSP
   - name: mattn/efm-langserver@v0.0.54
   # Terraform
