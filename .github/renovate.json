@@ -7,5 +7,12 @@
   "minimumReleaseAge": "3 days",
   "patch": {
     "automerge": true
-  }
+  },
+  "packageRules": [
+    {
+      "matchPackageNames": ["github/copilot-language-server-release"],
+      "matchUpdateTypes": ["minor"],
+      "automerge": true
+    }
+  ]
 }
