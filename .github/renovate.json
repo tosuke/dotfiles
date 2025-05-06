@@ -1,8 +1,10 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base", "github>aquaproj/aqua-renovate-config#2.7.5"],
+  "extends": [
+    "config:recommended",
+    "github>aquaproj/aqua-renovate-config#2.7.5"
+  ],
   "minimumReleaseAge": "3 days",
-
   "patch": {
     "automerge": true
   }
