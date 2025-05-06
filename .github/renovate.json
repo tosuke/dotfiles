@@ -5,6 +5,8 @@
     "github>aquaproj/aqua-renovate-config#2.7.5"
   ],
   "minimumReleaseAge": "3 days",
+  "platformAutomerge": true,
+  "ignoreTests": true,
   "patch": {
     "automerge": true
   },
