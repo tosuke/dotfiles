@@ -7,7 +7,7 @@ registries:
     path: registry.yaml
 packages:
   - name: neovim/neovim@v0.11.1
-  - name: starship/starship@v1.22.1
+  - name: starship/starship@v1.23.0
   - name: sharkdp/bat@v0.25.0
   - name: junegunn/fzf@v0.61.3
   - name: direnv/direnv@v2.36.0
