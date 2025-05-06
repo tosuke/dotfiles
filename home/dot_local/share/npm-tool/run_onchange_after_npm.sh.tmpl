@@ -2,6 +2,6 @@
 # vim: set ft=sh :
 
 # .node-version hash: {{ include "dot_local/share/npm-tool/dot_node-version" | sha256sum }}
-# package-lock.json hash: {{ include "dot_local/share/npm-tool/package-lock.json" | sha256sum }}
+# pnpm-lock.yaml hash: {{ include "dot_local/share/npm-tool/pnpm-lock.yaml" | sha256sum }}
 echo "Sync npm tools..."
-cd "$HOME/.local/share/npm-tool" && aqua exec -- fnm exec npm ci
+cd "$HOME/.local/share/npm-tool" && aqua exec -- pnpm install
