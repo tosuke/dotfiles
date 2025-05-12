@@ -16,7 +16,7 @@ packages:
   - name: sharkdp/fd@v10.2.0
   - name: BurntSushi/ripgrep@14.1.1
   - name: jqlang/jq@jq-1.7.1
-  - name: mikefarah/yq@v4.45.2
+  - name: mikefarah/yq@v4.45.3
   - name: cue-lang/cue@v0.12.1
   - name: go-task/task@v3.43.3
   - name: rclone/rclone@v1.69.2
