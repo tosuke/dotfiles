@@ -17,3 +17,4 @@
 [submodule "home/dot_local/share/nvim2/site/pack/plugins/opt/external_copilot.lua"]
 	path = home/dot_local/share/nvim2/site/pack/plugins/opt/external_copilot.lua
 	url = https://github.com/zbirenbaum/copilot.lua.git
+	branch = master
