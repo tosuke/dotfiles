@@ -5,16 +5,6 @@ vim.opt.title = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
--- キーバインド
--- US 配列だとつらいので ; と : を入れ替える
-vim.keymap.set("n", ";", ":", { noremap = true })
-vim.keymap.set("n", ":", ";", { noremap = true })
-vim.api.nvim_set_keymap("n", "<Esc><Esc>", ":nohl<CR>", { noremap = true, silent = true, desc = "no highlight" })
--- textobj を囲む空白を選択しない
-for _, quote in ipairs({ '"', "'", "`" }) do
-    vim.keymap.set({ "x", "o" }, "a" .. quote, "2i" .. quote)
-end
-
 -- Diagnostics
 vim.diagnostic.config({
     virtual_lines = false,
@@ -51,15 +41,10 @@ end)
 now(function()
     require("mini.basics").setup({
         options = {
-            basic = true,
             extra_ui = true,
         },
         mappings = {
-            basic = true,
             option_toggle_prefix = "m",
-        },
-        autocommands = {
-            basic = true,
         },
     })
     vim.o.listchars = "tab:»-,trail:-,extends:»,eol:↲,precedes:«,nbsp:%"
@@ -155,6 +140,16 @@ end)
 
 later(function()
     require("mini.diff").setup()
+end)
+
+later(function()
+    require("mini.jump").setup({
+        delay = { idle_stop = 10 },
+    })
+end)
+
+later(function()
+    require("mini.jump2d").setup()
 end)
 
 later(function()

@@ -56,4 +56,7 @@ clue.setup({
         clue.gen_clues.windows({ submode_resize = true, submode_move = true }),
         clue.gen_clues.z(),
     },
+    window = {
+        width = "auto",
+    },
 })
