@@ -1,4 +1,3 @@
-vim.cmd.packadd("plenary.nvim")
 vim.cmd.packadd("nvim-lspconfig")
 
 require("lean").setup({
