@@ -4,6 +4,8 @@ clue.setup({
         -- Leader
         { mode = "n", keys = "<Leader>" },
         { mode = "x", keys = "<Leader>" },
+        { mode = "n", keys = "<LocalLeader>" },
+        { mode = "x", keys = "<LocalLeader>" },
 
         -- Built-in completion
         { mode = "i", keys = "<C-x>" },

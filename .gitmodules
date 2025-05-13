@@ -18,3 +18,9 @@
 	path = home/dot_local/share/nvim2/site/pack/plugins/opt/external_copilot.lua
 	url = https://github.com/zbirenbaum/copilot.lua.git
 	branch = master
+[submodule "home/dot_local/share/nvim2/site/pack/plugins/opt/external_plenary.nvim"]
+	path = home/dot_local/share/nvim2/site/pack/plugins/opt/external_plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim.git
+[submodule "home/dot_local/share/nvim2/site/pack/plugins/opt/external_lean.nvim"]
+	path = home/dot_local/share/nvim2/site/pack/plugins/opt/external_lean.nvim
+	url = https://github.com/Julian/lean.nvim.git
