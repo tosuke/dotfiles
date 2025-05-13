@@ -49,6 +49,7 @@ now(function()
     })
     vim.o.listchars = "tab:»-,trail:-,extends:»,eol:↲,precedes:«,nbsp:%"
     vim.o.signcolumn = "no"
+    vim.g.maplocalleader = ","
 end)
 
 now(function()
