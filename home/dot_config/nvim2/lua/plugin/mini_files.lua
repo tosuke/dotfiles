@@ -28,6 +28,6 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 vim.api.nvim_create_user_command("Files", function()
-    MiniFiles.open()
+    MiniFiles.open(vim.api.nvim_buf_get_name(0))
 end, { desc = "Open file exproler" })
 vim.keymap.set("n", "<leader>e", "<cmd>Files<cr>", { desc = "Open file exproler" })
