@@ -1,0 +1,4 @@
+[".local/share/schemastore.json"]
+type = "file"
+url = "https://www.schemastore.org/api/json/catalog.json"
+refreshPeriod = "168h"
