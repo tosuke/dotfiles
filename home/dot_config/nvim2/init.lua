@@ -66,7 +66,7 @@ now(function()
     end
 end)
 
-later(function()
+now(function()
     if not vim.g.vscode then
         require("plugin/mini_notify")
     end
@@ -158,6 +158,21 @@ later(function()
         require("plugin.copilot")
     end
 end)
+
+if not vim.g.vscode then
+    now(function()
+        -- Load lean syntax & filetype
+        vim.cmd.packadd("lean.nvim")
+        vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
+            group = augroup,
+            pattern = "*.lean",
+            once = true,
+            callback = function()
+                require("plugin.lean_nvim")
+            end,
+        })
+    end)
+end
 
 later(function()
     vim.cmd.helptags("ALL")
