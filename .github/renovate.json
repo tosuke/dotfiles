@@ -8,7 +8,7 @@
   "platformAutomerge": true,
   "ignoreTests": true,
   "git-submodules": {
-    "enabled": false
+    "enabled": true
   },
   "patch": {
     "automerge": true
