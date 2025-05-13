@@ -7,6 +7,9 @@
   "minimumReleaseAge": "3 days",
   "platformAutomerge": true,
   "ignoreTests": true,
+  "git-submodules": {
+    "enabled": false
+  },
   "patch": {
     "automerge": true
   },
