@@ -1,8 +1,9 @@
 -- load lspconfig
 vim.cmd.packadd("nvim-lspconfig")
 
-local augroup = vim.api.nvim_create_augroup("lsp.lua", {})
+local efm = require("lsp.efm")
 
+local augroup = vim.api.nvim_create_augroup("lsp/init.lua", {})
 vim.api.nvim_create_autocmd("LspAttach", {
     group = augroup,
     callback = function(ev)
@@ -46,8 +47,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         if client:supports_method("textDocument/formatting", ev.buf) then
             vim.keymap.set("n", "<LocalLeader>f", function()
-                vim.lsp.buf.format({ bufnr = ev.buf })
-            end, { buffer = ev.buf, desc = "format buffer" })
+                vim.lsp.buf.format({ bufnr = ev.buf, id = client.id })
+            end, { buffer = ev.buf, desc = "Format (" .. client.name .. ")" })
+        end
+
+        if client:supports_method("textDocument/documentSymbol", ev.buf) then
+            vim.keymap.set("n", "<LocalLeader>s", function()
+                require("mini.extra").pickers.lsp({ scope = "document_symbol" })
+            end, { buffer = ev.buf, desc = "Document Symbols" })
+        end
+        if client:supports_method("workspace/symbol", ev.buf) then
+            vim.keymap.set("n", "<Leader>s", function()
+                require("mini.extra").pickers.lsp({ scope = "workspace_symbol" })
+            end, { buffer = ev.buf, desc = "Workspace Symbols" })
         end
     end,
 })
@@ -57,8 +69,8 @@ vim.lsp.config("*", {
     capabilities = require("mini.completion").get_lsp_capabilities(),
 })
 
+efm.setup()
 vim.lsp.enable({
-    "efm",
     "lua_ls",
     "gopls",
     "vtsls",
