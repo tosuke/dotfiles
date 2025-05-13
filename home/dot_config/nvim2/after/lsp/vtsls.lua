@@ -1,5 +1,4 @@
 return {
-    single_file_support = false,
     settings = {
         vtsls = {
             autoUseWorkspaceTsdk = true,
@@ -16,7 +15,7 @@ return {
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
     end,
-    root_dir = function(bufnr, callback)
+    root_dir = function(bufnr, on_dir)
         local fname = vim.api.nvim_buf_get_name(bufnr)
         local dir = vim.fs.dirname(vim.fs.normalize(fname))
         local root_dir = vim.fs.root(dir, { ".git", "package.json", "tsconfig.json", "jsconfig.json" })
@@ -27,6 +26,6 @@ return {
         if #deno_dirs > 0 then
             return
         end
-        callback(root_dir)
+        on_dir(root_dir)
     end,
 }
