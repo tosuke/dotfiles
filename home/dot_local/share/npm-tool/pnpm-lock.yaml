@@ -10,10 +10,13 @@ importers:
     dependencies:
       '@fsouza/prettierd':
         specifier: ^0.26.1
-        version: 0.26.1(typescript@4.9.5)
+        version: 0.26.1(typescript@5.7.2)
       '@tailwindcss/language-server':
         specifier: ^0.14.3
         version: 0.14.16
+      '@vtsls/language-server':
+        specifier: ^0.2.8
+        version: 0.2.8
       typescript-language-server:
         specifier: ^4.3.3
         version: 4.3.4
@@ -86,6 +89,18 @@ packages:
 
   '@vscode/l10n@0.0.18':
     resolution: {integrity: sha512-KYSIHVmslkaCDyw013pphY+d7x1qV8IZupYfeIfzNA+nsaWHbn5uPuQRvdRFsa9zFzGeudPuoGoZ1Op4jrJXIQ==}
+
+  '@vtsls/language-server@0.2.8':
+    resolution: {integrity: sha512-h5vBye8TPCta7b1QdfXxI1O3gxEVAgCrf1uCGeDYzXEf3rMf4Nev7YjH/n2YH+OU/tFwpUs6Jz3FzL7/6iHF+w==}
+    engines: {node: '>=16'}
+    hasBin: true
+
+  '@vtsls/language-service@0.2.8':
+    resolution: {integrity: sha512-sfrY76QgXMe1GMGcWjDcjG/ldoYUuc7M+1yYG/ndE4Y/irJ7/UyG+pFefPzXA+dEMQ7Y9h4xi4wrMg0ePDPJBQ==}
+    engines: {node: '>=16'}
+
+  '@vtsls/vscode-fuzzy@0.0.1':
+    resolution: {integrity: sha512-2KCtA+/OmPVttsdVggO0WQFXZwM0zbG7G8KRGExe4YeoaHB0fDWyfsNrWnutnFVRlpmu8quVTjTI15YK6KGCFw==}
 
   ajv@8.17.1:
     resolution: {integrity: sha512-B/gBuNg5SiMTrPkC+A2+cW0RszwxYmn6VYxB/inlBStS5nx6xHIt/ehKRhIMhqusl7a8LjQoZnjCs5vhwxOQ1g==}
@@ -196,6 +211,10 @@ packages:
   lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
 
+  lru-cache@6.0.0:
+    resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
+    engines: {node: '>=10'}
+
   merge2@1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
     engines: {node: '>= 8'}
@@ -249,6 +268,11 @@ packages:
   run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
 
+  semver@7.5.2:
+    resolution: {integrity: sha512-SoftuTROv/cRjCze/scjGyiDtcUyxw1rgYQSZY7XTmtR5hX+dm76iDbTH8TkLPHCQmlbQVSSbNZCPM2hb0knnQ==}
+    engines: {node: '>=10'}
+    hasBin: true
+
   semver@7.7.1:
     resolution: {integrity: sha512-hlq8tAfn0m/61p4BVRcPzIGr6LKiMwo4VM6dGi6pt4qcRkmNzTcWq6eCEjEh+qXjkMDvPlOFFSGwQjoEa6gyMA==}
     engines: {node: '>=10'}
@@ -276,6 +300,11 @@ packages:
   typescript@4.9.5:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
+    hasBin: true
+
+  typescript@5.7.2:
+    resolution: {integrity: sha512-i5t66RHxDvVN40HfDd1PsEThGNnlMCMT3jMUuoh9/0TaqWevNontacunWyN02LA9/fIbEWlcHZcgTKb9QoaLfg==}
+    engines: {node: '>=14.17'}
     hasBin: true
 
   vscode-css-languageservice@6.3.4:
@@ -339,6 +368,9 @@ packages:
   vscode-uri@3.1.0:
     resolution: {integrity: sha512-/BpdSx+yCQGnCvecbyXdxHDkuk55/G3xwnC0GqY4gmQ3j+A+g8kzzgB4Nk/SINjqn6+waqw3EgbVF2QKExkRxQ==}
 
+  yallist@4.0.0:
+    resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
+
   yaml-language-server@1.18.0:
     resolution: {integrity: sha512-N1g0S7IcA+1PXDNNfnNHB+jQkwWh33Id7yhWLLmTyAsf3HSFdTYTbqnUaVrhiz5MrCUbiKtZjiAVxrn/N4HKLg==}
     hasBin: true
@@ -366,13 +398,13 @@ snapshots:
       '@babel/helper-validator-identifier': 7.25.9
     optional: true
 
-  '@fsouza/prettierd@0.26.1(typescript@4.9.5)':
+  '@fsouza/prettierd@0.26.1(typescript@5.7.2)':
     dependencies:
       core_d: 6.1.0
       prettier: 3.5.3
     optionalDependencies:
       '@babel/parser': 7.27.0
-      '@typescript-eslint/typescript-estree': 8.31.0(typescript@4.9.5)
+      '@typescript-eslint/typescript-estree': 8.31.0(typescript@5.7.2)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -397,7 +429,7 @@ snapshots:
   '@typescript-eslint/types@8.31.0':
     optional: true
 
-  '@typescript-eslint/typescript-estree@8.31.0(typescript@4.9.5)':
+  '@typescript-eslint/typescript-estree@8.31.0(typescript@5.7.2)':
     dependencies:
       '@typescript-eslint/types': 8.31.0
       '@typescript-eslint/visitor-keys': 8.31.0
@@ -406,8 +438,8 @@ snapshots:
       is-glob: 4.0.3
       minimatch: 9.0.5
       semver: 7.7.1
-      ts-api-utils: 2.1.0(typescript@4.9.5)
-      typescript: 4.9.5
+      ts-api-utils: 2.1.0(typescript@5.7.2)
+      typescript: 5.7.2
     transitivePeerDependencies:
       - supports-color
     optional: true
@@ -421,6 +453,25 @@ snapshots:
   '@vscode/l10n@0.0.10': {}
 
   '@vscode/l10n@0.0.18': {}
+
+  '@vtsls/language-server@0.2.8':
+    dependencies:
+      '@vtsls/language-service': 0.2.8
+      vscode-languageserver: 9.0.1
+      vscode-uri: 3.1.0
+
+  '@vtsls/language-service@0.2.8':
+    dependencies:
+      '@vscode/l10n': 0.0.18
+      '@vtsls/vscode-fuzzy': 0.0.1
+      jsonc-parser: 3.3.1
+      semver: 7.5.2
+      typescript: 5.7.2
+      vscode-languageserver-protocol: 3.17.5
+      vscode-languageserver-textdocument: 1.0.12
+      vscode-uri: 3.1.0
+
+  '@vtsls/vscode-fuzzy@0.0.1': {}
 
   ajv@8.17.1:
     dependencies:
@@ -537,6 +588,10 @@ snapshots:
 
   lodash@4.17.21: {}
 
+  lru-cache@6.0.0:
+    dependencies:
+      yallist: 4.0.0
+
   merge2@1.4.1:
     optional: true
 
@@ -586,6 +641,10 @@ snapshots:
       queue-microtask: 1.2.3
     optional: true
 
+  semver@7.5.2:
+    dependencies:
+      lru-cache: 6.0.0
+
   semver@7.7.1: {}
 
   supports-color@8.1.1:
@@ -597,9 +656,9 @@ snapshots:
       is-number: 7.0.0
     optional: true
 
-  ts-api-utils@2.1.0(typescript@4.9.5):
+  ts-api-utils@2.1.0(typescript@5.7.2):
     dependencies:
-      typescript: 4.9.5
+      typescript: 5.7.2
     optional: true
 
   typescript-language-server@4.3.4:
@@ -608,6 +667,8 @@ snapshots:
       vscode-languageserver-protocol: 3.17.5
 
   typescript@4.9.5: {}
+
+  typescript@5.7.2: {}
 
   vscode-css-languageservice@6.3.4:
     dependencies:
@@ -700,6 +761,8 @@ snapshots:
   vscode-nls@5.2.0: {}
 
   vscode-uri@3.1.0: {}
+
+  yallist@4.0.0: {}
 
   yaml-language-server@1.18.0:
     dependencies:

@@ -1,0 +1,20 @@
+[submodule "home/dot_local/share/nvim2/site/pack/plugins/opt/external_iceberg.nvim"]
+	path = home/dot_local/share/nvim2/site/pack/plugins/opt/external_iceberg.nvim
+	url = https://github.com/oahlen/iceberg.nvim.git
+	branch = main
+[submodule "home/dot_local/share/nvim2/site/pack/plugins/start/external_mini.nvim"]
+	path = home/dot_local/share/nvim2/site/pack/plugins/start/external_mini.nvim
+	url = https://github.com/echasnovski/mini.nvim.git
+    branch = v0.15.0
+[submodule "home/dot_local/share/nvim2/site/pack/plugins/opt/external_nvim-treesitter"]
+	path = home/dot_local/share/nvim2/site/pack/plugins/opt/external_nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter.git
+    branch = master
+[submodule "home/dot_local/share/nvim2/site/pack/plugins/opt/external_nvim-lspconfig"]
+	path = home/dot_local/share/nvim2/site/pack/plugins/opt/external_nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
+    branch = v2.1.0
+[submodule "home/dot_local/share/nvim2/site/pack/plugins/opt/external_copilot.lua"]
+	path = home/dot_local/share/nvim2/site/pack/plugins/opt/external_copilot.lua
+	url = https://github.com/zbirenbaum/copilot.lua.git
+	branch = master
