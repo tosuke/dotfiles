@@ -35,7 +35,7 @@ for name, f in pairs(MiniExtra.pickers) do
 end
 
 vim.keymap.set("n", "<leader>f", function()
-    MiniPick.builtin.files()
+    MiniPick.builtin.files({ tool = "git" })
 end, { desc = "mini.pick.files" })
 
 vim.keymap.set("n", "<leader>b", function()
