@@ -1,3 +1,4 @@
+---@type vim.lsp.Config
 return {
     settings = {
         Lua = {
@@ -28,5 +29,6 @@ return {
                 }),
             },
         })
+        require("lsp.utils").disable_format(client)
     end,
 }

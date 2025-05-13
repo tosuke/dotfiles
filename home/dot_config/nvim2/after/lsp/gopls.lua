@@ -1,7 +1,6 @@
+---@type vim.lsp.Config
 return {
-    on_attach = function(client)
-        -- Disable formatting
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
-    end
+    on_init = function(client)
+        require("lsp.utils").disable_format(client)
+    end,
 }
