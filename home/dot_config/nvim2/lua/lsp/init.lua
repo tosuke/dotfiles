@@ -4,6 +4,7 @@ vim.cmd.packadd("nvim-lspconfig")
 local efm = require("lsp.efm")
 
 local augroup = vim.api.nvim_create_augroup("lsp/init.lua", {})
+
 vim.api.nvim_create_autocmd("LspAttach", {
     group = augroup,
     callback = function(ev)
@@ -61,6 +62,24 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 require("mini.extra").pickers.lsp({ scope = "workspace_symbol" })
             end, { buffer = ev.buf, desc = "Workspace Symbols" })
         end
+
+        if client:supports_method("textDocument/inlayHint", ev.buf) then
+            ---@type vim.lsp.inlay_hint.enable.Filter
+            local filter = { bufnr = ev.buf }
+            vim.lsp.inlay_hint.enable(true, filter)
+
+            vim.keymap.set("n", "mH", function()
+                vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(filter), filter)
+            end, { buffer = ev.buf, desc = "Toggle Inlay Hints" })
+        end
+    end,
+})
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+    group = augroup,
+    pattern = "*",
+    callback = function()
+        vim.api.nvim_set_hl(0, "LspInlayHint", { link = "Comment" })
     end,
 })
 
@@ -74,6 +93,8 @@ vim.lsp.enable({
     "lua_ls",
     "gopls",
     "vtsls",
+    "rust_analyzer",
+
     "jsonls",
     "yamlls",
 })
