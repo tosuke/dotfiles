@@ -25,6 +25,7 @@ function M.setup()
             table.insert(filetypes, ft)
         end
         vim.lsp.config("efm", {
+            cmd = { "efm-langserver" },
             filetypes = filetypes,
         })
         vim.lsp.enable("efm")
