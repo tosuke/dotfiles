@@ -1,8 +1,77 @@
-{{ if (eq .chezmoi.os "linux") }}
+{{- /* vim: ft=bash : */ -}}
+# XDG Base Directory
+if [[ -z "${XDG_DATA_HOME}" ]]; then
+    export XDG_DATA_HOME="${HOME}/.local/share"
+fi
+if [[ -z "${XDG_CONFIG_HOME}" ]]; then
+    export XDG_CONFIG_HOME="${HOME}/.config"
+fi
+
+# Aqua
+if [[ -z "${AQUA_ROOT_DIR}" ]]; then
+    AQUA_ROOT_DIR="${XDG_DATA_HOME}/aquaproj-aqua"
+fi
+export PATH="${AQUA_ROOT_DIR}/bin:${PATH}"
+if [[ -z "${AQUA_GLOBAL_CONFIG}" ]]; then
+    export AQUA_GLOBAL_CONFIG="${XDG_CONFIG_HOME}/aquaproj-aqua/aqua.yaml"
+fi
+if [[ -z "${AQUA_POLICY_CONFIG}" ]]; then
+    export AQUA_POLICY_CONFIG="${XDG_CONFIG_HOME}/aquaproj-aqua/aqua-policy.yaml"
+fi
+
+# Local binaries
+if [[ -d "$HOME/.local/bin" ]]; then
+    export PATH="$HOME/.local/bin:$PATH"
+fi
+
+# Go
+if [[ -d "$HOME/go" ]]; then
+    export PATH="$HOME/go/bin:$PATH"
+fi
+
+# Rust
+if [[ -d "$HOME/.cargo" ]]; then
+    export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+# fnm (Node.js)
+if [[ -d "$HOME/.local/share/npm-tool/node_modules" ]]; then
+    export PATH="$HOME/.local/share/npm-tool/node_modules/.bin:$PATH"
+fi
+
+# Python
+if [[ -f "$HOME/.rye/shims" ]]; then
+    export PATH="$HOME/.rye/shims:$PATH"
+fi
+
+# ghcup
+if [[ -d "$HOME/.ghcup" ]]; then
+    export PATH="$HOME/.ghcup/bin:$PATH"
+fi
+
+# Scala (Coursier)
+if command -v coursier &>/dev/null; then
+    if [[ -z "$COURSIER_BIN_DIR" ]]; then
+        {{- if (eq .chezmoi.os "darwin") }}
+        export COURSIER_BIN_DIR="$HOME/Library/Application Support/Coursier/bin"
+        {{- else }}
+        export COURSIER_BIN_DIR="$XDG_DATA_HOME/coursier/bin"
+        {{- end }}
+    fi
+    export PATH="$COURSIER_BIN_DIR:$PATH"
+fi
+
+# Lean
+if [[ -d "$HOME/.elan" ]]; then
+    export PATH="$HOME/.elan/bin:$PATH"
+fi
+
+{{- if (eq .chezmoi.os "linux") }}
+# SSH Agent
 if [[ -z "${SSH_AUTH_SOCK}" ]]; then
     export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/yubikey-agent/yubikey-agent.sock"
 fi
-{{ end }}
+{{- end }}
 
 [[ -f $HOME/.profile ]] && source $HOME/.profile
 [[ -f $HOME/.bashrc ]] && source $HOME/.bashrc

@@ -1,36 +1,4 @@
 # vim: set ft=fish :
-# variables
-if not set -q XDG_DATA_HOME
-    set -gx XDG_DATA_HOME "$HOME/.local/share"
-end
-if not set -q XDG_CONFIG_HOME
-    set -gx XDG_CONFIG_HOME "$HOME/.config"
-end
-
-# aqua
-if not set -q AQUA_ROOT_DIR
-    set AQUA_ROOT_DIR "$XDG_DATA_HOME/aquaproj-aqua"
-end
-if [ -d "$AQUA_ROOT_DIR" ]
-    fish_add_path -g "$AQUA_ROOT_DIR/bin"
-    set -q AQUA_GLOBAL_CONFIG || set -gx AQUA_GLOBAL_CONFIG "$XDG_CONFIG_HOME/aquaproj-aqua/aqua.yaml"
-    set -q AQUA_POLICY_CONFIG || set -gx AQUA_POLICY_CONFIG "$XDG_CONFIG_HOME/aquaproj-aqua/aqua-policy.yaml"
-end
-
-# local
-if [ -d $HOME/.local/bin ]
-    fish_add_path -g "$HOME/.local/bin"
-end
-
-# Go
-if [ -d $HOME/go ]
-    fish_add_path -g "$HOME/go/bin"
-end
-
-# Rust
-if [ -d $HOME/.cargo ]
-    fish_add_path -g "$HOME/.cargo/bin"
-end
 
 # fnm (node.js)
 if command -q fnm
@@ -39,40 +7,10 @@ if command -q fnm
         or echo "fnm initialization failed"
     end
 end
-if [ -d $HOME/.local/share/npm-tool/node_modules ]
-    fish_add_path -g "$HOME/.local/share/npm-tool/node_modules/.bin"
-end
-
-# Python
-if [ -d $HOME/.local/share/python-tool/.venv ]
-    fish_add_path -g "$HOME/.local/share/python-tool/.venv/bin"
-end
 
 # opam
 if [ -f $HOME/.opam/opam-init/init.fish ]
     source $HOME/.opam/opam-init/init.fish; or echo "opam initialization failed"
-end
-
-# ghcup
-if [ -d $HOME/.ghcup ]
-    fish_add_path -g "$HOME/.ghcup/bin"
-end
-
-# Scala
-if command -q coursier
-    if not set -q COURSIER_BIN_DIR
-        {{ if (eq .chezmoi.os "darwin") }}
-        set COURSIER_BIN_DIR "$HOME/Library/Application Support/Coursier/bin"
-        {{ else }}
-        set COURSIER_BIN_DIR "$XDG_DATA_HOME/coursier/bin"
-        {{ end }}
-    end
-    fish_add_path -g "$COURSIER_BIN_DIR"
-end
-
-# Lean
-if [ -d $HOME/.elan ]
-    fish_add_path -g "$HOME/.elan/bin"
 end
 
 # interactice shells
