@@ -12,7 +12,7 @@ packages:
   - name: junegunn/fzf@v0.62.0
   - name: direnv/direnv@v2.36.0
   - name: x-motemen/ghq@v1.8.0
-  - name: jesseduffield/lazygit@v0.50.0
+  - name: jesseduffield/lazygit@v0.51.1
   - name: sharkdp/fd@v10.2.0
   - name: BurntSushi/ripgrep@14.1.1
   - name: jqlang/jq@jq-1.7.1
