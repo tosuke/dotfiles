@@ -1,4 +1,4 @@
----
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mattn/efm-langserver/refs/heads/master/schema.json
 version: 2
 root-markers:
   - .git/
