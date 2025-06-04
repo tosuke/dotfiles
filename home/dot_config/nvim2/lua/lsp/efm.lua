@@ -28,7 +28,9 @@ function M.setup()
             cmd = { "efm-langserver" },
             filetypes = filetypes,
         })
-        vim.lsp.enable("efm")
+        vim.schedule(function()
+            vim.lsp.enable("efm")
+        end)
     end)()
 end
 
