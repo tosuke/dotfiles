@@ -15,7 +15,7 @@ packages:
   - name: jesseduffield/lazygit@v0.51.1
   - name: sharkdp/fd@v10.2.0
   - name: BurntSushi/ripgrep@14.1.1
-  - name: jqlang/jq@jq-1.7.1
+  - name: jqlang/jq@jq-1.8.0
   - name: mikefarah/yq@v4.45.4
   - name: cue-lang/cue@v0.13.0
   - name: go-task/task@v3.43.3
