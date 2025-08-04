@@ -24,7 +24,7 @@ packages:
   - name: eza-community/eza@v0.23.0
   # GitHub
   - name: cli/cli@v2.76.2
-  - name: github/copilot-language-server-release@1.351.0
+  - name: github/copilot-language-server-release@1.352.0
   # GHA
   - name: rhysd/actionlint@v1.7.7
   # AWS
