@@ -78,7 +78,7 @@ packages:
   # Python
   - name: astral-sh/uv@0.8.4
   # sh
-  - name: koalaman/shellcheck@v0.10.0
+  - name: koalaman/shellcheck@v0.11.0
   # ProtoBuf
   - name: bufbuild/buf@v1.56.0
   # Typst
