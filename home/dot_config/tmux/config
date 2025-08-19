@@ -1,0 +1,17 @@
+# vim: set ft=tmux :
+
+bind \\ split-window -h -c '#{pane_current_path}'
+bind  - split-window -v -c '#{pane_current_path}'
+
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+bind r source-file ~/.config/tmux/config \; display "Reloaded tmux config"
+
+set-window-option window-status-format '#{pane_current_path}'
+
+set-option -g mouse on
+
+set-window-option -g mode-keys vi
