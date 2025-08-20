@@ -1,0 +1,8 @@
+font-family = "UDEV Gothic 35NFLG"
+font-size = 14
+
+background-opacity = 0.80
+background-blur = false
+
+theme = "iceberg-dark"
+macos-titlebar-style = "tabs"
