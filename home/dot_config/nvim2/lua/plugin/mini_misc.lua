@@ -1,7 +1,8 @@
 require("mini.misc").setup()
 
 MiniMisc.setup_restore_cursor()
-MiniMisc.setup_termbg_sync()
+-- https://github.com/echasnovski/mini.nvim/issues/1955
+-- MiniMisc.setup_termbg_sync()
 
 vim.api.nvim_create_user_command("Zoom", function()
     MiniMisc.zoom(0, {})
