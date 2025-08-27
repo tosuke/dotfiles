@@ -53,7 +53,7 @@ packages:
   # LSP
   - name: mattn/efm-langserver@v0.0.54
   # Terraform
-  - name: tofuutils/tenv@v4.7.13
+  - name: tofuutils/tenv@v4.7.19
   - name: hashicorp/terraform-ls@v0.36.5
   # Go
   - name: golang/go@go1.25.0
