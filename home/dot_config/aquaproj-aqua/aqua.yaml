@@ -44,7 +44,7 @@ packages:
   - name: int128/kubelogin@v1.34.1
   - name: superbrothers/kubectl-open-svc-plugin@v2.6.3
     registry: local
-  - name: derailed/k9s@v0.50.11
+  - name: derailed/k9s@v0.50.12
   - name: stern/stern@v1.33.0
   - name: stefanprodan/timoni@v0.25.2
   - name: kubernetes-sigs/kustomize@kustomize/v5.7.1
