@@ -19,7 +19,7 @@ packages:
   - name: mikefarah/yq@v4.47.2
   - name: cue-lang/cue@v0.14.1
   - name: go-task/task@v3.45.4
-  - name: rclone/rclone@v1.71.0
+  - name: rclone/rclone@v1.71.1
   - name: vi/websocat@v1.14.0
   - name: eza-community/eza@v0.23.3
   # GitHub
