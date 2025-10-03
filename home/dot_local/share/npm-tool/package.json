@@ -2,7 +2,7 @@
   "name": "npm-tool",
   "type": "module",
   "dependencies": {
-    "@anthropic-ai/claude-code": "^1.0.85",
+    "@anthropic-ai/claude-code": "^2.0.0",
     "@fsouza/prettierd": "^0.26.1",
     "@tailwindcss/language-server": "^0.14.3",
     "@vtsls/language-server": "^0.2.8",
