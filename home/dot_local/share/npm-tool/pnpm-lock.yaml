@@ -16,7 +16,7 @@ importers:
         version: 0.26.2(typescript@5.8.3)
       '@tailwindcss/language-server':
         specifier: ^0.14.3
-        version: 0.14.26
+        version: 0.14.27
       '@vtsls/language-server':
         specifier: ^0.2.8
         version: 0.2.9
@@ -268,8 +268,8 @@ packages:
   '@octokit/types@9.3.2':
     resolution: {integrity: sha512-D4iHGTdAnEEVsB8fl95m1hiz7D5YiRdQ9b/OEb3BYRVwbLsGHcRVPz+u+BgRLNk0Q0/4iZCBqDN96j2XNxfXrA==}
 
-  '@tailwindcss/language-server@0.14.26':
-    resolution: {integrity: sha512-kFTsuu0bJCIPp4zEPmlEAmSRCwBEgCa6Un8ijWM7TE7R0Ltx17xhikamHjqquQdhPl3tiV2+FyHht9uHbEXraA==}
+  '@tailwindcss/language-server@0.14.27':
+    resolution: {integrity: sha512-AnBvbU27CuRyRJCaQ0MsPtrGMvkVAnD4651BUWA3OrOnD1gcmozFdleozMPp4/jiWW/Suk2DR1QAGXEj5UJ5SQ==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -957,7 +957,7 @@ snapshots:
     dependencies:
       '@octokit/openapi-types': 18.1.1
 
-  '@tailwindcss/language-server@0.14.26': {}
+  '@tailwindcss/language-server@0.14.27': {}
 
   '@typescript-eslint/project-service@8.41.0(typescript@5.8.3)':
     dependencies:
