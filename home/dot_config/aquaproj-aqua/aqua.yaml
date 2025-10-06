@@ -21,7 +21,7 @@ packages:
   - name: go-task/task@v3.45.4
   - name: rclone/rclone@v1.71.1
   - name: vi/websocat@v1.14.0
-  - name: eza-community/eza@v0.23.3
+  - name: eza-community/eza@v0.23.4
   # GitHub
   - name: cli/cli@v2.80.0
   - name: github/copilot-language-server-release@1.378.0
