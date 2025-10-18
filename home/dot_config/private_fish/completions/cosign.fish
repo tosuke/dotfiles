@@ -1,0 +1,1 @@
+cosign completion fish | source
