@@ -8,7 +8,7 @@ registries:
 packages:
   - name: neovim/neovim@v0.11.4
   - name: starship/starship@v1.23.0
-  - name: sharkdp/bat@v0.25.0
+  - name: sharkdp/bat@v0.26.0
   - name: junegunn/fzf@v0.66.0
   - name: direnv/direnv@v2.37.1
   - name: x-motemen/ghq@v1.8.0
