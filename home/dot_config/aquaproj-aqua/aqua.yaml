@@ -34,7 +34,7 @@ packages:
   # AWS
   - name: aws/aws-cli@2.31.22
   - name: aws/session-manager-plugin@1.2.677.0
-  - name: kayac/ecspresso@v2.6.1
+  - name: kayac/ecspresso@v2.6.2
   - name: fujiwara/lambroll@v1.3.2
   # Google Cloud
   - name: twistedpair/google-cloud-sdk@544.0.0
