@@ -42,7 +42,7 @@ packages:
   - name: kubernetes-sigs/kind@v0.30.0
   - name: kubernetes-sigs/kubebuilder@v4.5.2
   - name: kubernetes-sigs/controller-tools/controller-gen@envtest-v1.32.0
-  - name: kubernetes/kubectl@v1.34.1
+  - name: kubernetes/kubectl@v1.34.2
   - name: ahmetb/kubectx@v0.9.5
   - name: ahmetb/kubectx/kubens@v0.9.5
   - name: int128/kubelogin@v1.34.2
