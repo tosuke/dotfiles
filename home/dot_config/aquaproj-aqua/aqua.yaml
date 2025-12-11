@@ -88,4 +88,4 @@ packages:
   # Typst
   - name: typst/typst@v0.14.1
   - name: Enter-tainer/typstyle@v0.14.0
-  - name: Myriad-Dreamin/tinymist@v0.13.30
+  - name: Myriad-Dreamin/tinymist@v0.14.4
