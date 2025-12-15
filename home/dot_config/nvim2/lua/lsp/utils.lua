@@ -76,6 +76,7 @@ function M.format_buf(bufnr)
             vim.lsp.buf.format({
                 bufnr = bufnr,
                 id = client.id,
+                timeout_ms = 5000,
             })
             break
         end

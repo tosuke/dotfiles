@@ -15,16 +15,16 @@ return {
         require("lsp.utils").disable_format(client)
     end,
     root_dir = function(bufnr, on_dir)
-        local fname = vim.api.nvim_buf_get_name(bufnr)
-        local dir = vim.fs.dirname(vim.fs.normalize(fname))
-        local root_dir = vim.fs.root(dir, { ".git", "package.json", "tsconfig.json", "jsconfig.json" })
-        if not root_dir then
+        local root_markers = { "package-lock.json", "yarn.lock", "pnpm-lock.yaml" }
+        local negative_root_markers = { "deno.json", "deno.jsonc" }
+
+        local root = vim.fs.root(bufnr, { root_markers })
+        local negative_root = vim.fs.root(bufnr, { negative_root_markers })
+
+        if negative_root or not root then
             return
         end
-        local deno_dirs = vim.fs.find({ "deno.json", "deno.jsonc" }, { upward = true, stop = root_dir, path = dir })
-        if #deno_dirs > 0 then
-            return
-        end
-        on_dir(root_dir)
+
+        on_dir(root)
     end,
 }

@@ -118,12 +118,18 @@ efm.setup()
 vim.lsp.enable({
     "lua_ls",
     "gopls",
+    "golangci_lint_ls",
     "vtsls",
+    "denols",
     "rust_analyzer",
+    "ocamllsp",
     "biome",
     "tinymist",
 
     "jsonls",
     "yamlls",
     "gh_actions_ls",
+    "terraformls",
+    "tombi", -- toml language server
+    "buf_ls"
 })
