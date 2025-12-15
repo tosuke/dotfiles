@@ -91,6 +91,6 @@ packages:
   # ProtoBuf
   - name: bufbuild/buf@v1.61.0
   # Typst
-  - name: typst/typst@v0.14.1
+  - name: typst/typst@v0.14.2
   - name: Enter-tainer/typstyle@v0.14.0
   - name: Myriad-Dreamin/tinymist@v0.14.4
