@@ -48,6 +48,10 @@ tools:
     format-stdin: true
     root-markers:
       - .ocamlformat
+  # Jsonnet
+  jsonnetfmt: &jsonnetfmt
+    format-command: "jsonnetfmt -"
+    format-stdin: true
   # YAML
   yamllint: &yamllint
     lint-command: "yamllint -f parsable -"
@@ -116,6 +120,8 @@ languages:
     - <<: *prettierd
   jsonc:
     - <<: *prettierd
+  jsonnet:
+    - <<: *jsonnetfmt
   yaml:
     - <<: *prettierd
     - <<: *yamllint

@@ -59,6 +59,11 @@ packages:
   # Terraform
   - name: tofuutils/tenv@v4.9.0
   - name: hashicorp/terraform-ls@v0.38.3
+  # TOML
+  - name: tombi-toml/tombi@v0.5.10
+  # Jsonnet
+  - name: google/go-jsonnet@v0.21.0
+  - name: grafana/jsonnet-language-server@v0.16.0
   # Go
   - name: golang/go@go1.25.5
   - name: golang.org/x/tools/gopls@v0.21.0
