@@ -4,6 +4,7 @@ local augroup = vim.api.nvim_create_augroup("init.lua", {})
 vim.opt.title = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.autoread = true
 
 -- Diagnostics
 vim.diagnostic.config({
@@ -28,6 +29,34 @@ vim.keymap.set("n", "ml", function()
     end
     vim.diagnostic.config(config)
 end, { desc = "Toggle diagnostic virtual lines" })
+
+-- gf で URL を開く
+vim.keymap.set("n", "gf", function()
+    local cfile = vim.fn.expand("<cfile>")
+    if cfile:match("^https?://") then
+        vim.ui.open(cfile)
+    else
+        vim.cmd("normal! gF")
+    end
+end)
+
+vim.filetype.add({
+    extension = {
+        -- SATySFi
+        saty = "satysfi",
+        satyh = "satysfi",
+        satyg = "satysfi",
+        -- Earthfile
+        earth = "Earthfile",
+        -- Typst
+        typ = "typst",
+    },
+    filename = {
+        ["Earthfile"] = "Earthfile",
+        [".envrc"] = "sh",
+        [".yamllint"] = "yaml",
+    },
+})
 
 -- mini.deps (use only utils)
 require("mini.deps").setup()
