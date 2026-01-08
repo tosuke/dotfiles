@@ -7,7 +7,7 @@ registries:
     path: registry.yaml
 packages:
   - name: neovim/neovim@v0.11.5
-  - name: starship/starship@v1.24.1
+  - name: starship/starship@v1.24.2
   - name: sharkdp/bat@v0.26.1
   - name: junegunn/fzf@v0.67.0
   - name: direnv/direnv@v2.37.1
@@ -17,7 +17,7 @@ packages:
   - name: BurntSushi/ripgrep@15.1.0
   - name: jqlang/jq@jq-1.8.1
   - name: mikefarah/yq@v4.50.1
-  - name: cue-lang/cue@v0.15.1
+  - name: cue-lang/cue@v0.15.3
   - name: rclone/rclone@v1.72.1
   - name: vi/websocat@v1.14.1
   - name: eza-community/eza@v0.23.4
@@ -29,7 +29,7 @@ packages:
   - name: cli/cli@v2.83.2
   - name: github/copilot-language-server-release@1.406.0
   # GHA
-  - name: rhysd/actionlint@v1.7.9
+  - name: rhysd/actionlint@v1.7.10
   # AWS
   - name: aws/aws-cli@2.32.28
   - name: aws/session-manager-plugin@1.2.677.0
@@ -69,7 +69,7 @@ packages:
   - name: golang/tools/goimports@v0.22.0
   - name: golangci/golangci-lint@v2.7.2
   - name: nametake/golangci-lint-langserver@v0.0.11
-  - name: go-delve/delve@v1.25.2
+  - name: go-delve/delve@v1.26.0
   # OCaml
   - name: ocaml/opam@2.5.0
     registry: local
@@ -92,4 +92,4 @@ packages:
   # Typst
   - name: typst/typst@v0.14.2
   - name: Enter-tainer/typstyle@v0.14.0
-  - name: Myriad-Dreamin/tinymist@v0.14.4
+  - name: Myriad-Dreamin/tinymist@v0.14.6
