@@ -121,6 +121,9 @@ vim.lsp.enable({
     "golangci_lint_ls",
     "vtsls",
     "denols",
+    "eslint",
+    "tailwindcss",
+
     "rust_analyzer",
     "ocamllsp",
     "biome",
