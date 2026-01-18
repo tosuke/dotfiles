@@ -62,7 +62,7 @@ packages:
   - name: google/go-jsonnet@v0.21.0
   - name: grafana/jsonnet-language-server@v0.16.0
   # Go
-  - name: golang/go@go1.25.5
+  - name: golang/go@go1.25.6
   - name: golang.org/x/tools/gopls@v0.21.0
   - name: golang/tools/goimports@v0.22.0
   - name: golangci/golangci-lint@v2.8.0
