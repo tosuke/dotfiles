@@ -77,7 +77,7 @@ packages:
   - name: Schniz/fnm@v1.38.1
   - name: pnpm/pnpm@v10.28.0
   # Deno
-  - name: denoland/deno@v2.6.4
+  - name: denoland/deno@v2.6.5
   # Lua
   - name: LuaLS/lua-language-server@3.16.4
   - name: JohnnyMorganz/StyLua@v2.3.1
