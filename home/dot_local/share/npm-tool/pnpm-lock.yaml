@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@anthropic-ai/claude-code':
         specifier: ^2.0.0
-        version: 2.1.8
+        version: 2.1.9
       '@fsouza/prettierd':
         specifier: ^0.26.1
         version: 0.26.2(typescript@5.9.3)
@@ -54,8 +54,8 @@ packages:
     resolution: {integrity: sha512-41muy4240oXPuywq4QbtnZ5CO+hngL8Pmxnd7pZVOkS/mqJSq6kHIMZDtoLS5uIs72jnJ1ktfgJYwJh/LVJtsA==}
     engines: {node: '>= 16.15'}
 
-  '@anthropic-ai/claude-code@2.1.8':
-    resolution: {integrity: sha512-SyWxjzh0qipDolSTa5c9ABrWQ746y7PWKgmqudXN/ev9IJI7ZLoKLYX4T48mOWJTyO+pEFKFDASv1wImiNx5yg==}
+  '@anthropic-ai/claude-code@2.1.9':
+    resolution: {integrity: sha512-ViGb9RoAQ8l+X5e0egsH64xGi7zHvlNgwx/Lwxez24XgfJSYa+cyjpVX7cSDlBfMb1uXXTDNbpo2RicmvP/BKg==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -735,7 +735,7 @@ snapshots:
       cronstrue: 2.61.0
       yaml: 2.2.2
 
-  '@anthropic-ai/claude-code@2.1.8':
+  '@anthropic-ai/claude-code@2.1.9':
     optionalDependencies:
       '@img/sharp-darwin-arm64': 0.33.5
       '@img/sharp-darwin-x64': 0.33.5
