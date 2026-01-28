@@ -1,8 +1,12 @@
+# vim : set ft=ini :
 font-family = "UDEV Gothic 35NFLG"
 font-size = 14
 
-background-opacity = 0.80
-background-blur = false
+background-opacity = 0.9
+background-blur = true
 
-theme = "iceberg-dark"
+theme = "Iceberg Dark"
 macos-titlebar-style = "tabs"
+
+link-url = true
+link-previews = true
