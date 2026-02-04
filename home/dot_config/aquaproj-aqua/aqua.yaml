@@ -54,7 +54,7 @@ packages:
   - name: helm/helm@v4.0.5
   - name: helmfile/helmfile@v1.2.3
   # LSP
-  - name: mattn/efm-langserver@v0.0.54
+  - name: mattn/efm-langserver@v0.0.55
   # Terraform
   - name: tofuutils/tenv@v4.9.1
   - name: hashicorp/terraform-ls@v0.38.3
