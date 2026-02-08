@@ -44,16 +44,3 @@ packages:
     format: zip
     files:
       - name: kubectl-open_svc
-  - type: http
-    repo_owner: anthropics
-    repo_name: claude-code
-    description: Claude Code (Local Override for Glibc)
-    url: https://storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/{{trimV .Version}}/{{.OS}}-{{.Arch}}/claude
-    format: raw
-    files:
-      - name: claude
-    replacements:
-      amd64: x64
-    supported_envs:
-      - darwin
-      - linux
