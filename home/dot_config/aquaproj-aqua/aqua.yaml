@@ -33,7 +33,7 @@ packages:
   # GHA
   - name: rhysd/actionlint@v1.7.10
   # AWS
-  - name: aws/aws-cli@2.33.14
+  - name: aws/aws-cli@2.33.15
   - name: aws/session-manager-plugin@1.2.677.0
   - name: kayac/ecspresso@v2.7.0
   - name: fujiwara/lambroll@v1.4.2
