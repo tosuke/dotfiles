@@ -51,7 +51,7 @@ packages:
   - name: stern/stern@v1.33.1
   - name: stefanprodan/timoni@v0.25.2
   - name: kubernetes-sigs/kustomize@kustomize/v5.8.0
-  - name: helm/helm@v4.0.5
+  - name: helm/helm@v4.1.0
   - name: helmfile/helmfile@v1.2.3
   # LSP
   - name: mattn/efm-langserver@v0.0.55
