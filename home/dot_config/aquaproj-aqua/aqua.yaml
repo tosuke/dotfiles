@@ -56,7 +56,7 @@ packages:
   - name: mattn/efm-langserver@v0.0.55
   # Terraform
   - name: tofuutils/tenv@v4.9.1
-  - name: hashicorp/terraform-ls@v0.38.3
+  - name: hashicorp/terraform-ls@v0.38.4
   # TOML
   - name: tombi-toml/tombi@v0.7.28
   # Jsonnet
