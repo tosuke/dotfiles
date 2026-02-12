@@ -49,7 +49,7 @@ packages:
   - name: derailed/k9s@v0.50.18
   - name: stern/stern@v1.33.1
   - name: stefanprodan/timoni@v0.25.2
-  - name: kubernetes-sigs/kustomize@kustomize/v5.8.0
+  - name: kubernetes-sigs/kustomize@kustomize/v5.8.1
   - name: helm/helm@v4.1.1
   - name: helmfile/helmfile@v1.2.3
   # LSP
