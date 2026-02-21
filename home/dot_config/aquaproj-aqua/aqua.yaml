@@ -30,7 +30,7 @@ packages:
   - name: cli/cli@v2.86.0
   - name: github/copilot-language-server-release@1.427.0
   # GHA
-  - name: rhysd/actionlint@v1.7.10
+  - name: rhysd/actionlint@v1.7.11
   # AWS
   - name: aws/aws-cli@2.33.24
   - name: aws/session-manager-plugin@1.2.677.0
