@@ -2,7 +2,7 @@
   "name": "npm-tool",
   "type": "module",
   "dependencies": {
-    "@fsouza/prettierd": "^0.26.1",
+    "@fsouza/prettierd": "^0.27.0",
     "@playwright/cli": "^0.1.1",
     "@tailwindcss/language-server": "^0.14.3",
     "@vtsls/language-server": "^0.3.0",
