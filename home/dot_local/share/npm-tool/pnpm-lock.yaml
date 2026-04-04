@@ -13,7 +13,7 @@ importers:
         version: 0.27.0(typescript@5.9.3)
       '@playwright/cli':
         specifier: ^0.1.1
-        version: 0.1.2
+        version: 0.1.3
       '@tailwindcss/language-server':
         specifier: ^0.14.3
         version: 0.14.29
@@ -190,8 +190,8 @@ packages:
   '@octokit/types@9.3.2':
     resolution: {integrity: sha512-D4iHGTdAnEEVsB8fl95m1hiz7D5YiRdQ9b/OEb3BYRVwbLsGHcRVPz+u+BgRLNk0Q0/4iZCBqDN96j2XNxfXrA==}
 
-  '@playwright/cli@0.1.2':
-    resolution: {integrity: sha512-hpMsvaGrKFmu3M3MV5ap9i4VqanY6gTdmEsG4hq5w2UZI9FHnrQlfodoqM8fn1DPpvt4MFti2sdPEQz+ZWPYfw==}
+  '@playwright/cli@0.1.3':
+    resolution: {integrity: sha512-QNLOyzuCqWdC1eZv9Bx/GbrQ1D9N8N4sd4sdOlGabaZ6P8ZImlVC7Z3oBimB4Lug6TOvgRTQXW605gYLHjso3g==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -411,13 +411,13 @@ packages:
     resolution: {integrity: sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==}
     engines: {node: '>=12'}
 
-  playwright-core@1.59.0-alpha-1774912654000:
-    resolution: {integrity: sha512-A4zBS+GASROUFrHTMeC0ySI1+f/Wjbm0OJIAUFu4q+0Si3tfLg742dGwq1AezmMBovINt6Fi7fOTjtGZCQQCEw==}
+  playwright-core@1.60.0-alpha-1774999321000:
+    resolution: {integrity: sha512-ams3Zo4VXxeOg5ZTTh16GkE8g48Bmxo/9pg9gXl9SVKlVohCU7Jaog7XntY8yFuzENA6dJc1Fz7Z/NNTm9nGEw==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.59.0-alpha-1774912654000:
-    resolution: {integrity: sha512-98v8NQ0ZaNTdOhwo24sq7Y79wuh+Q6TShG6DKgyQIUr4cBV5gDRIcRjTVZz5LhwYAwCOXCanvY5er47mowV8ww==}
+  playwright@1.60.0-alpha-1774999321000:
+    resolution: {integrity: sha512-Bd5DkzYKG+2g1jLO6NeTXmGLbBYSFffJIOsR4l4hUBkJvzvGGdLZ7jZb2tOtb0WIoWXQKdQj3Ap6WthV4DBS8w==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -798,10 +798,10 @@ snapshots:
     dependencies:
       '@octokit/openapi-types': 18.1.1
 
-  '@playwright/cli@0.1.2':
+  '@playwright/cli@0.1.3':
     dependencies:
       minimist: 1.2.8
-      playwright: 1.59.0-alpha-1774912654000
+      playwright: 1.60.0-alpha-1774999321000
 
   '@tailwindcss/language-server@0.14.29': {}
 
@@ -1014,11 +1014,11 @@ snapshots:
   picomatch@4.0.4:
     optional: true
 
-  playwright-core@1.59.0-alpha-1774912654000: {}
+  playwright-core@1.60.0-alpha-1774999321000: {}
 
-  playwright@1.59.0-alpha-1774912654000:
+  playwright@1.60.0-alpha-1774999321000:
     dependencies:
-      playwright-core: 1.59.0-alpha-1774912654000
+      playwright-core: 1.60.0-alpha-1774999321000
     optionalDependencies:
       fsevents: 2.3.2
 
