@@ -81,7 +81,7 @@ packages:
   # Deno
   - name: denoland/deno@v2.7.12
   # Lua
-  - name: LuaLS/lua-language-server@3.18.1
+  - name: LuaLS/lua-language-server@3.18.2
   - name: JohnnyMorganz/StyLua@v2.4.1
   # Python
   - name: astral-sh/uv@0.11.6
