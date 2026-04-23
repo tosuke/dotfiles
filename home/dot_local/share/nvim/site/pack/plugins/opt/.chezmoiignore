@@ -1,0 +1,2 @@
+nvim-treesitter/parser-info/*.revision
+nvim-treesitter/parser/*.so
