@@ -1,5 +1,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+export NVIM_APPNAME="${NVIM_APPNAME:-nvim2}"
+
 # If running interactively, execute fish
 exec fish
