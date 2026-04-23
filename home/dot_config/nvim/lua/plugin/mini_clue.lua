@@ -1,4 +1,27 @@
 local clue = require("mini.clue")
+local is_ssh = vim.env.SSH_TTY ~= nil or vim.env.SSH_CONNECTION ~= nil or vim.env.SSH_CLIENT ~= nil
+
+local register_clues = clue.gen_clues.registers({ show_contents = true })
+if is_ssh then
+    local function replace_clipboard_register_desc(items)
+        for _, item in ipairs(items) do
+            if type(item) == "table" and type(item.keys) == "string" then
+                if item.keys:sub(-1) == "+" then
+                    item.desc = "System clipboard"
+                elseif item.keys:sub(-1) == "*" then
+                    item.desc = "Selection clipboard"
+                end
+            end
+
+            if vim.islist(item) then
+                replace_clipboard_register_desc(item)
+            end
+        end
+    end
+
+    replace_clipboard_register_desc(register_clues)
+end
+
 clue.setup({
     triggers = {
         -- Leader
@@ -54,7 +77,7 @@ clue.setup({
         clue.gen_clues.builtin_completion(),
         clue.gen_clues.g(),
         clue.gen_clues.marks(),
-        clue.gen_clues.registers({ show_contents = true }),
+        register_clues,
         clue.gen_clues.windows({ submode_resize = true, submode_move = true }),
         clue.gen_clues.z(),
     },
