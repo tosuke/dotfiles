@@ -52,7 +52,7 @@ This is a dotfiles repository managed by [chezmoi](https://github.com/twpayne/ch
 - LSP setup with multiple language servers (Go, TypeScript, Rust, Lua, etc.)
 - Plugin management via lazy.nvim
 - Configuration: `home/dot_config/nvim/init.lua`
-- LSP configuration: `home/dot_config/nvim/lua/lsp/init.lua`
+- LSP configuration: `home/dot_config/nvim/lua/plugins.lua`
 
 ### Shell Configuration (Fish)
 - Fish shell with extensive abbreviations and integrations
@@ -104,6 +104,6 @@ Languages with full LSP and tooling setup:
 3. Update lockfile `home/dot_config/nvim/lazy-lock.json` when needed
 
 ### Language Server Setup
-- LSP configurations are in `home/dot_config/nvim/after/lsp/`
-- Enable new LSP in `home/dot_config/nvim/lua/lsp/init.lua`
+- LSP configurations are in `home/dot_config/nvim/lua/plugins.lua`
+- Enable new LSP in `home/dot_config/nvim/lua/plugins.lua`
 - Add language server to aqua.yaml if not available via npm/system package manager
