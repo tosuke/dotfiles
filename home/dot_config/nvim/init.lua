@@ -182,12 +182,6 @@ later(function()
     require("mini.jump2d").setup()
 end)
 
-later(function()
-    if not vim.g.vscode then
-        require("plugin.copilot")
-    end
-end)
-
 if not vim.g.vscode then
     now(function()
         -- Load lean syntax & filetype

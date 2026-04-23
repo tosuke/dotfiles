@@ -14,10 +14,6 @@
 	path = home/dot_local/share/nvim/site/pack/plugins/opt/external_nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig.git
 	branch = v2.5.0
-[submodule "nvim/copilot.lua"]
-	path = home/dot_local/share/nvim/site/pack/plugins/opt/external_copilot.lua
-	url = https://github.com/zbirenbaum/copilot.lua.git
-	branch = master
 [submodule "nvim/lean.nvim"]
 	path = home/dot_local/share/nvim/site/pack/plugins/opt/external_lean.nvim
 	url = https://github.com/Julian/lean.nvim.git

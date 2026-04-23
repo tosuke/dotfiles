@@ -116,6 +116,7 @@ vim.lsp.config("*", {
 
 efm.setup()
 vim.lsp.enable({
+    "copilot",
     "lua_ls",
     "gopls",
     "golangci_lint_ls",
