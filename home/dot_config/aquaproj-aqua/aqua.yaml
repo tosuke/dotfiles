@@ -71,7 +71,7 @@ packages:
   - name: nametake/golangci-lint-langserver@v0.0.12
   - name: go-delve/delve@v1.26.1
   # OCaml
-  - name: ocaml/opam@2.5.0
+  - name: ocaml/opam@2.5.1
     registry: local
   # Haskell
   - name: haskell/ghcup-hs@v0.1.30.0
