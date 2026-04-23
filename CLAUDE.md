@@ -28,10 +28,9 @@ This is a dotfiles repository managed by [chezmoi](https://github.com/twpayne/ch
 - Auto-sync via chezmoi hook when pyproject.toml/uv.lock changes
 - Contains: yamllint
 
-### Git Submodules (Neovim Plugins)
-- Managed as git submodules in `home/dot_local/share/nvim2/site/pack/plugins/`
-- Update: `git submodule update --init --recursive`
-- Plugins: mini.nvim, nvim-treesitter, nvim-lspconfig, copilot.lua, lean.nvim, iceberg.nvim, plenary.nvim
+### Neovim Plugins
+- Managed by `lazy.nvim`
+- Lockfile: `home/dot_config/nvim/lazy-lock.json`
 
 ## Common Commands
 
@@ -43,17 +42,17 @@ This is a dotfiles repository managed by [chezmoi](https://github.com/twpayne/ch
 
 ### Development Environment Setup
 - `aqua install --all --only-link` - Install all development tools
-- `git submodule update --init --recursive` - Update Neovim plugins
+- `nvim --headless "+Lazy! sync" +qa` - Update Neovim plugins
 - Tools will auto-sync when configuration files change via chezmoi hooks
 
 ## Architecture and Key Configurations
 
-### Neovim Setup (nvim2)
+### Neovim Setup (nvim)
 - Custom Neovim configuration using mini.nvim ecosystem
 - LSP setup with multiple language servers (Go, TypeScript, Rust, Lua, etc.)
-- Plugin management via git submodules (not package managers)
-- Configuration: `home/dot_config/nvim2/init.lua`
-- LSP configuration: `home/dot_config/nvim2/lua/lsp/init.lua`
+- Plugin management via lazy.nvim
+- Configuration: `home/dot_config/nvim/init.lua`
+- LSP configuration: `home/dot_config/nvim/lua/lsp/init.lua`
 
 ### Shell Configuration (Fish)
 - Fish shell with extensive abbreviations and integrations
@@ -100,11 +99,11 @@ Languages with full LSP and tooling setup:
 3. Add configuration files as needed in appropriate `dot_config` directories
 
 ### Neovim Plugin Management
-1. Add submodule: `git submodule add <url> home/dot_local/share/nvim2/site/pack/plugins/<opt|start>/<name>`
-2. Update `.gitmodules` with shallow=true and appropriate branch
-3. Configure plugin in `home/dot_config/nvim2/init.lua` or plugin-specific files
+1. Add plugin spec under `home/dot_config/nvim/lua/plugins/`
+2. Sync plugins with `nvim --headless "+Lazy! sync" +qa`
+3. Update lockfile `home/dot_config/nvim/lazy-lock.json` when needed
 
 ### Language Server Setup
-- LSP configurations are in `home/dot_config/nvim2/after/lsp/`
-- Enable new LSP in `home/dot_config/nvim2/lua/lsp/init.lua`
+- LSP configurations are in `home/dot_config/nvim/after/lsp/`
+- Enable new LSP in `home/dot_config/nvim/lua/lsp/init.lua`
 - Add language server to aqua.yaml if not available via npm/system package manager
