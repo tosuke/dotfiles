@@ -32,6 +32,12 @@
 {{- end }}
 [credential "https://dev.azure.com"]
 	useHttpPath = true
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+    insteadOf = http://github.com/
+[url "git@bitbucket.org:"]
+    insteadOf = https://bitbucket.org/
+    insteadOf = http://bitbucket.org/
 [include]
     path = ~/.config/git/config-local
 [includeIf "gitdir:~/ghq/bitbucket.org/yukiyoshi/"]
