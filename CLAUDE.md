@@ -104,6 +104,6 @@ Languages with full LSP and tooling setup:
 3. Update lockfile `home/dot_config/nvim/lazy-lock.json` when needed
 
 ### Language Server Setup
-- LSP configurations are in `home/dot_config/nvim/lua/plugins.lua`
-- Enable new LSP in `home/dot_config/nvim/lua/plugins.lua`
+- Existing LSP setup is in `home/dot_config/nvim/lua/plugins.lua`
+- Add/enable new servers by editing the `nvim-lspconfig` section in `home/dot_config/nvim/lua/plugins.lua`
 - Add language server to aqua.yaml if not available via npm/system package manager
