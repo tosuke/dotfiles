@@ -41,7 +41,7 @@ packages:
   - name: twistedpair/google-cloud-sdk@562.0.0
   # k8s
   - name: kubernetes-sigs/kind@v0.31.0
-  - name: kubernetes/kubectl@v1.35.4
+  - name: kubernetes/kubectl@v1.36.0
   - name: ahmetb/kubectx@v0.11.0
   - name: ahmetb/kubectx/kubens@v0.11.0
   - name: int128/kubelogin@v1.36.1
