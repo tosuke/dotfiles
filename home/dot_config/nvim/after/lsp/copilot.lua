@@ -51,8 +51,7 @@ return {
             base_config.on_attach(client, bufnr)
         end
 
-        local filter = { client_id = client.id }
-        vim.lsp.inline_completion.enable(true, filter)
+        vim.lsp.inline_completion.enable(true, { bufnr = bufnr })
 
         vim.keymap.set("i", "<C-e>", function()
             if not vim.lsp.inline_completion.get({ bufnr = bufnr }) then
