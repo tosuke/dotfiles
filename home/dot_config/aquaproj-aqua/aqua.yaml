@@ -48,7 +48,7 @@ packages:
   - name: superbrothers/kubectl-open-svc-plugin@v2.6.3
     registry: local
   - name: derailed/k9s@v0.50.18
-  - name: stern/stern@v1.33.1
+  - name: stern/stern@v1.34.0
   - name: stefanprodan/timoni@v0.26.0
   - name: kubernetes-sigs/kustomize@kustomize/v5.8.1
   - name: helm/helm@v4.1.4
