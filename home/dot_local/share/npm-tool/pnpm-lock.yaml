@@ -25,7 +25,7 @@ importers:
         version: 0.0.3(typescript@5.9.3)
       typescript-language-server:
         specifier: ^5.0.0
-        version: 5.1.3
+        version: 5.2.0
       vscode-langservers-extracted:
         specifier: ^4.10.0
         version: 4.10.0
@@ -468,8 +468,8 @@ packages:
     peerDependencies:
       typescript: '>=4.8.4'
 
-  typescript-language-server@5.1.3:
-    resolution: {integrity: sha512-r+pAcYtWdN8tKlYZPwiiHNA2QPjXnI02NrW5Sf2cVM3TRtuQ3V9EKKwOxqwaQ0krsaEXk/CbN90I5erBuf84Vg==}
+  typescript-language-server@5.2.0:
+    resolution: {integrity: sha512-K+Fu46SgN+bzh0sbKk04hFHq0kWCljvBN9iHx6ej6pXHigrV6H9W/LENIliEkiUVoymiLmEotEBE2XHYnQCo1w==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -1053,7 +1053,7 @@ snapshots:
       typescript: 5.9.3
     optional: true
 
-  typescript-language-server@5.1.3:
+  typescript-language-server@5.2.0:
     dependencies:
       vscode-jsonrpc: 5.0.1
       vscode-languageserver-protocol: 3.17.5
