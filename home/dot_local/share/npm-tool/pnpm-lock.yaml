@@ -31,7 +31,7 @@ importers:
         version: 4.10.0
       vscode-languageserver-protocol:
         specifier: ^3.17.5
-        version: 3.17.5
+        version: 3.18.0
       yaml-language-server:
         specifier: ^1.16.0
         version: 1.23.0
@@ -519,6 +519,10 @@ packages:
     resolution: {integrity: sha512-C+r0eKJUIfiDIfwJhria30+TYWPtuHJXHtI7J0YlOmKAo7ogxP20T0zxB7HZQIFhIyvoBPwWskjxrvAtfjyZfA==}
     engines: {node: '>=14.0.0'}
 
+  vscode-jsonrpc@9.0.0:
+    resolution: {integrity: sha512-+VvMmQPJhtvJ+8O+zu2JKIRiLxXF8NW7krWgyMGeOHrp4Cn23T5hc0v2LknNeopDOB70wghHAds7mKtcZ0I4Sg==}
+    engines: {node: '>=14.0.0'}
+
   vscode-jsonrpc@9.0.0-next.7:
     resolution: {integrity: sha512-7SgnbbbJfYr3off0T2KV/RCMYhVsuLeFPw8l3bkxSiavtoTLsOdu1jyxK3yWbdQuO8QOJC7+no0TXmYjRWSC+g==}
     engines: {node: '>=14.0.0'}
@@ -536,6 +540,9 @@ packages:
   vscode-languageserver-protocol@3.17.6-next.12:
     resolution: {integrity: sha512-EqrbwF0glTWD2HiDpFc32pJOr6/bJvyKSfCpRQrKy3XsfdloH4p3o/rNJYcpujM0OVLmPZgl1i9g57z9g2YRJA==}
 
+  vscode-languageserver-protocol@3.18.0:
+    resolution: {integrity: sha512-Zdz+kJ12Iz6tc11xfZyEo501bBATHXrCjmMfnaR3pMnf1CoqZBKIynba3P+/bi9VEdrMbNtAVKYpKhbODvqy+Q==}
+
   vscode-languageserver-textdocument@1.0.12:
     resolution: {integrity: sha512-cxWNPesCnQCcMPeenjKKsOCKQZ/L6Tv19DTRIGuLWe32lyzWhihGVJ/rcckZXJxfdKCFvRLS3fpBIsV/ZGX4zA==}
 
@@ -547,6 +554,9 @@ packages:
 
   vscode-languageserver-types@3.17.6-next.6:
     resolution: {integrity: sha512-aiJY5/yW+xzw7KPNlwi3gQtddq/3EIn5z8X8nCgJfaiAij2R1APKePngv+MUdLdYJBVTLu+Qa0ODsT+pHgYguQ==}
+
+  vscode-languageserver-types@3.18.0:
+    resolution: {integrity: sha512-8TsGPNMIMiiBdkORgRSvLjuiEIiAFtO+KssmYWxQ+uSVvlf7RjK8YKCOjPzZ+YA04jXEV7+7LvkSmHkhpNS99g==}
 
   vscode-languageserver@10.0.0-next.12:
     resolution: {integrity: sha512-6lT2CJhH93YFmdDrFTwWvuG0/yzEN2Zbw/DfPaRF91sylZ3TSD0NkJU5jug6t/3NLoDh9VjfJZkgkKr6e3UmRw==}
@@ -613,7 +623,7 @@ snapshots:
       '@actions/expressions': 0.3.17
       '@actions/workflow-parser': 0.3.17
       vscode-languageserver-textdocument: 1.0.12
-      vscode-languageserver-types: 3.17.5
+      vscode-languageserver-types: 3.18.0
       vscode-uri: 3.1.0
       yaml: 2.2.2
 
@@ -864,7 +874,7 @@ snapshots:
       jsonc-parser: 3.3.1
       semver: 7.5.2
       typescript: 5.9.3
-      vscode-languageserver-protocol: 3.17.5
+      vscode-languageserver-protocol: 3.18.0
       vscode-languageserver-textdocument: 1.0.12
       vscode-uri: 3.1.0
 
@@ -1065,7 +1075,7 @@ snapshots:
   typescript-language-server@5.3.0:
     dependencies:
       vscode-jsonrpc: 5.0.1
-      vscode-languageserver-protocol: 3.17.5
+      vscode-languageserver-protocol: 3.18.0
 
   typescript@4.9.5: {}
 
@@ -1111,6 +1121,8 @@ snapshots:
 
   vscode-jsonrpc@8.2.0: {}
 
+  vscode-jsonrpc@9.0.0: {}
+
   vscode-jsonrpc@9.0.0-next.7: {}
 
   vscode-langservers-extracted@4.10.0:
@@ -1147,6 +1159,11 @@ snapshots:
       vscode-jsonrpc: 9.0.0-next.7
       vscode-languageserver-types: 3.17.6-next.6
 
+  vscode-languageserver-protocol@3.18.0:
+    dependencies:
+      vscode-jsonrpc: 9.0.0
+      vscode-languageserver-types: 3.18.0
+
   vscode-languageserver-textdocument@1.0.12: {}
 
   vscode-languageserver-types@3.17.3: {}
@@ -1154,6 +1171,8 @@ snapshots:
   vscode-languageserver-types@3.17.5: {}
 
   vscode-languageserver-types@3.17.6-next.6: {}
+
+  vscode-languageserver-types@3.18.0: {}
 
   vscode-languageserver@10.0.0-next.12:
     dependencies:
@@ -1172,7 +1191,7 @@ snapshots:
       '@vscode/l10n': 0.0.10
       node-html-parser: 6.1.13
       picomatch: 2.3.1
-      vscode-languageserver-protocol: 3.17.5
+      vscode-languageserver-protocol: 3.18.0
       vscode-languageserver-textdocument: 1.0.12
       vscode-uri: 3.1.0
 
