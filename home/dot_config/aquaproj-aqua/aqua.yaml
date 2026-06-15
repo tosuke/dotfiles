@@ -55,7 +55,7 @@ packages:
   # LSP
   - name: mattn/efm-langserver@v0.0.56
   # Terraform
-  - name: tofuutils/tenv@v4.12.2
+  - name: tofuutils/tenv@v4.14.8
   - name: hashicorp/terraform-ls@v0.38.7
   # TOML
   - name: tombi-toml/tombi@v1.1.3
