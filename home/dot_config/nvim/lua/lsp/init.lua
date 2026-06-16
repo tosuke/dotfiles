@@ -123,6 +123,7 @@ vim.lsp.enable({
     "vtsls",
     "denols",
     "eslint",
+    "oxlint",
     "tailwindcss",
 
     "rust_analyzer",
