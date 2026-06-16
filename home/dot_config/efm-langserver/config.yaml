@@ -6,20 +6,23 @@ root-markers:
 lint-debounce: 1s
 
 tools:
-  prettierd: &prettierd
+  prettier-or-oxfmt: &prettier-or-oxfmt
     format-command: >
-      prettierd "${INPUT}"
+      bash -c 'input=$1;
+      dir=$(dirname -- "$input");
+      while [[ -n "$dir" && "$dir" != "/" ]]; do
+        for config in .prettierrc .prettierrc.json .prettierrc.json5 .prettierrc.yml .prettierrc.yaml .prettierrc.toml .prettierrc.js .prettierrc.mjs .prettierrc.cjs .prettierrc.ts .prettierrc.mts .prettierrc.cts prettier.config.js prettier.config.mjs prettier.config.cjs prettier.config.ts prettier.config.mts prettier.config.cts; do
+          [[ -e "$dir/$config" ]] && exec prettierd "$input"
+        done
+        [[ -e "$dir/.git" ]] && break
+        dir=$(dirname -- "$dir")
+      done;
+      exec oxfmt --stdin-filepath "$input"' -- "${INPUT}"
     format-stdin: true
     root-markers:
+      - .oxfmtrc.json
+      - .oxfmtrc.jsonc
       - .prettierrc
-      - .prettierrc.json
-      - .prettierrc.json5
-      - .prettierrc.yml
-      - .prettierrc.yaml
-      - .prettierrc.toml
-      - .prettierrc.js
-      - .prettierrc.mjs
-      - .prettierrc.cjs
       - package.json
       - .git
   # Lua
@@ -102,28 +105,30 @@ languages:
     - <<: *ocamlformat
   # web
   html:
-    - <<: *prettierd
+    - <<: *prettier-or-oxfmt
   css:
-    - <<: *prettierd
+    - <<: *prettier-or-oxfmt
   markdown:
-    - <<: *prettierd
+    - <<: *prettier-or-oxfmt
   javascript:
-    - <<: *prettierd
+    - <<: *prettier-or-oxfmt
   javascriptreact:
-    - <<: *prettierd
+    - <<: *prettier-or-oxfmt
   typescript:
-    - <<: *prettierd
+    - <<: *prettier-or-oxfmt
   typescriptreact:
-    - <<: *prettierd
+    - <<: *prettier-or-oxfmt
   # config
   json:
-    - <<: *prettierd
+    - <<: *prettier-or-oxfmt
   jsonc:
-    - <<: *prettierd
+    - <<: *prettier-or-oxfmt
+  json5:
+    - <<: *prettier-or-oxfmt
   jsonnet:
     - <<: *jsonnetfmt
   yaml:
-    - <<: *prettierd
+    - <<: *prettier-or-oxfmt
     - <<: *yamllint
     - <<: *actionlint
   terraform:
