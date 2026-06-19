@@ -120,7 +120,7 @@ vim.lsp.enable({
     "lua_ls",
     "gopls",
     "golangci_lint_ls",
-    "vtsls",
+    "tsgo",
     "denols",
     "eslint",
     "oxlint",

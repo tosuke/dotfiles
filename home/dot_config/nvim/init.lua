@@ -140,7 +140,7 @@ now(function()
 end)
 
 later(function()
-    require("plugin/nvim-treesitter")
+    -- require("plugin/nvim-treesitter")
 end)
 
 later(function()

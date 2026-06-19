@@ -1,13 +1,7 @@
 ---@type vim.lsp.Config
 return {
-    settings = {
-        vtsls = {
-            autoUseWorkspaceTsdk = true,
-        },
-        typescript = {
-            preferGoToSourceDefinition = true,
-        },
-        javascript = {
+    init_options = {
+        userPreferences = {
             preferGoToSourceDefinition = true,
         },
     },
