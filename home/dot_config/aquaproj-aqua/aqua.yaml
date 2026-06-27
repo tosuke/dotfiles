@@ -23,7 +23,7 @@ packages:
   - name: eza-community/eza@v0.23.4
   - name: mozilla/sccache@v0.16.0
   - name: anthropics/claude-code@v2.1.186
-  - name: openai/codex@rust-v0.141.0
+  - name: openai/codex@rust-v0.142.0
   # Security
   - name: sigstore/cosign@v3.1.1
   - name: suzuki-shunsuke/pinact@v4.1.0
