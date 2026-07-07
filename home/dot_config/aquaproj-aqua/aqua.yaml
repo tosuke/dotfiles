@@ -28,7 +28,7 @@ packages:
   - name: sigstore/cosign@v3.1.1
   - name: suzuki-shunsuke/pinact@v4.1.0
   # GitHub
-  - name: cli/cli@v2.95.0
+  - name: cli/cli@v2.96.0
   - name: github/copilot-language-server-release@1.517.0
   # GHA
   - name: rhysd/actionlint@v1.7.12
