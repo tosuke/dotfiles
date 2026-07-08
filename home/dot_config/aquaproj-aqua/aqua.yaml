@@ -76,7 +76,7 @@ packages:
   - name: haskell/ghcup-hs@v0.1.30.0
   # Node.js
   - name: Schniz/fnm@v1.39.0
-  - name: pnpm/pnpm@v11.9.0
+  - name: pnpm/pnpm@v11.10.0
   # Deno
   - name: denoland/deno@v2.9.1
   # Lua
