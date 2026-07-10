@@ -17,9 +17,6 @@ importers:
       '@tailwindcss/language-server':
         specifier: ^0.14.3
         version: 0.14.29
-      '@vtsls/language-server':
-        specifier: ^0.3.0
-        version: 0.3.0
       gh-actions-language-server:
         specifier: ^0.0.3
         version: 0.0.3(typescript@7.0.2)
@@ -602,18 +599,6 @@ packages:
   '@vscode/l10n@0.0.18':
     resolution: {integrity: sha512-KYSIHVmslkaCDyw013pphY+d7x1qV8IZupYfeIfzNA+nsaWHbn5uPuQRvdRFsa9zFzGeudPuoGoZ1Op4jrJXIQ==}
 
-  '@vtsls/language-server@0.3.0':
-    resolution: {integrity: sha512-EYTkCHNGz3MFSP7z0DZ5+WBQY5CWEH7bCUu53EaDloBTjghoi2vfZqSrS0+7WsRG03MhBhjGG9ifNee/2kixvQ==}
-    engines: {node: '>=18'}
-    hasBin: true
-
-  '@vtsls/language-service@0.3.0':
-    resolution: {integrity: sha512-u2Z5oY64953CvG1SdI6Zimlbnaqj7OT/sj9zcw/gr/f6pl3e0ryh8lsa376MeC9T/SW7q+Aw0YMyUZIIIZOyng==}
-    engines: {node: '>=18'}
-
-  '@vtsls/vscode-fuzzy@0.1.0':
-    resolution: {integrity: sha512-jpJ6pFyi152BZ65j1D7otCf1YA9xaMqXV6nn2MOF8BNx0mkwIp2lTj26xvGk/mvEtiVvsGN3vMiBNXMxcv6bIA==}
-
   ajv-draft-04@1.0.0:
     resolution: {integrity: sha512-mv00Te6nmYbRp5DCwclxtt7yV/joXJPGS7nM+97GdxvuttCOfgI3K4U25zboyeX0O+myI8ERluxQe5wljMmVIw==}
     peerDependencies:
@@ -746,10 +731,6 @@ packages:
   jsonc-parser@3.3.1:
     resolution: {integrity: sha512-HUgH65KyejrUFPvHFPbqOY0rsFip3Bo5wb4ngvdi1EpCYWUQDC5V+Y7mZws+DLkr4M//zQJoanu1SP+87Dv1oQ==}
 
-  lru-cache@6.0.0:
-    resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
-    engines: {node: '>=10'}
-
   minimatch@10.2.4:
     resolution: {integrity: sha512-oRjTw/97aTBN0RHbYCdtF1MQfvusSIBQM0IZEgzl6426+8jSC0nF1a/GmnVLpfB9yyr6g6FTqWqiZVbxrtaCIg==}
     engines: {node: 18 || 20 || >=22}
@@ -837,11 +818,6 @@ packages:
     resolution: {integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==}
     engines: {node: '>=0.10.0'}
 
-  semver@7.5.2:
-    resolution: {integrity: sha512-SoftuTROv/cRjCze/scjGyiDtcUyxw1rgYQSZY7XTmtR5hX+dm76iDbTH8TkLPHCQmlbQVSSbNZCPM2hb0knnQ==}
-    engines: {node: '>=10'}
-    hasBin: true
-
   semver@7.7.1:
     resolution: {integrity: sha512-hlq8tAfn0m/61p4BVRcPzIGr6LKiMwo4VM6dGi6pt4qcRkmNzTcWq6eCEjEh+qXjkMDvPlOFFSGwQjoEa6gyMA==}
     engines: {node: '>=10'}
@@ -876,11 +852,6 @@ packages:
   typescript@4.9.5:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
-    hasBin: true
-
-  typescript@5.9.3:
-    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
-    engines: {node: '>=14.17'}
     hasBin: true
 
   typescript@7.0.2:
@@ -983,9 +954,6 @@ packages:
 
   wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
-
-  yallist@4.0.0:
-    resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
 
   yaml-language-server@1.23.0:
     resolution: {integrity: sha512-3qVyCOexLCWw06PQa5kRPwvMWMZ/eZeCRWUvgD6a0OkqL/4iCnxy2WumbWifa937Uo5xhyWJ0uxlU39ljhNh7A==}
@@ -1431,25 +1399,6 @@ snapshots:
 
   '@vscode/l10n@0.0.18': {}
 
-  '@vtsls/language-server@0.3.0':
-    dependencies:
-      '@vtsls/language-service': 0.3.0
-      vscode-languageserver: 9.0.1
-      vscode-uri: 3.1.0
-
-  '@vtsls/language-service@0.3.0':
-    dependencies:
-      '@vscode/l10n': 0.0.18
-      '@vtsls/vscode-fuzzy': 0.1.0
-      jsonc-parser: 3.3.1
-      semver: 7.5.2
-      typescript: 5.9.3
-      vscode-languageserver-protocol: 3.18.2
-      vscode-languageserver-textdocument: 1.0.12
-      vscode-uri: 3.1.0
-
-  '@vtsls/vscode-fuzzy@0.1.0': {}
-
   ajv-draft-04@1.0.0(ajv@8.20.0):
     optionalDependencies:
       ajv: 8.20.0
@@ -1564,10 +1513,6 @@ snapshots:
 
   jsonc-parser@3.3.1: {}
 
-  lru-cache@6.0.0:
-    dependencies:
-      yallist: 4.0.0
-
   minimatch@10.2.4:
     dependencies:
       brace-expansion: 5.0.5
@@ -1662,10 +1607,6 @@ snapshots:
 
   require-from-string@2.0.2: {}
 
-  semver@7.5.2:
-    dependencies:
-      lru-cache: 6.0.0
-
   semver@7.7.1: {}
 
   semver@7.7.4:
@@ -1691,8 +1632,6 @@ snapshots:
     optional: true
 
   typescript@4.9.5: {}
-
-  typescript@5.9.3: {}
 
   typescript@7.0.2:
     optionalDependencies:
@@ -1841,8 +1780,6 @@ snapshots:
       webidl-conversions: 3.0.1
 
   wrappy@1.0.2: {}
-
-  yallist@4.0.0: {}
 
   yaml-language-server@1.23.0:
     dependencies:
