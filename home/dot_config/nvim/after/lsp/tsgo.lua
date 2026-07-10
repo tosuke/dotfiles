@@ -1,5 +1,6 @@
 ---@type vim.lsp.Config
 return {
+    cmd = { "tsc", "--lsp", "--stdio" },
     init_options = {
         userPreferences = {
             preferGoToSourceDefinition = true,
