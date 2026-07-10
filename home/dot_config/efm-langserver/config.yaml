@@ -34,11 +34,22 @@ tools:
       - .stylua.toml
   # Go
   golangci-lint-fmt: &golangci-lint-fmt
-    format-command: "golangci-lint fmt --stdin"
+    format-command: >
+      bash -c 'input=$1;
+      dir=$(dirname -- "$input");
+      while [[ -n "$dir" && "$dir" != "/" ]]; do
+        for config in .golangci.yml .golangci.yaml .golangci.toml; do
+          [[ -e "$dir/$config" ]] && exec golangci-lint fmt --stdin
+        done
+        [[ -e "$dir/.git" ]] && break
+        dir=$(dirname -- "$dir")
+      done;
+      golangci-lint fmt --no-config --enable gofmt --enable goimports --stdin' -- "${INPUT}"
     format-stdin: true
     root-markers:
       - .golangci.yml
       - .golangci.yaml
+      - .golangci.toml
       - go.mod
       - go.sum
   # Terraform
