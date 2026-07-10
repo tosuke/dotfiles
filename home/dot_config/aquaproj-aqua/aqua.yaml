@@ -17,7 +17,6 @@ packages:
   - name: BurntSushi/ripgrep@15.1.0
   - name: jqlang/jq@jq-1.8.2
   - name: mikefarah/yq@v4.53.3
-  - name: cue-lang/cue@v0.17.0
   - name: rclone/rclone@v1.74.3
   - name: vi/websocat@v1.14.1
   - name: eza-community/eza@v0.23.4
@@ -36,7 +35,6 @@ packages:
   - name: aws/aws-cli@2.35.16
   - name: aws/session-manager-plugin@1.2.677.0
   - name: kayac/ecspresso@v2.8.5
-  - name: fujiwara/lambroll@v1.4.4
   # Google Cloud
   - name: twistedpair/google-cloud-sdk@562.0.0
   # k8s
@@ -49,7 +47,6 @@ packages:
     registry: local
   - name: derailed/k9s@v0.51.0
   - name: stern/stern@v1.34.0
-  - name: stefanprodan/timoni@v0.27.0
   - name: kubernetes-sigs/kustomize@kustomize/v5.8.1
   - name: helm/helm@v4.2.2
   # LSP
@@ -60,7 +57,6 @@ packages:
   # TOML
   - name: tombi-toml/tombi@v1.2.0
   # Jsonnet
-  - name: google/go-jsonnet@v0.22.0
   - name: grafana/jsonnet-language-server@v0.17.0
   # Go
   - name: golang/go@go1.26.4
