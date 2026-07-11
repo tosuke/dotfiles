@@ -60,7 +60,7 @@ packages:
   - name: grafana/jsonnet-language-server@v0.17.0
   # Go
   - name: golang/go@go1.26.5
-  - name: golang.org/x/tools/gopls@v0.22.0
+  - name: golang.org/x/tools/gopls@v0.23.0
   - name: golang/tools/goimports@v0.22.0
   - name: golangci/golangci-lint@v2.12.2
   - name: nametake/golangci-lint-langserver@v0.0.12
