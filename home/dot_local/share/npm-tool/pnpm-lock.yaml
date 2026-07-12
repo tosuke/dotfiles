@@ -13,7 +13,7 @@ importers:
         version: 0.28.0(typescript@7.0.2)
       '@playwright/cli':
         specifier: ^0.1.1
-        version: 0.1.16
+        version: 0.1.17
       '@tailwindcss/language-server':
         specifier: ^0.14.3
         version: 0.14.29
@@ -437,8 +437,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@playwright/cli@0.1.16':
-    resolution: {integrity: sha512-2EA209zMr+YJwMc0SIIEpPQR2VIIyMYC8WWB9o/JwIfq5EjZY1KBbhKeMnNhhGbGxbb/IEThZjaCw7yJj/A9LA==}
+  '@playwright/cli@0.1.17':
+    resolution: {integrity: sha512-VBw6y3p8eqOqmjKg07IkWSPGKJkpIhMRNDFI6DOYsDD6fAfcI1XYEWMLWyhSZQ0B/Oc2KN49eq4XqE64PUPHBg==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -794,13 +794,13 @@ packages:
     resolution: {integrity: sha512-RvwwcruNjI1ncT5xRakeyS9Lf8lcItv34KD+aif+VH9kduAyfYBipGh12274xtenIPZ119/R9BdTBa8gAwSh0A==}
     engines: {node: '>=12'}
 
-  playwright-core@1.62.0-alpha-2026-07-08:
-    resolution: {integrity: sha512-1GEx9eELpB6cdtb1MTSeh7K4LP5k9vuaT4HlIsldD/8nvVhf1k2DqBQZHHyAs3oSTfz6MhqVaMEM4VkyjoPsLw==}
+  playwright-core@1.62.0-alpha-1783623505000:
+    resolution: {integrity: sha512-CPJZdsA/KGT2QQlekiV6Wt+QlQrZHVSZ6oiNtOI/bYYOIVLM8jfKGWTM4zQiyd4UN+40Cq4cA6lxmZHZbtPvJQ==}
     engines: {node: '>=20'}
     hasBin: true
 
-  playwright@1.62.0-alpha-2026-07-08:
-    resolution: {integrity: sha512-5vivHdZSnbUW3iutwp2kbr9wjsdFR7OIEUcMvsR5g8Iy/PeYm0uZRwKwTsnZMPr43uFCdW4RQIj0ioszIL31MQ==}
+  playwright@1.62.0-alpha-1783623505000:
+    resolution: {integrity: sha512-6KV9h4PP3hqu4NaGdxxcijWfYh9LJcFI/R2sP4TTC4I5cFo3oRawN0ETlW5MkE3cQEgKhhoj0KUNz4sfpCT0Tg==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -1293,10 +1293,10 @@ snapshots:
   '@oxlint/binding-win32-x64-msvc@1.73.0':
     optional: true
 
-  '@playwright/cli@0.1.16':
+  '@playwright/cli@0.1.17':
     dependencies:
-      playwright: 1.62.0-alpha-2026-07-08
-      playwright-core: 1.62.0-alpha-2026-07-08
+      playwright: 1.62.0-alpha-1783623505000
+      playwright-core: 1.62.0-alpha-1783623505000
 
   '@tailwindcss/language-server@0.14.29': {}
 
@@ -1596,11 +1596,11 @@ snapshots:
 
   picomatch@4.0.5: {}
 
-  playwright-core@1.62.0-alpha-2026-07-08: {}
+  playwright-core@1.62.0-alpha-1783623505000: {}
 
-  playwright@1.62.0-alpha-2026-07-08:
+  playwright@1.62.0-alpha-1783623505000:
     dependencies:
-      playwright-core: 1.62.0-alpha-2026-07-08
+      playwright-core: 1.62.0-alpha-1783623505000
     optionalDependencies:
       fsevents: 2.3.2
 
