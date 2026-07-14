@@ -24,7 +24,6 @@ packages:
   - name: anthropics/claude-code@v2.1.212
   - name: openai/codex@rust-v0.144.5
   # Security
-  - name: sigstore/cosign@v3.1.1
   - name: suzuki-shunsuke/pinact@v4.1.0
   # GitHub
   - name: cli/cli@v2.96.0
