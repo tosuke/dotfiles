@@ -1,0 +1,6 @@
+#!/bin/bash
+# vim: set ft=sh :
+
+# nvim-pack-lock.json hash: {{ include "dot_config/nvim/nvim-pack-lock.json" | sha256sum }}
+echo "Sync Neovim plugins..."
+aqua exec -- nvim --headless '+lua vim.pack.update(nil, { force = true, target = "lockfile" })' +qa

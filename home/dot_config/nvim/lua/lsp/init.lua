@@ -1,6 +1,3 @@
--- load lspconfig
-vim.cmd.packadd("nvim-lspconfig")
-
 local efm = require("lsp.efm")
 local utils = require("lsp.utils")
 

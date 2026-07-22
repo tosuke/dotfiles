@@ -10,6 +10,22 @@
   "git-submodules": {
     "enabled": true
   },
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update vim.pack refs, revisions, and lockfile entries",
+      "managerFilePatterns": [
+        "/^home/dot_config/nvim/init\\.lua$/",
+        "/^home/dot_config/nvim/nvim-pack-lock\\.json$/"
+      ],
+      "matchStrings": [
+        "-- renovate: digest=(?<currentDigest>[a-f0-9]{40})\\s+[{] src = \\x22https://github\\.com/(?<depName>[^\\x22]+)\\x22, name = \\x22[^\\x22]+\\x22, version = \\x22(?<currentValue>[^\\x22]+)\\x22 [}]",
+        "\\x22rev\\x22: \\x22(?<currentDigest>[a-f0-9]{40})\\x22,\\s+\\x22src\\x22: \\x22https://github\\.com/(?<depName>[^\\x22]+)\\x22,\\s+\\x22version\\x22: \\x22'(?<currentValue>[^\\x22]+)'\\x22"
+      ],
+      "datasourceTemplate": "github-digest",
+      "versioningTemplate": "exact"
+    }
+  ],
   "patch": {
     "automerge": true
   },
