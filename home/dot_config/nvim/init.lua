@@ -4,7 +4,7 @@ local augroup = vim.api.nvim_create_augroup("init.lua", {})
 vim.pack.add({
     -- renovate: digest=15070f77066fce582f5fae09ce4faa080c33aefd
     { src = "https://github.com/oahlen/iceberg.nvim", name = "iceberg.nvim", version = "main" },
-    -- renovate: digest=32fb8aa2edf3f172c307957dc7083e6c7f6caa7e
+    -- renovate: digest=c2d274ed26192fbf43f222d24a8f0d08d1c617f9
     { src = "https://github.com/Julian/lean.nvim", name = "lean.nvim", version = "main" },
     -- renovate: digest=94cae4660a8b2d95dbbd56e1fbc6fcfa2716d152
     { src = "https://github.com/echasnovski/mini.nvim", name = "mini.nvim", version = "v0.16.0" },
