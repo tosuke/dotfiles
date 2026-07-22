@@ -41,7 +41,7 @@ packages:
   - name: kubernetes/kubectl@v1.36.2
   - name: ahmetb/kubectx@v0.11.0
   - name: ahmetb/kubectx/kubens@v0.11.0
-  - name: int128/kubelogin@v1.36.2
+  - name: int128/kubelogin@v1.36.3
   - name: superbrothers/kubectl-open-svc-plugin@v2.6.4
     registry: local
   - name: derailed/k9s@v0.51.0
