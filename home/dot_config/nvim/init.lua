@@ -6,8 +6,8 @@ vim.pack.add({
     { src = "https://github.com/oahlen/iceberg.nvim", name = "iceberg.nvim", version = "main" },
     -- renovate: digest=32fb8aa2edf3f172c307957dc7083e6c7f6caa7e
     { src = "https://github.com/Julian/lean.nvim", name = "lean.nvim", version = "main" },
-    -- renovate: digest=94cae4660a8b2d95dbbd56e1fbc6fcfa2716d152
-    { src = "https://github.com/echasnovski/mini.nvim", name = "mini.nvim", version = "v0.16.0" },
+    -- renovate: digest=1345d191bb3da9c7b0e977f4387c5761f9bff68d
+    { src = "https://github.com/echasnovski/mini.nvim", name = "mini.nvim", version = "v0.18.0" },
     -- renovate: digest=5bfcc89fd155b4ffc02d18ab3b7d19c2d4e246a7
     { src = "https://github.com/neovim/nvim-lspconfig", name = "nvim-lspconfig", version = "v2.5.0" },
     -- renovate: digest=74b06c6c75e4eeb3108ec01852001636d85a932b
