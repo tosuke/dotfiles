@@ -33,6 +33,8 @@
     {
       "matchManagers": ["custom.regex"],
       "matchPackageNames": [
+        "delphinus/budoux.lua",
+        "delphinus/md-render.nvim",
         "echasnovski/mini.nvim",
         "neovim/nvim-lspconfig"
       ],

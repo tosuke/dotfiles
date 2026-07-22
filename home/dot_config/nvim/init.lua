@@ -2,12 +2,16 @@ vim.loader.enable()
 local augroup = vim.api.nvim_create_augroup("init.lua", {})
 
 vim.pack.add({
+    -- renovate: digest=7f23658b127b9a74aae5b388fefcd997be30cbfc
+    { src = "https://github.com/delphinus/budoux.lua", name = "budoux.lua", version = "v1.0.2" },
     -- renovate: digest=15070f77066fce582f5fae09ce4faa080c33aefd
     { src = "https://github.com/oahlen/iceberg.nvim", name = "iceberg.nvim", version = "main" },
     -- renovate: digest=32fb8aa2edf3f172c307957dc7083e6c7f6caa7e
     { src = "https://github.com/Julian/lean.nvim", name = "lean.nvim", version = "main" },
     -- renovate: digest=1345d191bb3da9c7b0e977f4387c5761f9bff68d
     { src = "https://github.com/echasnovski/mini.nvim", name = "mini.nvim", version = "v0.18.0" },
+    -- renovate: digest=56057d92d636a45cdeac5d1857e776e10d279d69
+    { src = "https://github.com/delphinus/md-render.nvim", name = "md-render.nvim", version = "v3.4.0" },
     -- renovate: digest=229b79051b380377664edc4cbd534930154921a1
     { src = "https://github.com/neovim/nvim-lspconfig", name = "nvim-lspconfig", version = "v2.10.0" },
     -- renovate: digest=74b06c6c75e4eeb3108ec01852001636d85a932b
@@ -78,9 +82,6 @@ local now, later = packutil.now, packutil.later
 
 now(function()
     require("mini.icons").setup()
-end)
-
-now(function()
     require("mini.basics").setup({
         options = {
             extra_ui = true,
@@ -89,126 +90,64 @@ now(function()
             option_toggle_prefix = "m",
         },
     })
+
     vim.o.listchars = "tab:»-,trail:-,extends:»,eol:↲,precedes:«,nbsp:%"
     vim.o.signcolumn = "no"
     vim.g.maplocalleader = ","
-end)
 
-now(function()
+    -- md-render.nvim
+    vim.keymap.set("n", "<localleader>mp", "<Plug>(md-render-preview)", { desc = "Markdown preview (toggle)" })
+    vim.keymap.set(
+        "n",
+        "<localleader>mt",
+        "<Plug>(md-render-preview-tab)",
+        { desc = "Markdown preview in tab (toggle)" }
+    )
+    vim.keymap.set("n", "<leader>md", "<Plug>(md-render-demo)", { desc = "Markdown render demo" })
+
     require("plugin/mini_misc")
-end)
 
-now(function()
+    if vim.g.vscode then
+        return
+    end
+
     require("mini.starter").setup()
-end)
-
-now(function()
-    if not vim.g.vscode then
-        require("plugin/mini_statusline")
-    end
-end)
-
-now(function()
-    if not vim.g.vscode then
-        require("plugin/mini_notify")
-    end
-end)
-
-later(function()
-    if not vim.g.vscode then
-        require("plugin/mini_hipatterns")
-    end
-end)
-
-later(function()
-    if not vim.g.vscode then
-        require("mini.cursorword").setup()
-    end
-end)
-
-later(function()
-    require("mini.indentscope").setup()
-end)
-
-later(function()
-    require("mini.pairs").setup()
-end)
-
-later(function()
-    require("mini.surround").setup()
-end)
-
-later(function()
-    require("plugin/mini_ai")
-end)
-
-later(function()
-    if not vim.g.vscode then
-        require("plugin.mini_clue")
-    end
-end)
-
-now(function()
     require("lsp")
-end)
 
-later(function()
-    -- require("plugin/nvim-treesitter")
-end)
+    require("plugin/mini_statusline")
+    require("plugin/mini_notify")
+    require("plugin.mini_files")
 
-later(function()
-    if not vim.g.vscode then
-        require("plugin.mini_completion")
-    end
-end)
+    require("plugin/iceberg")
+    vim.cmd.colorscheme("iceberg")
 
-now(function()
-    if not vim.g.vscode then
-        require("plugin/iceberg")
-        vim.cmd.colorscheme("iceberg")
-    end
-end)
-
-now(function()
-    if not vim.g.vscode then
-        require("plugin.mini_files")
-    end
-end)
-
-later(function()
-    if not vim.g.vscode then
-        require("plugin.mini_pick")
-    end
-end)
-
-later(function()
-    require("mini.diff").setup()
-end)
-
-later(function()
-    require("mini.jump").setup({
-        delay = { idle_stop = 10 },
+    -- Load lean syntax & filetype
+    vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
+        group = augroup,
+        pattern = "*.lean",
+        once = true,
+        callback = function()
+            require("plugin.lean_nvim")
+        end,
     })
 end)
 
 later(function()
+    require("mini.indentscope").setup()
+    require("mini.pairs").setup()
+    require("mini.surround").setup()
+    require("plugin/mini_ai")
+    require("mini.diff").setup()
+    require("mini.jump").setup({
+        delay = { idle_stop = 10 },
+    })
     require("mini.jump2d").setup()
-end)
-
-if not vim.g.vscode then
-    now(function()
-        -- Load lean syntax & filetype
-        vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
-            group = augroup,
-            pattern = "*.lean",
-            once = true,
-            callback = function()
-                require("plugin.lean_nvim")
-            end,
-        })
-    end)
-end
-
-later(function()
     vim.cmd.helptags("ALL")
+    if not vim.g.vscode then
+        require("plugin/mini_hipatterns")
+        require("mini.cursorword").setup()
+        require("plugin.mini_clue")
+        require("plugin.mini_completion")
+        require("plugin.mini_pick")
+    end
 end)

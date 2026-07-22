@@ -1,5 +1,10 @@
 {
   "plugins": {
+    "budoux.lua": {
+      "rev": "7f23658b127b9a74aae5b388fefcd997be30cbfc",
+      "src": "https://github.com/delphinus/budoux.lua",
+      "version": "'v1.0.2'"
+    },
     "iceberg.nvim": {
       "rev": "15070f77066fce582f5fae09ce4faa080c33aefd",
       "src": "https://github.com/oahlen/iceberg.nvim",
@@ -9,6 +14,11 @@
       "rev": "32fb8aa2edf3f172c307957dc7083e6c7f6caa7e",
       "src": "https://github.com/Julian/lean.nvim",
       "version": "'main'"
+    },
+    "md-render.nvim": {
+      "rev": "56057d92d636a45cdeac5d1857e776e10d279d69",
+      "src": "https://github.com/delphinus/md-render.nvim",
+      "version": "'v3.4.0'"
     },
     "mini.nvim": {
       "rev": "1345d191bb3da9c7b0e977f4387c5761f9bff68d",
