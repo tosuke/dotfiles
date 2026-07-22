@@ -82,7 +82,7 @@ packages:
   # sh
   - name: koalaman/shellcheck@v0.11.0
   # ProtoBuf
-  - name: bufbuild/buf@v1.71.0
+  - name: bufbuild/buf@v1.72.0
   # Typst
   - name: typst/typst@v0.14.2
   - name: Enter-tainer/typstyle@v0.15.0
