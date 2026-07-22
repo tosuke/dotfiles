@@ -16,9 +16,9 @@
       "version": "'v0.18.0'"
     },
     "nvim-lspconfig": {
-      "rev": "5bfcc89fd155b4ffc02d18ab3b7d19c2d4e246a7",
+      "rev": "229b79051b380377664edc4cbd534930154921a1",
       "src": "https://github.com/neovim/nvim-lspconfig",
-      "version": "'v2.5.0'"
+      "version": "'v2.10.0'"
     },
     "nvim-treesitter": {
       "rev": "42fc28ba918343ebfd5565147a42a26580579482",
