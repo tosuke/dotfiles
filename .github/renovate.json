@@ -31,6 +31,15 @@
   },
   "packageRules": [
     {
+      "matchManagers": ["custom.regex"],
+      "matchPackageNames": [
+        "echasnovski/mini.nvim",
+        "neovim/nvim-lspconfig"
+      ],
+      "overrideDatasource": "github-tags",
+      "versioning": "semver"
+    },
+    {
       "matchPackageNames": ["github/copilot-language-server-release"],
       "matchUpdateTypes": ["minor"],
       "automerge": true
