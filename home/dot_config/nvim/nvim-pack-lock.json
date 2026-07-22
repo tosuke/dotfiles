@@ -11,9 +11,9 @@
       "version": "'main'"
     },
     "mini.nvim": {
-      "rev": "94cae4660a8b2d95dbbd56e1fbc6fcfa2716d152",
+      "rev": "1345d191bb3da9c7b0e977f4387c5761f9bff68d",
       "src": "https://github.com/echasnovski/mini.nvim",
-      "version": "'v0.16.0'"
+      "version": "'v0.18.0'"
     },
     "nvim-lspconfig": {
       "rev": "5bfcc89fd155b4ffc02d18ab3b7d19c2d4e246a7",
