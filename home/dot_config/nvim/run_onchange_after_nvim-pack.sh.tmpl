@@ -3,4 +3,9 @@
 
 # nvim-pack-lock.json hash: {{ include "dot_config/nvim/nvim-pack-lock.json" | sha256sum }}
 echo "Sync Neovim plugins..."
+legacy_pack_dir="${XDG_DATA_HOME:-${HOME}/.local/share}/nvim/site/pack/plugins"
+if [[ -d "${legacy_pack_dir}" ]]; then
+    echo "Remove legacy vim.pack directory: ${legacy_pack_dir}"
+    rm -rf -- "${legacy_pack_dir}"
+fi
 aqua exec -- nvim --headless '+lua vim.pack.update(nil, { force = true, target = "lockfile" })' +qa
