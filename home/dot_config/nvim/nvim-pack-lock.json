@@ -31,9 +31,9 @@
       "version": "'v2.11.0'"
     },
     "nvim-treesitter": {
-      "rev": "42fc28ba918343ebfd5565147a42a26580579482",
+      "rev": "61df84986b4b4ec469ee745a182e433d49f8c27e",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
-      "version": "'master'"
+      "version": "'main'"
     },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",

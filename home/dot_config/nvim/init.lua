@@ -16,8 +16,8 @@ vim.pack.add({
     { src = "https://github.com/neovim/nvim-lspconfig", name = "nvim-lspconfig", version = "v2.11.0" },
     -- renovate: digest=74b06c6c75e4eeb3108ec01852001636d85a932b
     { src = "https://github.com/nvim-lua/plenary.nvim", name = "plenary.nvim", version = "master" },
-    -- renovate: digest=42fc28ba918343ebfd5565147a42a26580579482
-    { src = "https://github.com/nvim-treesitter/nvim-treesitter", name = "nvim-treesitter", version = "master" },
+    -- renovate: digest=61df84986b4b4ec469ee745a182e433d49f8c27e
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter", name = "nvim-treesitter", version = "main" },
 })
 
 vim.opt.title = true
@@ -106,6 +106,7 @@ now(function()
     vim.keymap.set("n", "<leader>md", "<Plug>(md-render-demo)", { desc = "Markdown render demo" })
 
     require("plugin/mini_misc")
+    require("plugin.nvim-treesitter")
 
     if vim.g.vscode then
         return
