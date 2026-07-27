@@ -12,8 +12,8 @@ vim.pack.add({
     { src = "https://github.com/echasnovski/mini.nvim", name = "mini.nvim", version = "v0.18.0" },
     -- renovate: digest=56057d92d636a45cdeac5d1857e776e10d279d69
     { src = "https://github.com/delphinus/md-render.nvim", name = "md-render.nvim", version = "v3.4.0" },
-    -- renovate: digest=229b79051b380377664edc4cbd534930154921a1
-    { src = "https://github.com/neovim/nvim-lspconfig", name = "nvim-lspconfig", version = "v2.10.0" },
+    -- renovate: digest=b89138d9af0a96e6048e202a15765fc6b6416bd4
+    { src = "https://github.com/neovim/nvim-lspconfig", name = "nvim-lspconfig", version = "v2.11.0" },
     -- renovate: digest=74b06c6c75e4eeb3108ec01852001636d85a932b
     { src = "https://github.com/nvim-lua/plenary.nvim", name = "plenary.nvim", version = "master" },
     -- renovate: digest=42fc28ba918343ebfd5565147a42a26580579482
