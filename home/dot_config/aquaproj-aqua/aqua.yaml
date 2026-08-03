@@ -26,7 +26,7 @@ packages:
   # Security
   - name: suzuki-shunsuke/pinact@v4.1.1
   # GitHub
-  - name: cli/cli@v2.96.0
+  - name: cli/cli@v2.97.0
   - name: github/copilot-language-server-release@1.527.1
   # GHA
   - name: rhysd/actionlint@v1.7.12
