@@ -1,3 +1,15 @@
+local supported_trigger_characters = {
+    ["."] = true,
+    ["@"] = true,
+    ['"'] = true,
+    ["'"] = true,
+    ["`"] = true,
+    ["#"] = true,
+    ["<"] = true,
+    ["/"] = true,
+    [" "] = true,
+}
+
 ---@type vim.lsp.Config
 return {
     cmd = { "tsc", "--lsp", "--stdio" },
@@ -8,6 +20,13 @@ return {
     },
     on_init = function(client)
         require("lsp.utils").disable_format(client)
+
+        local provider = client.server_capabilities.completionProvider
+        if provider then
+            provider.triggerCharacters = vim.tbl_filter(function(char)
+                return supported_trigger_characters[char]
+            end, provider.triggerCharacters or {})
+        end
     end,
     root_dir = function(bufnr, on_dir)
         local root_markers = { "package-lock.json", "yarn.lock", "pnpm-lock.yaml" }

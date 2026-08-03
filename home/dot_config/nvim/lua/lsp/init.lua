@@ -68,7 +68,7 @@ local function register_keymap(client, bufnr)
     if client:supports_method("textDocument/inlayHint", bufnr) then
         ---@type vim.lsp.inlay_hint.enable.Filter
         local filter = { bufnr = bufnr }
-        vim.lsp.inlay_hint.enable(true, filter)
+        vim.lsp.inlay_hint.enable(false, filter)
 
         vim.keymap.set("n", "mH", function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(filter), filter)
@@ -95,6 +95,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ev)
         local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
         register_keymap(client, ev.buf)
+
+        if client:supports_method("textDocument/completion", ev.buf) then
+            vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+        end
     end,
 })
 
@@ -108,7 +112,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 
 vim.lsp.config("*", {
     root_markers = { ".git" },
-    capabilities = require("mini.completion").get_lsp_capabilities(),
 })
 
 efm.setup()
