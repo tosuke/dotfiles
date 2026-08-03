@@ -11,10 +11,7 @@ local function report_errors()
 
     local error_lines = table.concat(errors, "\n\n")
     errors = {}
-    vim.notify(
-        "There were errors during two-stage execution:\n\n" .. error_lines,
-        vim.log.levels.ERROR
-    )
+    vim.notify("There were errors during two-stage execution:\n\n" .. error_lines, vim.log.levels.ERROR)
 end
 
 local function finish()
@@ -57,9 +54,33 @@ function M.now(callback)
     schedule_finish()
 end
 
+function M.now_require(module)
+    M.now(function()
+        require(module)
+    end)
+end
+
+function M.now_setup(module, opts)
+    M.now(function()
+        require(module).setup(opts)
+    end)
+end
+
 function M.later(callback)
     table.insert(later_callbacks, callback)
     schedule_finish()
+end
+
+function M.later_require(module)
+    M.later(function()
+        require(module)
+    end)
+end
+
+function M.later_setup(module, opts)
+    M.later(function()
+        require(module).setup(opts)
+    end)
 end
 
 return M

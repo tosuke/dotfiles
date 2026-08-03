@@ -79,18 +79,20 @@ vim.filetype.add({
 
 local packutil = require("packutil")
 local now, later = packutil.now, packutil.later
+local now_require, later_require = packutil.now_require, packutil.later_require
+local now_setup, later_setup = packutil.now_setup, packutil.later_setup
+
+now_setup("mini.icons")
+now_setup("mini.basics", {
+    options = {
+        extra_ui = true,
+    },
+    mappings = {
+        option_toggle_prefix = "m",
+    },
+})
 
 now(function()
-    require("mini.icons").setup()
-    require("mini.basics").setup({
-        options = {
-            extra_ui = true,
-        },
-        mappings = {
-            option_toggle_prefix = "m",
-        },
-    })
-
     vim.o.listchars = "tab:»-,trail:-,extends:»,eol:↲,precedes:«,nbsp:%"
     vim.o.signcolumn = "no"
     vim.g.maplocalleader = ","
@@ -104,10 +106,11 @@ now(function()
         { desc = "Markdown preview in tab (toggle)" }
     )
     vim.keymap.set("n", "<leader>md", "<Plug>(md-render-demo)", { desc = "Markdown render demo" })
+end)
 
-    require("plugin/mini_misc")
-    require("plugin.nvim-treesitter")
+now_require("plugin/mini_misc")
 
+now(function()
     if vim.g.vscode then
         return
     end
@@ -133,22 +136,26 @@ now(function()
     })
 end)
 
+now_require("plugin.nvim-treesitter")
+
+later_setup("mini.indentscope")
+later_setup("mini.pairs")
+later_setup("mini.surround")
+later_require("plugin/mini_ai")
+
+later_setup("mini.diff")
+later_setup("mini.jump", {
+    delay = { idle_stop = 10 },
+})
+later_setup("mini.jump2d")
 later(function()
-    require("mini.indentscope").setup()
-    require("mini.pairs").setup()
-    require("mini.surround").setup()
-    require("plugin/mini_ai")
-    require("mini.diff").setup()
-    require("mini.jump").setup({
-        delay = { idle_stop = 10 },
-    })
-    require("mini.jump2d").setup()
     vim.cmd.helptags("ALL")
-    if not vim.g.vscode then
-        require("plugin/mini_hipatterns")
-        require("mini.cursorword").setup()
-        require("plugin.mini_clue")
-        require("plugin.mini_completion")
-        require("plugin.mini_pick")
-    end
 end)
+
+if not vim.g.vscode then
+    later_require("plugin/mini_hipatterns")
+    later_setup("mini.cursorword")
+    later_require("plugin.mini_clue")
+    later_require("plugin.mini_completion")
+    later_require("plugin.mini_pick")
+end
