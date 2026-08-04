@@ -97,6 +97,11 @@ now(function()
     vim.o.signcolumn = "no"
     vim.g.maplocalleader = ","
 
+    -- fold
+    vim.opt.foldmethod = "indent"
+    vim.opt.foldlevel = 99
+    vim.keymap.set("n", "<Tab>", "za")
+
     -- md-render.nvim
     vim.keymap.set("n", "<localleader>mp", "<Plug>(md-render-preview)", { desc = "Markdown preview (toggle)" })
     vim.keymap.set(
