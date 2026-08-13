@@ -6,7 +6,7 @@ vim.pack.add({
     { src = "https://github.com/delphinus/budoux.lua", name = "budoux.lua", version = "v1.0.2" },
     -- renovate: digest=15070f77066fce582f5fae09ce4faa080c33aefd
     { src = "https://github.com/oahlen/iceberg.nvim", name = "iceberg.nvim", version = "main" },
-    -- renovate: digest=41a759066abb9c88394835208d026b492ab514a5
+    -- renovate: digest=3d8027a96ada0fe43bdd01403e1bd4a09d175448
     { src = "https://github.com/Julian/lean.nvim", name = "lean.nvim", version = "main" },
     -- renovate: digest=1345d191bb3da9c7b0e977f4387c5761f9bff68d
     { src = "https://github.com/echasnovski/mini.nvim", name = "mini.nvim", version = "v0.18.0" },
