@@ -75,7 +75,7 @@ packages:
   # Deno
   - name: denoland/deno@v2.9.5
   # Lua
-  - name: LuaLS/lua-language-server@3.18.2
+  - name: LuaLS/lua-language-server@3.19.0
   - name: JohnnyMorganz/StyLua@v2.5.2
   - name: tree-sitter/tree-sitter@v0.26.12
   # Python
