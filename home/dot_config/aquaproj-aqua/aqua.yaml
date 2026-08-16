@@ -54,7 +54,7 @@ packages:
   - name: tofuutils/tenv@v4.15.1
   - name: hashicorp/terraform-ls@v0.39.0
   # TOML
-  - name: tombi-toml/tombi@v1.2.10
+  - name: tombi-toml/tombi@v1.4.0
   # Jsonnet
   - name: grafana/jsonnet-language-server@v0.17.0
   # Go
