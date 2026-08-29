@@ -13,7 +13,7 @@ packages:
   - name: direnv/direnv@v2.37.1
   - name: x-motemen/ghq@v1.10.1
   - name: jesseduffield/lazygit@v0.64.1
-  - name: sharkdp/fd@v10.4.2
+  - name: sharkdp/fd@v10.5.0
   - name: BurntSushi/ripgrep@15.2.0
   - name: jqlang/jq@jq-1.8.2
   - name: mikefarah/yq@v4.53.6
