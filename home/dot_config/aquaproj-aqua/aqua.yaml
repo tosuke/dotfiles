@@ -13,7 +13,6 @@ packages:
   - name: direnv/direnv@v2.37.1
   - name: x-motemen/ghq@v1.10.1
   - name: jesseduffield/lazygit@v0.64.1
-  - name: sharkdp/fd@v10.4.2
   - name: BurntSushi/ripgrep@15.2.0
   - name: jqlang/jq@jq-1.8.2
   - name: mikefarah/yq@v4.53.6
@@ -37,7 +36,6 @@ packages:
   # Google Cloud
   - name: twistedpair/google-cloud-sdk@562.0.0
   # k8s
-  - name: kubernetes-sigs/kind@v0.32.0
   - name: kubernetes/kubectl@v1.37.0
   - name: ahmetb/kubectx@v0.11.0
   - name: ahmetb/kubectx/kubens@v0.11.0
