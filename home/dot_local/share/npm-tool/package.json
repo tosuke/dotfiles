@@ -3,7 +3,7 @@
   "type": "module",
   "dependencies": {
     "@fsouza/prettierd": "^0.29.0",
-    "@playwright/cli": "^0.1.1",
+    "@playwright/mcp": "^0.0.80",
     "@tailwindcss/language-server": "^0.16.0",
     "typescript": "^7.0.2",
     "gh-actions-language-server": "^0.0.3",
