@@ -30,7 +30,7 @@ packages:
   # GHA
   - name: rhysd/actionlint@v1.7.12
   # AWS
-  - name: aws/aws-cli@2.36.40
+  - name: aws/aws-cli@2.36.41
   - name: aws/session-manager-plugin@1.2.677.0
   - name: kayac/ecspresso@v2.8.6
   # Google Cloud
