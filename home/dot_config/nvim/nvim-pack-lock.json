@@ -11,7 +11,7 @@
       "version": "'main'"
     },
     "lean.nvim": {
-      "rev": "41a759066abb9c88394835208d026b492ab514a5",
+      "rev": "950eff1ae00db2b2f35996cb916c1a47254c3c96",
       "src": "https://github.com/Julian/lean.nvim",
       "version": "'main'"
     },
