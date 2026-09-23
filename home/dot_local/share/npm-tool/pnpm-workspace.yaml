@@ -1,0 +1,5 @@
+packages: []
+
+allowBuilds:
+  '@modelcontextprotocol/inspector': true
+  core-js: false

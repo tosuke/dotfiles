@@ -2,6 +2,7 @@
   "name": "npm-tool",
   "type": "module",
   "dependencies": {
+    "@modelcontextprotocol/inspector": "^2.7.0",
     "@fsouza/prettierd": "^0.29.0",
     "@playwright/mcp": "^0.0.82",
     "@tailwindcss/language-server": "^0.16.0",
