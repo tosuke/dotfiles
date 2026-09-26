@@ -21,7 +21,7 @@ packages:
   - name: eza-community/eza@v0.23.5
   - name: mozilla/sccache@v0.18.0
   - name: anthropics/claude-code@v2.1.280
-  - name: openai/codex@rust-v0.155.1
+  - name: openai/codex@rust-v0.156.1
   # Security
   - name: suzuki-shunsuke/pinact@v5.0.0
   # GitHub
