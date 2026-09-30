@@ -16,9 +16,9 @@
       "version": "'main'"
     },
     "md-render.nvim": {
-      "rev": "00a83b8a25b9d2d50dd15efaf4c701c19de21688",
+      "rev": "865dcce86b98dcbb3a8bc06b5cca060d590cd5c4",
       "src": "https://github.com/delphinus/md-render.nvim",
-      "version": "'v3.10.0'"
+      "version": "'v3.10.2'"
     },
     "mini.nvim": {
       "rev": "1345d191bb3da9c7b0e977f4387c5761f9bff68d",
