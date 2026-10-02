@@ -4,7 +4,7 @@
   "dependencies": {
     "@modelcontextprotocol/inspector": "^2.7.0",
     "@fsouza/prettierd": "^0.29.0",
-    "@playwright/mcp": "^0.0.82",
+    "@playwright/mcp": "^0.0.83",
     "@tailwindcss/language-server": "^0.16.0",
     "typescript": "^7.0.2",
     "gh-actions-language-server": "^0.0.3",
