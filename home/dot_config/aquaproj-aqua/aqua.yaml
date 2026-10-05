@@ -15,7 +15,7 @@ packages:
   - name: jesseduffield/lazygit@v0.65.1
   - name: BurntSushi/ripgrep@15.2.0
   - name: jqlang/jq@jq-1.8.2
-  - name: mikefarah/yq@v4.53.6
+  - name: mikefarah/yq@v4.54.1
   - name: rclone/rclone@v1.75.1
   - name: vi/websocat@v1.14.1
   - name: eza-community/eza@v0.23.5
