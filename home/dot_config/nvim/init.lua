@@ -16,7 +16,7 @@ vim.pack.add({
     { src = "https://github.com/neovim/nvim-lspconfig", name = "nvim-lspconfig", version = "v2.11.0" },
     -- renovate: digest=74b06c6c75e4eeb3108ec01852001636d85a932b
     { src = "https://github.com/nvim-lua/plenary.nvim", name = "plenary.nvim", version = "master" },
-    -- renovate: digest=f603a2f4da48728f80257fb5fbb90145fd1dc173
+    -- renovate: digest=e289100ff98969e118c702199d88b764ce9e7fdf
     { src = "https://github.com/nvim-treesitter/nvim-treesitter", name = "nvim-treesitter", version = "main" },
 })
 
