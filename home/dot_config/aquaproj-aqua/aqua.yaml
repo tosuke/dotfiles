@@ -10,7 +10,7 @@ packages:
   - name: starship/starship@v1.26.0
   - name: sharkdp/bat@v0.26.1
   - name: junegunn/fzf@v0.74.4
-  - name: direnv/direnv@v2.37.1
+  - name: direnv/direnv@v2.38.1
   - name: x-motemen/ghq@v1.11.2
   - name: jesseduffield/lazygit@v0.65.1
   - name: BurntSushi/ripgrep@15.2.0
