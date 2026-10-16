@@ -84,5 +84,5 @@ packages:
   - name: bufbuild/buf@v1.73.0
   # Typst
   - name: typst/typst@v0.15.1
-  - name: Enter-tainer/typstyle@v0.15.1
+  - name: Enter-tainer/typstyle@v0.15.2
   - name: Myriad-Dreamin/tinymist@v0.15.8
