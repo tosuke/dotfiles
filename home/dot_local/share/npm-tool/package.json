@@ -12,6 +12,6 @@
     "oxlint": "^1.70.0",
     "vscode-langservers-extracted": "^4.10.0",
     "vscode-languageserver-protocol": "^3.17.5",
-    "yaml-language-server": "^1.16.0"
+    "yaml-language-server": "^2.0.0"
   }
 }
