@@ -23,7 +23,7 @@ packages:
   - name: anthropics/claude-code@v2.1.310
   - name: openai/codex@rust-v0.164.0
   # Security
-  - name: suzuki-shunsuke/pinact@v5.0.1
+  - name: suzuki-shunsuke/pinact@v5.0.2
   # GitHub
   - name: cli/cli@v2.103.2
   - name: github/copilot-language-server-release@1.561.0
