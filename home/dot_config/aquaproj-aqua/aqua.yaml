@@ -43,7 +43,7 @@ packages:
   - name: superbrothers/kubectl-open-svc-plugin@v2.6.5
     registry: local
   - name: derailed/k9s@v0.51.0
-  - name: stern/stern@v1.34.0
+  - name: stern/stern@v1.35.0
   - name: kubernetes-sigs/kustomize@kustomize/v5.8.3
   - name: helm/helm@v4.2.4
   # LSP
