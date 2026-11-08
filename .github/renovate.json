@@ -31,6 +31,11 @@
   },
   "packageRules": [
     {
+      "matchUpdateTypes": ["digest", "pinDigest"],
+      "schedule": ["* * * * 1"],
+      "updateNotScheduled": false
+    },
+    {
       "matchManagers": ["custom.regex"],
       "matchPackageNames": [
         "delphinus/budoux.lua",
