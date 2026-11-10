@@ -74,7 +74,7 @@ packages:
   # Lua
   - name: LuaLS/lua-language-server@3.19.2
   - name: JohnnyMorganz/StyLua@v2.6.0
-  - name: tree-sitter/tree-sitter@v0.27.1
+  - name: tree-sitter/tree-sitter@v0.27.2
   # Python
   - name: astral-sh/uv@0.13.7
   # sh
