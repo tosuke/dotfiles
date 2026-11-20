@@ -2,14 +2,15 @@
   "name": "npm-tool",
   "type": "module",
   "dependencies": {
-    "@modelcontextprotocol/inspector": "^2.7.0",
+    "@earendil-works/pi-coding-agent": "^1.5.2",
     "@fsouza/prettierd": "^0.29.0",
+    "@modelcontextprotocol/inspector": "^2.7.0",
     "@playwright/mcp": "^0.0.85",
     "@tailwindcss/language-server": "^0.16.0",
-    "typescript": "^7.0.2",
     "gh-actions-language-server": "^0.0.3",
     "oxfmt": "^0.78.0",
     "oxlint": "^1.70.0",
+    "typescript": "^7.0.2",
     "vscode-langservers-extracted": "^4.10.0",
     "vscode-languageserver-protocol": "^3.17.5",
     "yaml-language-server": "^2.0.0"

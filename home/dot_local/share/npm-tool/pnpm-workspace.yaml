@@ -1,5 +1,7 @@
 packages: []
 
 allowBuilds:
+  '@google/genai': false
   '@modelcontextprotocol/inspector': true
   core-js: false
+  protobufjs: false
