@@ -5,7 +5,7 @@
     "@earendil-works/pi-coding-agent": "^1.5.2",
     "@fsouza/prettierd": "^0.29.0",
     "@modelcontextprotocol/inspector": "^2.7.0",
-    "@playwright/mcp": "^0.0.85",
+    "@playwright/mcp": "^0.0.86",
     "@tailwindcss/language-server": "^0.16.0",
     "gh-actions-language-server": "^0.0.3",
     "oxfmt": "^0.78.0",
