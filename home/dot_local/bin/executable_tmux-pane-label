@@ -1,0 +1,27 @@
+#!/bin/sh
+# tmux-pane-label: print a short label for tmux window status.
+# - Inside a git work tree: "<repo>[/sub...]" from the work tree root
+#   e.g. /Users/tosuke/ghq/github.com/hoge/piyo -> piyo
+# - Otherwise print the path unchanged.
+# Usage: tmux-pane-label "/path/to/pane"
+
+path="$1"
+[ -n "$path" ] || exit 0
+
+if command -v git >/dev/null 2>&1; then
+	top=$(git -C "$path" rev-parse --show-toplevel 2>/dev/null)
+	if [ -n "$top" ]; then
+		base=${top##*/}
+		# --show-prefix resolves symlinks (e.g. /tmp vs /private/tmp)
+		# internally, so no path prefix-matching is needed here.
+		prefix=$(git -C "$path" rev-parse --show-prefix 2>/dev/null)
+		if [ -n "$prefix" ]; then
+			printf '%s\n' "$base/${prefix%/}"
+		else
+			printf '%s\n' "$base"
+		fi
+		exit 0
+	fi
+fi
+
+printf '%s\n' "$path"
